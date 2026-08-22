@@ -1,0 +1,58 @@
+<script setup lang="ts">
+const links = [
+  { label: 'Produit', to: '/produit' },
+  { label: "Cas d'usage", to: '/#cas-usage', exactHash: true },
+  { label: 'Modèle', to: '/modele' },
+  { label: 'À propos', to: '/a-propos' },
+  { label: 'Documentation', to: 'https://github.com/cascade-coop', target: '_blank' }
+]
+</script>
+
+<template>
+  <div>
+    <UHeader to="/">
+      <template #title>
+        <span class="font-semibold text-highlighted">Cascade</span>
+      </template>
+
+      <UNavigationMenu :items="links" variant="link" />
+
+      <template #right>
+        <UButton to="/produit" color="neutral" variant="ghost" class="hidden sm:flex">
+          Se connecter
+        </UButton>
+        <UButton to="/produit" trailing-icon="i-lucide-arrow-right">
+          Tester Cascade
+        </UButton>
+      </template>
+
+      <template #body>
+        <UNavigationMenu :items="links" orientation="vertical" class="-mx-2.5" />
+      </template>
+    </UHeader>
+
+    <UMain>
+      <slot />
+    </UMain>
+
+    <USeparator />
+
+    <UFooter>
+      <template #left>
+        <p class="text-sm text-muted">
+          © {{ new Date().getFullYear() }} Cascade — logiciel libre.
+        </p>
+      </template>
+
+      <template #right>
+        <UButton
+          icon="i-simple-icons-github"
+          to="https://github.com/cascade-coop"
+          target="_blank"
+          color="neutral"
+          variant="ghost"
+        />
+      </template>
+    </UFooter>
+  </div>
+</template>

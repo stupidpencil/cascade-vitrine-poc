@@ -52,19 +52,6 @@ features:
 ::
 
 ::workflow
----
-steps:
-  - icon: i-lucide-box
-    label: Ressource
-  - icon: i-lucide-file-signature
-    label: Contrat
-  - icon: i-lucide-hand-coins
-    label: Contribution
-  - icon: i-lucide-receipt-text
-    label: Facture
-  - icon: i-lucide-credit-card
-    label: Paiement
----
 ::
 
 ::adaptive-contribution

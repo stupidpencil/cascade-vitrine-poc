@@ -1,0 +1,42 @@
+<script setup lang="ts">
+const rows = [
+  { label: 'Prélèvement SEPA', org: 'Atelier Nomade — 340 €', date: '05 mars', status: 'Rapproché', color: 'success' as const, icon: 'i-lucide-landmark' },
+  { label: 'Virement', org: 'La Filature Coop — 480 €', date: '03 mars', status: 'Rapproché', color: 'success' as const, icon: 'i-lucide-arrow-left-right' },
+  { label: 'Carte bancaire', org: 'Studio Kerne — 260 €', date: 'En attente', status: 'À rapprocher', color: 'warning' as const, icon: 'i-lucide-credit-card' }
+]
+</script>
+
+<template>
+  <div class="w-full overflow-hidden rounded-xl border border-default bg-default shadow-2xl">
+    <div class="flex items-center gap-1.5 border-b border-default bg-elevated/50 px-4 py-2.5">
+      <span class="size-2.5 rounded-full bg-error/60" />
+      <span class="size-2.5 rounded-full bg-warning/60" />
+      <span class="size-2.5 rounded-full bg-success/60" />
+      <span class="ml-3 text-xs text-dimmed">cascade.app — Paiements</span>
+    </div>
+
+    <div class="flex flex-col gap-4 p-4 sm:p-6">
+      <p class="text-sm font-medium text-highlighted">Paiements reçus — cette semaine</p>
+
+      <div class="flex flex-col gap-2">
+        <div
+          v-for="row in rows"
+          :key="row.label"
+          class="flex items-center gap-3 rounded-lg border border-default px-3 py-2.5"
+        >
+          <div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-elevated">
+            <UIcon :name="row.icon" class="size-4 text-muted" />
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-sm font-medium text-highlighted">{{ row.label }}</p>
+            <p class="truncate text-xs text-muted">{{ row.org }}</p>
+          </div>
+          <div class="flex shrink-0 flex-col items-end gap-1">
+            <span class="text-xs text-dimmed">{{ row.date }}</span>
+            <UBadge :color="row.color" variant="subtle" size="sm">{{ row.status }}</UBadge>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

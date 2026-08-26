@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const stats = [
   { label: 'Ressources actives', value: '12' },
+  { label: 'Taux d’occupation', value: '92 %' },
   { label: 'Contributions / mois', value: '4 280 €' },
   { label: 'Factures en attente', value: '2' }
 ]
@@ -16,7 +17,7 @@ const stats = [
     </div>
 
     <div class="flex flex-col gap-4 p-4 sm:p-6">
-      <div class="grid grid-cols-3 gap-3">
+      <div class="grid grid-cols-2 gap-3">
         <div v-for="stat in stats" :key="stat.label" class="rounded-lg border border-default p-3">
           <p class="text-lg font-semibold text-highlighted">{{ stat.value }}</p>
           <p class="mt-1 text-xs text-muted">{{ stat.label }}</p>

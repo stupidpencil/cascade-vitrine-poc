@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const links = [
   { label: 'Cascade', to: '/cascade' },
+  { label: 'Fonctionnalités', to: '/fonctionnalites' },
   { label: 'À propos', to: '/a-propos' },
   { label: 'Documentation', to: 'https://github.com/cascade-coop', target: '_blank' }
 ]

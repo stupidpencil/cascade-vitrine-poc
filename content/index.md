@@ -10,17 +10,23 @@ description: Cascade aide les lieux, collectifs et organisations à gérer leurs
 ---
 symptoms:
   - icon: i-lucide-files
-    label: Contrats dispersés dans des dossiers et boîtes mail
+    title: Contrats dispersés
+    description: Dans des dossiers et des boîtes mail, difficiles à retrouver.
   - icon: i-lucide-notebook-pen
-    label: Suivi manuel des contributions de chaque occupant
+    title: Suivi manuel
+    description: Les contributions de chaque occupant suivies à la main.
   - icon: i-lucide-file-diff
-    label: Avenants multiples difficiles à recouper
+    title: Avenants multiples
+    description: Difficiles à recouper avec le contrat d'origine.
   - icon: i-lucide-receipt
-    label: Facturation déconnectée des contrats réels
+    title: Facturation déconnectée
+    description: Sans lien direct avec les contrats réels.
   - icon: i-lucide-users
-    label: Information difficile à partager entre membres
+    title: Information cloisonnée
+    description: Difficile à partager entre les membres du collectif.
   - icon: i-lucide-table
-    label: Règles collectives gérées dans un tableur
+    title: Règles dans un tableur
+    description: Les règles collectives vivent dans un fichier à part.
 ---
 ::
 

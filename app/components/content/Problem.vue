@@ -6,10 +6,12 @@ interface Symptom {
 }
 
 withDefaults(defineProps<{
+  headline?: string
   title?: string
   description?: string
   symptoms?: Symptom[]
 }>(), {
+  headline: 'Problèmes',
   title: 'Les organisations collectives méritent mieux qu’un tableur et un logiciel de facturation.',
   description: 'Aujourd’hui, la plupart des lieux et collectifs bricolent leur gestion avec des outils qui n’ont pas été pensés pour la mutualisation.',
   symptoms: () => [
@@ -24,7 +26,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <UPageSection :title="title" :description="description">
+  <UPageSection :headline="headline" :title="title" :description="description">
     <UPageGrid class="sm:grid-cols-2 lg:grid-cols-3">
       <UPageCard
         v-for="symptom in symptoms"
@@ -33,6 +35,10 @@ withDefaults(defineProps<{
         :title="symptom.title"
         :description="symptom.description"
         spotlight
+        :ui="{
+          root: '[--spotlight-color:var(--color-orange-500)]',
+          leadingIcon: 'text-orange-500 dark:text-orange-400'
+        }"
       />
     </UPageGrid>
   </UPageSection>

@@ -11,7 +11,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <UPageSection :headline="headline" :title="title" :description="description">
+  <UPageSection :headline="headline" :title="title" :description="description" orientation="horizontal">
     <AppMockupAdaptiveContributionDiagram />
   </UPageSection>
 </template>

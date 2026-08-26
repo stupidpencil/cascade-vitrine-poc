@@ -41,7 +41,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <UPageSection id="cas-usage" :headline="headline" :title="title" :description="description">
+  <UPageSection id="cas-usage" :headline="headline" :title="title" :description="description" orientation="horizontal">
     <UPageCard
       :icon="caseIcon"
       :title="caseTitle"

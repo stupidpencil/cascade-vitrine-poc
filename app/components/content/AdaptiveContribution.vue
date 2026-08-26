@@ -1,19 +1,23 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   headline?: string
   title?: string
   description?: string
+  need?: number
+  planned?: number
+  note?: string
 }>(), {
   headline: 'Contribution adaptative',
   title: 'Et si le prix pouvait s’adapter aux besoins réels ?',
-  description: 'Les contributions peuvent être ajustées en fonction des besoins réels du collectif et des règles décidées ensemble — pas d’un tarif figé décidé d’avance.'
+  description: 'Les contributions peuvent être ajustées en fonction des besoins réels du collectif et des règles décidées ensemble — pas d’un tarif figé décidé d’avance.',
+  need: 10000,
+  planned: 10800,
+  note: 'Ajustement / redistribution selon les règles du collectif'
 })
 
-const need = 10000
-const planned = 10800
-const surplus = planned - need
+const surplus = computed(() => props.planned - props.need)
 const plannedWidth = 100
-const needWidth = Math.round((need / planned) * 100)
+const needWidth = computed(() => Math.round((props.need / props.planned) * 100))
 </script>
 
 <template>
@@ -49,7 +53,7 @@ const needWidth = Math.round((need / planned) * 100)
           </div>
           <div class="flex items-center gap-2 text-sm text-primary">
             <UIcon name="i-lucide-corner-down-right" class="size-4 shrink-0" />
-            <span>Ajustement / redistribution selon les règles du collectif</span>
+            <span>{{ note }}</span>
           </div>
         </div>
       </div>

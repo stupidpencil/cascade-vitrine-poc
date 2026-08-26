@@ -1,20 +1,25 @@
 <script setup lang="ts">
+interface Symptom {
+  icon: string
+  label: string
+}
+
 withDefaults(defineProps<{
   title?: string
   description?: string
+  symptoms?: Symptom[]
 }>(), {
   title: 'Les organisations collectives méritent mieux qu’un tableur et un logiciel de facturation.',
-  description: 'Aujourd’hui, la plupart des lieux et collectifs bricolent leur gestion avec des outils qui n’ont pas été pensés pour la mutualisation.'
+  description: 'Aujourd’hui, la plupart des lieux et collectifs bricolent leur gestion avec des outils qui n’ont pas été pensés pour la mutualisation.',
+  symptoms: () => [
+    { icon: 'i-lucide-files', label: 'Contrats dispersés dans des dossiers et boîtes mail' },
+    { icon: 'i-lucide-notebook-pen', label: 'Suivi manuel des contributions de chaque occupant' },
+    { icon: 'i-lucide-file-diff', label: 'Avenants multiples difficiles à recouper' },
+    { icon: 'i-lucide-receipt', label: 'Facturation déconnectée des contrats réels' },
+    { icon: 'i-lucide-users', label: 'Information difficile à partager entre membres' },
+    { icon: 'i-lucide-table', label: 'Règles collectives gérées dans un tableur' }
+  ]
 })
-
-const symptoms = [
-  { icon: 'i-lucide-files', label: 'Contrats dispersés dans des dossiers et boîtes mail' },
-  { icon: 'i-lucide-notebook-pen', label: 'Suivi manuel des contributions de chaque occupant' },
-  { icon: 'i-lucide-file-diff', label: 'Avenants multiples difficiles à recouper' },
-  { icon: 'i-lucide-receipt', label: 'Facturation déconnectée des contrats réels' },
-  { icon: 'i-lucide-users', label: 'Information difficile à partager entre membres' },
-  { icon: 'i-lucide-table', label: 'Règles collectives gérées dans un tableur' }
-]
 </script>
 
 <template>

@@ -1,21 +1,26 @@
 <script setup lang="ts">
+interface Step {
+  icon: string
+  label: string
+}
+
 withDefaults(defineProps<{
   headline?: string
   title?: string
   description?: string
+  steps?: Step[]
 }>(), {
   headline: 'Un seul fil, du début à la fin',
   title: 'De la ressource au paiement.',
-  description: 'Cascade relie des objets aujourd’hui dispersés entre plusieurs outils, sans rupture entre eux.'
+  description: 'Cascade relie des objets aujourd’hui dispersés entre plusieurs outils, sans rupture entre eux.',
+  steps: () => [
+    { icon: 'i-lucide-box', label: 'Ressource' },
+    { icon: 'i-lucide-file-signature', label: 'Contrat' },
+    { icon: 'i-lucide-hand-coins', label: 'Contribution' },
+    { icon: 'i-lucide-receipt-text', label: 'Facture' },
+    { icon: 'i-lucide-credit-card', label: 'Paiement' }
+  ]
 })
-
-const steps = [
-  { icon: 'i-lucide-box', label: 'Ressource' },
-  { icon: 'i-lucide-file-signature', label: 'Contrat' },
-  { icon: 'i-lucide-hand-coins', label: 'Contribution' },
-  { icon: 'i-lucide-receipt-text', label: 'Facture' },
-  { icon: 'i-lucide-credit-card', label: 'Paiement' }
-]
 </script>
 
 <template>

@@ -5,7 +5,7 @@ interface Lot {
   description: string
   features: string[]
   automation: string
-  mockup?: 'contracts' | 'contributions' | 'invoices' | 'payments' | 'pilotage'
+  mockup?: 'subscription-model' | 'subscriptions' | 'contributions' | 'invoices' | 'payments' | 'pilotage'
 }
 
 withDefaults(defineProps<{
@@ -13,17 +13,30 @@ withDefaults(defineProps<{
 }>(), {
   lots: () => [
     {
-      icon: 'i-lucide-file-signature',
-      title: 'Contrats',
-      description: 'Centraliser les contrats, les ressources qu’ils couvrent et leurs conditions d’utilisation.',
+      icon: 'i-lucide-layout-template',
+      title: 'Modèles de souscription',
+      description: 'Définir une fois les règles qui s’appliqueront à toutes les souscriptions qui en découlent.',
       features: [
-        'Modèles de contrats réutilisables',
-        'Avenants liés au contrat d’origine',
+        'Récurrence : ponctuelle ou récurrente (hebdomadaire, mensuelle, trimestrielle, annuelle)',
+        'Montant fixé, paramétré ou flexible',
+        'Facturation par facture ou par notification',
+        'Contrat ou adhésion simple, avec modèle de contrat et d’avenant'
+      ],
+      automation: 'Un seul modèle, appliqué automatiquement à chaque nouvelle souscription — aucune règle à ressaisir.',
+      mockup: 'subscription-model'
+    },
+    {
+      icon: 'i-lucide-file-signature',
+      title: 'Souscriptions',
+      description: 'Centraliser les souscriptions de chaque contributeur, dérivées d’un modèle, et leurs conditions d’utilisation.',
+      features: [
+        'Souscription dérivée d’un modèle de souscription',
+        'Avenants liés à la souscription d’origine',
         'Historique complet des versions',
         'Alertes avant échéance'
       ],
-      automation: 'Renouvellement tacite et génération des avenants à échéance, sans ressaisie.',
-      mockup: 'contracts'
+      automation: 'Nouvel avenant et nouvelle version générés automatiquement à chaque changement, sans ressaisie.',
+      mockup: 'subscriptions'
     },
     {
       icon: 'i-lucide-hand-coins',
@@ -40,7 +53,7 @@ withDefaults(defineProps<{
     {
       icon: 'i-lucide-receipt-text',
       title: 'Facturation',
-      description: 'Générer les factures et avoirs qui découlent des contrats et contributions, et suivre leur statut.',
+      description: 'Générer les factures et avoirs qui découlent des souscriptions et contributions, et suivre leur statut.',
       features: [
         'Génération de factures depuis les contributions',
         'Avoirs et régularisations',
@@ -103,7 +116,8 @@ withDefaults(defineProps<{
         </div>
 
         <div>
-          <AppMockupContractsMockup v-if="lot.mockup === 'contracts'" />
+          <AppMockupSubscriptionModelMockup v-if="lot.mockup === 'subscription-model'" />
+          <AppMockupSubscriptionsMockup v-else-if="lot.mockup === 'subscriptions'" />
           <AppMockupContributionsMockup v-else-if="lot.mockup === 'contributions'" />
           <AppMockupInvoicesMockup v-else-if="lot.mockup === 'invoices'" />
           <AppMockupPaymentsMockup v-else-if="lot.mockup === 'payments'" />

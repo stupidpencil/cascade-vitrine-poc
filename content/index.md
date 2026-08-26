@@ -1,6 +1,6 @@
 ---
 title: Cascade — Gérez vos ressources collectivement
-description: Cascade aide les lieux, collectifs et organisations à gérer leurs contrats, contributions, factures et ressources à travers des règles transparentes et coopératives.
+description: Cascade aide les lieux, collectifs et organisations à gérer leurs souscriptions, contributions, factures et ressources à travers des règles transparentes et coopératives.
 ---
 
 ::hero
@@ -33,9 +33,12 @@ symptoms:
 ::product-features
 ---
 features:
+  - icon: i-lucide-layout-template
+    title: Modèles de souscription
+    description: Définir une fois les règles de récurrence, de montant et d'adhésion.
   - icon: i-lucide-file-signature
-    title: Contrats
-    description: Centraliser contrats, ressources et conditions d'utilisation.
+    title: Souscriptions
+    description: Centraliser les souscriptions, les ressources et leurs conditions d'utilisation.
   - icon: i-lucide-hand-coins
     title: Contributions
     description: Définir des contributions ponctuelles ou récurrentes, fixes ou adaptatives.

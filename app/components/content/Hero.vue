@@ -4,7 +4,7 @@ withDefaults(defineProps<{
   description?: string
 }>(), {
   title: 'Gérez vos ressources collectivement.',
-  description: 'Cascade aide les lieux, collectifs et organisations à gérer leurs contrats, contributions, factures et ressources à travers des règles transparentes et coopératives.'
+  description: 'Cascade aide les lieux, collectifs et organisations à gérer leurs souscriptions, contributions, factures et ressources à travers des règles transparentes et coopératives.'
 })
 
 const { open: openContactModal } = useContactModal()
@@ -21,6 +21,6 @@ const { open: openContactModal } = useContactModal()
       </UButton>
     </template>
 
-    <AppMockupContractsMockup />
+    <AppMockupSubscriptionsMockup />
   </UPageHero>
 </template>

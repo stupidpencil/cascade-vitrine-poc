@@ -22,13 +22,19 @@ withDefaults(defineProps<{
       icon: 'i-lucide-box',
       label: 'Ressource',
       example: 'Ex : Bureau 12 — 18 m², Tiers-lieu La Grange',
-      automation: 'Disponibilité recalculée automatiquement selon les contrats en cours'
+      automation: 'Disponibilité recalculée automatiquement selon les souscriptions en cours'
+    },
+    {
+      icon: 'i-lucide-layout-template',
+      label: 'Modèle de souscription',
+      example: 'Ex : Bureau — mensuel, 340 €, facturé par facture',
+      automation: 'Défini une fois par le gestionnaire, appliqué à chaque nouvelle souscription'
     },
     {
       icon: 'i-lucide-file-signature',
-      label: 'Contrat',
-      example: 'Ex : Contrat d’occupation — Atelier Nomade, 12 mois',
-      automation: 'Renouvellement et avenants générés automatiquement à échéance'
+      label: 'Souscription',
+      example: 'Ex : Souscription — Atelier Nomade, 12 mois',
+      automation: 'Avenant et nouvelle version générés automatiquement à chaque changement'
     },
     {
       icon: 'i-lucide-hand-coins',
@@ -56,7 +62,7 @@ withDefaults(defineProps<{
 
 <template>
   <UPageSection :headline="headline" :title="title" :description="description">
-    <div class="flex flex-col items-stretch gap-2 lg:flex-row lg:items-stretch lg:justify-between">
+    <div class="flex flex-col items-stretch gap-2 xl:flex-row xl:items-stretch xl:justify-between">
       <template v-for="(step, index) in steps" :key="step.label">
         <div class="flex flex-1 flex-col items-center gap-2 rounded-lg border border-default bg-default px-4 py-5 text-center">
           <UIcon :name="step.icon" class="size-6 text-primary" />
@@ -70,7 +76,7 @@ withDefaults(defineProps<{
         <UIcon
           v-if="index < steps.length - 1"
           name="i-lucide-arrow-right"
-          class="size-4 shrink-0 self-center text-dimmed rotate-90 lg:rotate-0"
+          class="size-4 shrink-0 self-center text-dimmed rotate-90 xl:rotate-0"
         />
       </template>
     </div>

@@ -13,17 +13,17 @@ const rows = [
       <span class="size-2.5 rounded-full bg-error/60" />
       <span class="size-2.5 rounded-full bg-warning/60" />
       <span class="size-2.5 rounded-full bg-success/60" />
-      <span class="ml-3 text-xs text-dimmed">cascade.app — Contrats</span>
+      <span class="ml-3 text-xs text-dimmed">cascade.app — Souscriptions</span>
     </div>
 
     <div class="flex flex-col gap-4 p-4 sm:p-6">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm font-medium text-highlighted">Contrats en cours</p>
+          <p class="text-sm font-medium text-highlighted">Souscriptions en cours</p>
           <p class="text-xs text-muted">Tiers-lieu La Grange — 4 occupants actifs</p>
         </div>
         <UButton size="xs" color="neutral" variant="subtle" icon="i-lucide-plus" class="shrink-0 whitespace-nowrap">
-          Nouveau contrat
+          Nouvelle souscription
         </UButton>
       </div>
 

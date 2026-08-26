@@ -15,7 +15,8 @@ withDefaults(defineProps<{
   title: 'Tout ce qu’il faut pour gérer un collectif, au même endroit.',
   description: 'Cascade centralise ce qui est aujourd’hui dispersé entre tableurs, emails et logiciels de facturation.',
   features: () => [
-    { icon: 'i-lucide-file-signature', title: 'Contrats', description: 'Centraliser contrats, ressources et conditions d’utilisation.' },
+    { icon: 'i-lucide-layout-template', title: 'Modèles de souscription', description: 'Définir une fois les règles de récurrence, de montant et d’adhésion.' },
+    { icon: 'i-lucide-file-signature', title: 'Souscriptions', description: 'Centraliser les souscriptions, les ressources et leurs conditions d’utilisation.' },
     { icon: 'i-lucide-hand-coins', title: 'Contributions', description: 'Définir des contributions ponctuelles ou récurrentes, fixes ou adaptatives.' },
     { icon: 'i-lucide-receipt-text', title: 'Facturation', description: 'Générer factures et avoirs et suivre leur état.' },
     { icon: 'i-lucide-credit-card', title: 'Paiements', description: 'Suivre les paiements et, progressivement, automatiser les flux.' },

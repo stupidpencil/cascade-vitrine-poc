@@ -4,15 +4,15 @@ withDefaults(defineProps<{
   description?: string
   repo?: string
 }>(), {
-  title: 'Cascade est un logiciel libre.',
-  description: 'Le code de Cascade est ouvert et auditable. C’est une manière de rester cohérent avec ce que le projet défend : la transparence, la mutualisation, et des outils qui appartiennent à celles et ceux qui les utilisent.',
+  title: 'Un code ouvert, sous licence Coopyleft.',
+  description: 'Le code de Cascade est ouvert et auditable par toutes et tous. La licence Coopyleft va plus loin qu’une licence libre classique : elle réserve l’usage commercial aux coopératives et aux organisations à but non lucratif. Une manière de rester cohérent avec ce que le projet défend — la mutualisation plutôt que l’extraction de valeur.',
   repo: 'https://github.com/cascade-coop'
 })
 </script>
 
 <template>
   <UPageSection
-    headline="Open source"
+    headline="Coopyleft"
     :title="title"
     :description="description"
     orientation="horizontal"

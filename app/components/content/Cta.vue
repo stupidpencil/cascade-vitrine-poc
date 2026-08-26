@@ -6,15 +6,19 @@ withDefaults(defineProps<{
   title: 'Vous gérez un lieu ou des ressources collectivement ?',
   description: 'Découvrez si Cascade peut répondre à vos besoins.'
 })
+
+const { open: openContactModal } = useContactModal()
 </script>
 
 <template>
-  <UPageCTA
-    :title="title"
-    :description="description"
-    :links="[
-      { label: 'Tester Cascade', to: '/produit', trailingIcon: 'i-lucide-arrow-right', size: 'lg' },
-      { label: 'Nous contacter', to: '/a-propos', color: 'neutral', variant: 'subtle', size: 'lg' }
-    ]"
-  />
+  <UPageCTA :title="title" :description="description">
+    <template #links>
+      <UButton to="/cascade" trailing-icon="i-lucide-arrow-right" size="lg">
+        Tester Cascade
+      </UButton>
+      <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">
+        Nous contacter
+      </UButton>
+    </template>
+  </UPageCTA>
 </template>

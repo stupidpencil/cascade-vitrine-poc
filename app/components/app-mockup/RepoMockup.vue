@@ -2,7 +2,7 @@
 const stats = [
   { icon: 'i-lucide-star', label: 'Stars', value: '128' },
   { icon: 'i-lucide-git-fork', label: 'Forks', value: '24' },
-  { icon: 'i-lucide-scale', label: 'Licence', value: 'AGPL-3.0' }
+  { icon: 'i-lucide-scale', label: 'Licence', value: 'Coopyleft' }
 ]
 </script>
 

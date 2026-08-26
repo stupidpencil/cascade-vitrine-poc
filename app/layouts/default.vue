@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const links = [
-  { label: 'Produit', to: '/produit' },
-  { label: "Cas d'usage", to: '/#cas-usage', exactHash: true },
-  { label: 'Modèle', to: '/modele' },
+  { label: 'Cascade', to: '/cascade' },
   { label: 'À propos', to: '/a-propos' },
   { label: 'Documentation', to: 'https://github.com/cascade-coop', target: '_blank' }
 ]
@@ -18,16 +16,18 @@ const links = [
       <UNavigationMenu :items="links" variant="link" />
 
       <template #right>
-        <UButton to="/produit" color="neutral" variant="ghost" class="hidden sm:flex">
+        <UColorModeButton />
+        <UButton to="/cascade" color="neutral" variant="ghost" class="hidden sm:flex">
           Se connecter
         </UButton>
-        <UButton to="/produit" trailing-icon="i-lucide-arrow-right">
+        <UButton to="/cascade" trailing-icon="i-lucide-arrow-right">
           Tester Cascade
         </UButton>
       </template>
 
       <template #body>
         <UNavigationMenu :items="links" orientation="vertical" class="-mx-2.5" />
+        <UColorModeButton class="mt-4" />
       </template>
     </UHeader>
 
@@ -40,7 +40,7 @@ const links = [
     <UFooter>
       <template #left>
         <p class="text-sm text-muted">
-          © {{ new Date().getFullYear() }} Cascade — logiciel libre.
+          © {{ new Date().getFullYear() }} Cascade — sous licence Coopyleft.
         </p>
       </template>
 

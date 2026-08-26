@@ -62,11 +62,6 @@ steps:
 ::
 
 ::adaptive-contribution
----
-need: 10000
-planned: 10800
-note: Ajustement / redistribution selon les règles du collectif
----
 ::
 
 ::use-cases

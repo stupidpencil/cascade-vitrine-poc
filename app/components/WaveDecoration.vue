@@ -38,7 +38,7 @@ const OFFSET_3 = 24
   <div
     aria-hidden="true"
     class="pointer-events-none absolute inset-y-0 hidden w-24 overflow-hidden 2xl:block"
-    :class="side === 'left' ? 'left-8' : 'right-8 scale-x-[-1]'"
+    :class="side === 'left' ? 'left-0 side-left' : 'right-0 side-right scale-x-[-1]'"
   >
     <svg
       class="absolute inset-x-0 -top-44 w-full"
@@ -62,9 +62,13 @@ const OFFSET_3 = 24
   transform-box: fill-box;
 }
 
-.wave-layer-1 { animation-duration: 14s; }
-.wave-layer-2 { animation-duration: 19s; animation-delay: -4s; }
-.wave-layer-3 { animation-duration: 23s; animation-delay: -9s; }
+.side-left .wave-layer-1 { animation-duration: 14s; }
+.side-left .wave-layer-2 { animation-duration: 19s; animation-delay: -4s; }
+.side-left .wave-layer-3 { animation-duration: 23s; animation-delay: -9s; }
+
+.side-right .wave-layer-1 { animation-duration: 17s; animation-delay: -6s; }
+.side-right .wave-layer-2 { animation-duration: 21s; animation-delay: -1s; }
+.side-right .wave-layer-3 { animation-duration: 27s; animation-delay: -13s; }
 
 @keyframes cascade-wave-flow {
   0% { transform: translate3d(0, 0, 0); }

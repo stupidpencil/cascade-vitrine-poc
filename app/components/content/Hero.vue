@@ -13,16 +13,21 @@ const { open: openContactModal } = useContactModal()
 </script>
 
 <template>
-  <UPageHero :headline="headline" :title="title" :description="description" orientation="horizontal">
-    <template #links>
-      <UButton to="/cascade" trailing-icon="i-lucide-arrow-right" size="lg">
-        Découvrir Cascade
-      </UButton>
-      <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">
-        Demander une démo
-      </UButton>
-    </template>
+  <div class="relative">
+    <WaveDecoration side="left" />
+    <WaveDecoration side="right" />
 
-    <AppMockupLifecycleTiles />
-  </UPageHero>
+    <UPageHero :headline="headline" :title="title" :description="description" orientation="horizontal">
+      <template #links>
+        <UButton to="/cascade" trailing-icon="i-lucide-arrow-right" size="lg">
+          Découvrir Cascade
+        </UButton>
+        <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">
+          Demander une démo
+        </UButton>
+      </template>
+
+      <AppMockupLifecycleTiles />
+    </UPageHero>
+  </div>
 </template>

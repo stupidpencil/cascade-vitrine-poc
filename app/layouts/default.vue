@@ -12,7 +12,7 @@ const links = [
   <div>
     <UHeader to="/">
       <template #title>
-        <span class="font-semibold text-highlighted">Cascade</span>
+        <AppLogo />
       </template>
 
       <UNavigationMenu :items="links" variant="link" />

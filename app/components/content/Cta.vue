@@ -11,14 +11,16 @@ const { open: openContactModal } = useContactModal()
 </script>
 
 <template>
-  <UPageCTA :title="title" :description="description">
-    <template #links>
-      <UButton to="/cascade" trailing-icon="i-lucide-arrow-right" size="lg">
-        Tester Cascade
-      </UButton>
-      <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">
-        Nous contacter
-      </UButton>
-    </template>
-  </UPageCTA>
+  <UContainer>
+    <UPageCTA :title="title" :description="description">
+      <template #links>
+        <UButton to="/cascade" trailing-icon="i-lucide-arrow-right" size="lg">
+          Tester Cascade
+        </UButton>
+        <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">
+          Nous contacter
+        </UButton>
+      </template>
+    </UPageCTA>
+  </UContainer>
 </template>

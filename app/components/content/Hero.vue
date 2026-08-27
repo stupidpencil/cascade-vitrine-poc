@@ -1,17 +1,19 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
+  headline?: string
   title?: string
   description?: string
 }>(), {
-  title: 'Gérez vos ressources collectivement.',
-  description: 'Cascade aide les lieux, collectifs et organisations à gérer leurs souscriptions, contributions, factures et ressources à travers des règles transparentes et coopératives.'
+  headline: 'Bêta — Gestion de bout en bout',
+  title: 'La plupart des outils s’arrêtent à la facture. Cascade couvre tout le cycle.',
+  description: 'Du modèle de souscription à la contribution, en passant par la facturation : chaque étape reste connectée aux autres, sans ressaisie.'
 })
 
 const { open: openContactModal } = useContactModal()
 </script>
 
 <template>
-  <UPageHero :title="title" :description="description" orientation="horizontal">
+  <UPageHero :headline="headline" :title="title" :description="description" orientation="horizontal">
     <template #links>
       <UButton to="/cascade" trailing-icon="i-lucide-arrow-right" size="lg">
         Découvrir Cascade
@@ -21,6 +23,6 @@ const { open: openContactModal } = useContactModal()
       </UButton>
     </template>
 
-    <AppMockupSubscriptionsMockup />
+    <AppMockupLifecycleTiles />
   </UPageHero>
 </template>

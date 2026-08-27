@@ -6,7 +6,7 @@ interface Step {
   automation: string
 }
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   headline?: string
   title?: string
   description?: string
@@ -58,27 +58,48 @@ withDefaults(defineProps<{
   ctaLabel: 'Voir toutes les fonctionnalités',
   ctaTo: '/fonctionnalites'
 })
+
+const firstRow = computed(() => props.steps.slice(0, 3))
+const secondRow = computed(() => props.steps.slice(3))
 </script>
 
 <template>
   <UPageSection :headline="headline" :title="title" :description="description">
-    <div class="flex flex-col items-stretch gap-2 xl:flex-row xl:items-stretch xl:justify-between">
+    <!-- Mobile / narrow: single vertical column -->
+    <div class="flex flex-col items-stretch gap-2 xl:hidden">
       <template v-for="(step, index) in steps" :key="step.label">
-        <div class="flex flex-1 flex-col items-center gap-2 rounded-lg border border-default bg-default px-4 py-5 text-center">
-          <UIcon :name="step.icon" class="size-6 text-primary" />
-          <p class="text-sm font-medium text-highlighted">{{ step.label }}</p>
-          <p class="text-xs text-muted">{{ step.example }}</p>
-          <div class="mt-auto flex items-start gap-1 pt-1 text-xs font-medium text-primary">
-            <UIcon name="i-lucide-zap" class="mt-0.5 size-3.5 shrink-0" />
-            <span>{{ step.automation }}</span>
-          </div>
-        </div>
+        <WorkflowStepCard v-bind="step" />
         <UIcon
           v-if="index < steps.length - 1"
           name="i-lucide-arrow-right"
-          class="size-4 shrink-0 self-center text-dimmed rotate-90 xl:rotate-0"
+          class="size-4 shrink-0 self-center text-dimmed rotate-90"
         />
       </template>
+    </div>
+
+    <!-- xl and up: two rows of three, so each card gets more room to breathe -->
+    <div class="hidden xl:flex xl:flex-col xl:items-stretch xl:gap-4">
+      <div class="flex items-stretch justify-between gap-2">
+        <template v-for="(step, index) in firstRow" :key="step.label">
+          <WorkflowStepCard v-bind="step" />
+          <UIcon
+            v-if="index < firstRow.length - 1"
+            name="i-lucide-arrow-right"
+            class="size-4 shrink-0 self-center text-dimmed"
+          />
+        </template>
+      </div>
+      <UIcon name="i-lucide-arrow-down" class="size-4 shrink-0 self-center text-dimmed" />
+      <div class="flex items-stretch justify-between gap-2">
+        <template v-for="(step, index) in secondRow" :key="step.label">
+          <WorkflowStepCard v-bind="step" />
+          <UIcon
+            v-if="index < secondRow.length - 1"
+            name="i-lucide-arrow-right"
+            class="size-4 shrink-0 self-center text-dimmed"
+          />
+        </template>
+      </div>
     </div>
 
     <div class="mt-10 flex justify-center">

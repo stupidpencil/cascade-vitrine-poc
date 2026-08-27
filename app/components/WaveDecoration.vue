@@ -11,10 +11,16 @@ const props = withDefaults(defineProps<{
 // a tight wiggle. The shape is repeated REPEATS times back to back (each
 // period starts and ends at MAX_X, so the seams are invisible), tall enough
 // that looping the flow animation by exactly one period never exposes an edge.
+// This decoration only ever needs to cover the hero section's own height
+// (it's clipped to its parent, not the full page), so REPEATS just needs a
+// comfortable margin above any realistic hero height — keep it small: an
+// oversized SVG (e.g. the previous 100 repeats, 70000px tall) can exceed the
+// GPU's compositing tile size and cause an intermittent seam to flash during
+// the transform animation.
 const MIN_X = 4
 const MAX_X =12
 const PERIOD = 700
-const REPEATS = 100
+const REPEATS = 8
 const TOTAL = PERIOD * REPEATS
 
 function buildPath() {

@@ -30,13 +30,13 @@ withDefaults(defineProps<{
 <template>
   <UPageSection :headline="headline" :title="title" :description="description">
     <UPageGrid class="sm:grid-cols-2 lg:grid-cols-3">
-      <UPageCard
+      <FeatureTile
         v-for="feature in features"
         :key="feature.title"
         :icon="feature.icon"
         :title="feature.title"
         :description="feature.description"
-        spotlight
+        color="primary"
       />
     </UPageGrid>
 

@@ -28,17 +28,13 @@ withDefaults(defineProps<{
 <template>
   <UPageSection :headline="headline" :title="title" :description="description">
     <UPageGrid class="sm:grid-cols-2 lg:grid-cols-3">
-      <UPageCard
+      <FeatureTile
         v-for="symptom in symptoms"
         :key="symptom.title"
         :icon="symptom.icon"
         :title="symptom.title"
         :description="symptom.description"
-        spotlight
-        :ui="{
-          root: '[--spotlight-color:var(--color-orange-500)]',
-          leadingIcon: 'text-orange-500 dark:text-orange-400'
-        }"
+        color="orange"
       />
     </UPageGrid>
   </UPageSection>

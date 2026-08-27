@@ -77,13 +77,20 @@ const OFFSET_3 = PERIOD * 0.14
   transform-box: fill-box;
 }
 
-.side-left .wave-layer-1 { animation-duration: 9s; }
-.side-left .wave-layer-2 { animation-duration: 12.2s; animation-delay: -2.7s; }
-.side-left .wave-layer-3 { animation-duration: 14.9s; animation-delay: -6.3s; }
+/* The 3 layers within a side share one duration on purpose: their spatial
+   offsets (OFFSET_2/OFFSET_3) already create the soft layered blend, and
+   keeping that relative phase FIXED avoids a "beat" effect where layers
+   moving at different speeds drift in and out of alignment — which
+   periodically made the combined silhouette look flatter/boxier for a
+   second or two. Left and right still run at different speeds from each
+   other. */
+.side-left .wave-layer-1,
+.side-left .wave-layer-2,
+.side-left .wave-layer-3 { animation-duration: 9s; }
 
-.side-right .wave-layer-1 { animation-duration: 10.8s; animation-delay: -4.1s; }
-.side-right .wave-layer-2 { animation-duration: 13.5s; animation-delay: -0.9s; }
-.side-right .wave-layer-3 { animation-duration: 17.1s; animation-delay: -8.6s; }
+.side-right .wave-layer-1,
+.side-right .wave-layer-2,
+.side-right .wave-layer-3 { animation-duration: 10.8s; }
 
 @keyframes cascade-wave-flow {
   0% { transform: translate3d(0, 0, 0); }

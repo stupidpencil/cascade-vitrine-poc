@@ -12,9 +12,9 @@ const props = withDefaults(defineProps<{
 // period starts and ends at MAX_X, so the seams are invisible), tall enough
 // that looping the flow animation by exactly one period never exposes an edge.
 const MIN_X = 4
-const MAX_X = 70
-const PERIOD = 300
-const REPEATS = 10
+const MAX_X =12
+const PERIOD = 700
+const REPEATS = 100
 const TOTAL = PERIOD * REPEATS
 
 function buildPath() {
@@ -45,9 +45,11 @@ const OFFSET_3 = PERIOD * 0.14
     aria-hidden="true"
     class="pointer-events-none absolute inset-y-0 hidden w-36 overflow-hidden 2xl:block"
     :class="side === 'left' ? 'left-0 side-left' : 'right-0 side-right scale-x-[-1]'"
+    :style="{ '--wave-period': `${PERIOD}px` }"
   >
     <svg
-      class="absolute inset-x-0 -top-[75px] w-full"
+      class="absolute inset-x-0 w-full"
+      :style="{ top: `-${PERIOD}px` }"
       :height="TOTAL"
       :viewBox="`0 0 ${MAX_X + 10} ${TOTAL}`"
       preserveAspectRatio="none"
@@ -79,7 +81,7 @@ const OFFSET_3 = PERIOD * 0.14
 
 @keyframes cascade-wave-flow {
   0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(0, 300px, 0); }
+  100% { transform: translate3d(0, var(--wave-period), 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

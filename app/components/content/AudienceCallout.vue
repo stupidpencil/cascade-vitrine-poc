@@ -15,9 +15,15 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <UPageCTA :title="title" :description="description" variant="subtle">
-    <template #top>
+  <UPageCTA variant="subtle">
+    <template #header>
       <p class="mb-3 text-center text-sm font-semibold text-primary">{{ headline }}</p>
+      <h2 class="text-3xl sm:text-4xl text-pretty tracking-tight font-bold text-highlighted text-center">
+        {{ title }}
+      </h2>
+      <div class="text-base sm:text-lg text-muted text-center text-balance mt-4">
+        {{ description }}
+      </div>
     </template>
     <template #links>
       <UButton :to="ctaTo" trailing-icon="i-lucide-arrow-right">

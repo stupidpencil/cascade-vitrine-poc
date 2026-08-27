@@ -77,13 +77,13 @@ const OFFSET_3 = PERIOD * 0.14
   transform-box: fill-box;
 }
 
-.side-left .wave-layer-1 { animation-duration: 12s; }
-.side-left .wave-layer-2 { animation-duration: 16.2s; animation-delay: -3.6s; }
-.side-left .wave-layer-3 { animation-duration: 19.8s; animation-delay: -8.4s; }
+.side-left .wave-layer-1 { animation-duration: 9s; }
+.side-left .wave-layer-2 { animation-duration: 12.2s; animation-delay: -2.7s; }
+.side-left .wave-layer-3 { animation-duration: 14.9s; animation-delay: -6.3s; }
 
-.side-right .wave-layer-1 { animation-duration: 14.4s; animation-delay: -5.4s; }
-.side-right .wave-layer-2 { animation-duration: 18s; animation-delay: -1.2s; }
-.side-right .wave-layer-3 { animation-duration: 22.8s; animation-delay: -11.4s; }
+.side-right .wave-layer-1 { animation-duration: 10.8s; animation-delay: -4.1s; }
+.side-right .wave-layer-2 { animation-duration: 13.5s; animation-delay: -0.9s; }
+.side-right .wave-layer-3 { animation-duration: 17.1s; animation-delay: -8.6s; }
 
 @keyframes cascade-wave-flow {
   0% { transform: translate3d(0, 0, 0); }

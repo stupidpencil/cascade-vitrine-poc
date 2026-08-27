@@ -5,12 +5,27 @@ const props = withDefaults(defineProps<{
   side: 'left'
 })
 
-const waveId = `cascade-wave-${props.side}`
+// One period of the wave is 176 units tall, oscillating between x=26 and x=44.
+// The shape is built by repeating that period 12 times back to back (start/end
+// x always match at 44, so the seams between repeats are invisible) — this
+// gives a continuous band with a flat outer edge (x=0, toward the screen edge)
+// and a wavy inner edge (toward the page content), tall enough that looping
+// the flow animation by exactly one period (176px) never exposes an edge.
+const PERIOD = 176
+const REPEATS = 12
+const TOTAL = PERIOD * REPEATS
 
-// Vertical transpose of the classic "gentle-wave" CodePen path:
-// a filled band whose inner edge (toward the page content) undulates,
-// while the outer edge runs off past the visible crop.
-const wavePath = 'M44 -160c0 30 -18 58 -18 88s18 58 18 88 -18 58 -18 88 18 58 18 88h44v-352z'
+function buildPath() {
+  let d = 'M0 0 L44 0'
+  for (let i = 0; i < REPEATS; i++) {
+    const o = i * PERIOD
+    d += ` C44 ${o + 30} 26 ${o + 58} 26 ${o + 88} C26 ${o + 118} 44 ${o + 146} 44 ${o + 176}`
+  }
+  d += ` L0 ${TOTAL} Z`
+  return d
+}
+
+const wavePath = buildPath()
 </script>
 
 <template>
@@ -20,39 +35,38 @@ const wavePath = 'M44 -160c0 30 -18 58 -18 88s18 58 18 88 -18 58 -18 88 18 58 18
     :class="side === 'left' ? 'left-8' : 'right-8 scale-x-[-1]'"
   >
     <svg
-      class="wave-parallax absolute inset-x-0 -top-32 -bottom-32 h-[calc(100%+16rem)] w-full"
-      viewBox="20 -200 40 400"
-      preserveAspectRatio="none"
+      class="absolute inset-x-0 -top-44 w-full"
+      :height="TOTAL"
+      :viewBox="`0 0 64 ${TOTAL}`"
     >
-      <defs>
-        <path :id="waveId" :d="wavePath" />
-      </defs>
-      <use :href="`#${waveId}`" x="0" y="0" fill="var(--ui-primary)" opacity="0.12" />
-      <use :href="`#${waveId}`" x="3" y="0" fill="var(--ui-primary)" opacity="0.2" />
-      <use :href="`#${waveId}`" x="5" y="0" fill="var(--ui-primary)" opacity="0.32" />
-      <use :href="`#${waveId}`" x="7" y="0" fill="var(--ui-primary)" opacity="0.5" />
+      <path class="wave-layer wave-layer-1" :d="wavePath" fill="var(--ui-primary)" opacity="0.14" />
+      <g :transform="`translate(0, ${PERIOD * 0.33})`">
+        <path class="wave-layer wave-layer-2" :d="wavePath" fill="var(--ui-primary)" opacity="0.22" />
+      </g>
+      <g :transform="`translate(0, ${PERIOD * 0.66})`">
+        <path class="wave-layer wave-layer-3" :d="wavePath" fill="var(--ui-primary)" opacity="0.34" />
+      </g>
     </svg>
   </div>
 </template>
 
 <style scoped>
-.wave-parallax > use {
-  animation: cascade-wave-flow 22s cubic-bezier(.55, .5, .45, .5) infinite;
+.wave-layer {
+  animation: cascade-wave-flow 16s linear infinite;
   transform-box: fill-box;
 }
 
-.wave-parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 9s; }
-.wave-parallax > use:nth-child(2) { animation-delay: -4s; animation-duration: 13s; }
-.wave-parallax > use:nth-child(3) { animation-delay: -6s; animation-duration: 17s; }
-.wave-parallax > use:nth-child(4) { animation-delay: -8s; animation-duration: 22s; }
+.wave-layer-1 { animation-duration: 14s; }
+.wave-layer-2 { animation-duration: 19s; animation-delay: -4s; }
+.wave-layer-3 { animation-duration: 23s; animation-delay: -9s; }
 
 @keyframes cascade-wave-flow {
-  0% { transform: translate3d(0, -55px, 0); }
-  100% { transform: translate3d(0, 50px, 0); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, 176px, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .wave-parallax > use {
+  .wave-layer {
     animation: none;
   }
 }

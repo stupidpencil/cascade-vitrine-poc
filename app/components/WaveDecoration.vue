@@ -5,46 +5,52 @@ const props = withDefaults(defineProps<{
   side: 'left'
 })
 
-// One period of the wave is 176 units tall, oscillating between x=26 and x=44.
-// The shape is built by repeating that period 12 times back to back (start/end
-// x always match at 44, so the seams between repeats are invisible) — this
+// One period of the wave is 176 units tall, oscillating between x=14 and x=48.
+// The shape is built by repeating that period back to back (start/end x
+// always match at 48, so the seams between repeats are invisible) — this
 // gives a continuous band with a flat outer edge (x=0, toward the screen edge)
 // and a wavy inner edge (toward the page content), tall enough that looping
 // the flow animation by exactly one period (176px) never exposes an edge.
 const PERIOD = 176
-const REPEATS = 12
+const REPEATS = 14
 const TOTAL = PERIOD * REPEATS
 
 function buildPath() {
-  let d = 'M0 0 L44 0'
+  let d = 'M0 0 L48 0'
   for (let i = 0; i < REPEATS; i++) {
     const o = i * PERIOD
-    d += ` C44 ${o + 30} 26 ${o + 58} 26 ${o + 88} C26 ${o + 118} 44 ${o + 146} 44 ${o + 176}`
+    d += ` C48 ${o + 30} 14 ${o + 58} 14 ${o + 88} C14 ${o + 118} 48 ${o + 146} 48 ${o + 176}`
   }
   d += ` L0 ${TOTAL} Z`
   return d
 }
 
 const wavePath = buildPath()
+
+// Small phase offsets (a fraction of the period) so the layers blur
+// together into a soft, layered edge instead of crossing each other
+// like a braid.
+const OFFSET_2 = 12
+const OFFSET_3 = 24
 </script>
 
 <template>
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute inset-y-0 hidden w-16 overflow-hidden 2xl:block"
+    class="pointer-events-none absolute inset-y-0 hidden w-24 overflow-hidden 2xl:block"
     :class="side === 'left' ? 'left-8' : 'right-8 scale-x-[-1]'"
   >
     <svg
       class="absolute inset-x-0 -top-44 w-full"
       :height="TOTAL"
-      :viewBox="`0 0 64 ${TOTAL}`"
+      :viewBox="`0 0 70 ${TOTAL}`"
     >
-      <path class="wave-layer wave-layer-1" :d="wavePath" fill="var(--ui-primary)" opacity="0.14" />
-      <g :transform="`translate(0, ${PERIOD * 0.33})`">
-        <path class="wave-layer wave-layer-2" :d="wavePath" fill="var(--ui-primary)" opacity="0.22" />
+      <path class="wave-layer wave-layer-1" :d="wavePath" fill="var(--ui-primary)" opacity="0.18" />
+      <g :transform="`translate(0, ${OFFSET_2})`">
+        <path class="wave-layer wave-layer-2" :d="wavePath" fill="var(--ui-primary)" opacity="0.28" />
       </g>
-      <g :transform="`translate(0, ${PERIOD * 0.66})`">
-        <path class="wave-layer wave-layer-3" :d="wavePath" fill="var(--ui-primary)" opacity="0.34" />
+      <g :transform="`translate(0, ${OFFSET_3})`">
+        <path class="wave-layer wave-layer-3" :d="wavePath" fill="var(--ui-primary)" opacity="0.42" />
       </g>
     </svg>
   </div>

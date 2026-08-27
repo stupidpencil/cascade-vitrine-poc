@@ -5,36 +5,39 @@ description: Cascade aide les lieux, collectifs et organisations à gérer leurs
 
 ::hero
 ---
-headline: Bêta — Gestion de bout en bout
-title: La plupart des outils s'arrêtent à la facture. Cascade couvre tout le cycle.
-description: "Du modèle de souscription à la contribution, en passant par la facturation : chaque étape reste connectée aux autres, sans ressaisie."
+headline: Gestion mutualisée par nature.
+title: Votre modèle contributif dans un seul outil.
+description: "Définissez précisément vos propres règles de gestion, Cascade automatise le reste : contractualisation, avenants, souscription, facturation, paiement et gestion des ressources internes."
 ---
+::
+
+::audience-callout
 ::
 
 ::problem
 ---
 headline: Problèmes
-title: Les organisations collectives méritent mieux qu'un tableur et un logiciel de facturation.
-description: Aujourd'hui, la plupart des lieux et collectifs bricolent leur gestion avec des outils qui n'ont pas été pensés pour la mutualisation.
+title: Les outils classiques ne sont pas pensés pour les organisations collectives.
+description: Chronophage et difficile à maintenir, la gestion collective est entravée.
 symptoms:
   - icon: i-lucide-files
-    title: Contrats dispersés
-    description: Dans des dossiers et des boîtes mail, difficiles à retrouver.
+    title: La gestion est chronophage 
+    description: Contrats, avenants factures, etc. Tout est dispersés, difficiles à retrouver et à maintenir à jour.
   - icon: i-lucide-notebook-pen
-    title: Suivi manuel
-    description: Les contributions de chaque occupant suivies à la main.
+    title: Le suivi est manuel
+    description: Montants et échéances sont reportés à la main entre plusieurs outils.
   - icon: i-lucide-file-diff
-    title: Avenants multiples
-    description: Difficiles à recouper avec le contrat d'origine.
+    title: La mutualisation est peu outillée
+    description: Répartition des coûts et règles communes sont encore calculées manuellement.
   - icon: i-lucide-receipt
-    title: Facturation déconnectée
-    description: Sans lien direct avec les contrats réels.
+    title: Les processus sont déconnectés
+    description: Contrats, contributions et facturation évoluent séparément, avec des ressaisies.
   - icon: i-lucide-users
-    title: Information cloisonnée
-    description: Difficile à partager entre les membres du collectif.
+    title: La transparence est difficile
+    description: Partager une information fiable et à jour avec le collectif reste complexe.
   - icon: i-lucide-table
-    title: Règles dans un tableur
-    description: Les règles collectives vivent dans un fichier à part.
+    title: Les modèles sont difficiles à adapter
+    description: Tarifs solidaires et contributions variables rentrent mal dans les outils classiques.
 ---
 ::
 
@@ -43,6 +46,7 @@ symptoms:
 headline: Le produit
 title: Tout ce qu'il faut pour gérer un collectif, au même endroit.
 description: Cascade centralise ce qui est aujourd'hui dispersé entre tableurs, emails et logiciels de facturation.
+showMockups: true
 features:
   - icon: i-lucide-layout-template
     title: Modèles de souscription

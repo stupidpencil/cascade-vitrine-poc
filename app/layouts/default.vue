@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const links = [
+  { label: 'Pour qui ?', to: '/pour-qui' },
   { label: 'Cascade', to: '/cascade' },
   { label: 'Fonctionnalités', to: '/fonctionnalites' },
   { label: 'À propos', to: '/a-propos' },

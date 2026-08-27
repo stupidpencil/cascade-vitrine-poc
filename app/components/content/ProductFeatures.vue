@@ -10,7 +10,9 @@ withDefaults(defineProps<{
   title?: string
   description?: string
   features?: Feature[]
+  showMockups?: boolean
 }>(), {
+  showMockups: true,
   headline: 'Le produit',
   title: 'Tout ce qu’il faut pour gérer un collectif, au même endroit.',
   description: 'Cascade centralise ce qui est aujourd’hui dispersé entre tableurs, emails et logiciels de facturation.',
@@ -38,7 +40,7 @@ withDefaults(defineProps<{
       />
     </UPageGrid>
 
-    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+    <div v-if="showMockups" class="mt-12 grid gap-6 lg:grid-cols-2">
       <AppMockupContributionsMockup />
       <AppMockupPilotageMockup />
     </div>

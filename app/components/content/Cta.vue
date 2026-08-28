@@ -13,7 +13,7 @@ const { open: openContactModal } = useContactModal()
 <template>
   <UPageCTA :title="title" :description="description" :ui="{ root: 'rounded-none' }">
     <template #links>
-      <UButton to="/cascade" trailing-icon="i-lucide-arrow-right" size="lg">
+      <UButton to="/fonctionnalites" trailing-icon="i-lucide-arrow-right" size="lg">
         Tester Cascade
       </UButton>
       <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const links = [
   { label: 'Pour qui ?', to: '/pour-qui' },
-  { label: 'Cascade', to: '/cascade' },
   { label: 'Fonctionnalités', to: '/fonctionnalites' },
   { label: 'À propos', to: '/a-propos' },
   { label: 'Documentation', to: 'https://github.com/cascade-coop', target: '_blank' }
@@ -19,10 +18,10 @@ const links = [
 
       <template #right>
         <UColorModeButton />
-        <UButton to="/cascade" color="neutral" variant="ghost" class="hidden sm:flex">
+        <UButton to="/fonctionnalites" color="neutral" variant="ghost" class="hidden sm:flex">
           Se connecter
         </UButton>
-        <UButton to="/cascade" trailing-icon="i-lucide-arrow-right">
+        <UButton to="/fonctionnalites" trailing-icon="i-lucide-arrow-right">
           Tester Cascade
         </UButton>
       </template>

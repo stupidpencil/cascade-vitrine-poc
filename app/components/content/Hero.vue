@@ -19,7 +19,7 @@ const { open: openContactModal } = useContactModal()
 
     <UPageHero :headline="headline" :title="title" :description="description" orientation="horizontal">
       <template #links>
-        <UButton to="/cascade" trailing-icon="i-lucide-arrow-right" size="lg">
+        <UButton to="/fonctionnalites" trailing-icon="i-lucide-arrow-right" size="lg">
           Découvrir Cascade
         </UButton>
         <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">

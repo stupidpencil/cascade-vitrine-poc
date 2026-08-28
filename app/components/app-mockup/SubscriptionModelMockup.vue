@@ -29,6 +29,36 @@ const DATA: Record<FeatureScenarioKey, { title: string, subtitle: string, rules:
       { label: 'Facturation', value: 'Par notification' },
       { label: 'Adhésion', value: 'Adhésion + avenant' }
     ]
+  },
+  amap: {
+    title: 'Panier légumes hebdo',
+    subtitle: 'Appliqué à 45 souscriptions actives',
+    rules: [
+      { label: 'Récurrence', value: 'Hebdomadaire' },
+      { label: 'Montant', value: 'Adaptatif — 12 à 24 €' },
+      { label: 'Facturation', value: 'Par prélèvement' },
+      { label: 'Adhésion', value: 'Charte + engagement saison' }
+    ]
+  },
+  creche: {
+    title: 'Accueil régulier',
+    subtitle: 'Appliqué à 16 souscriptions actives',
+    rules: [
+      { label: 'Récurrence', value: 'Mensuelle' },
+      { label: 'Montant', value: 'Paramétré — 480 €' },
+      { label: 'Facturation', value: 'Par facture' },
+      { label: 'Adhésion', value: 'Contrat + tour de garde parental' }
+    ]
+  },
+  fanfare: {
+    title: 'Cotisation musicien',
+    subtitle: 'Appliqué à 28 souscriptions actives',
+    rules: [
+      { label: 'Récurrence', value: 'Annuelle' },
+      { label: 'Montant', value: 'Paramétré — 90 €' },
+      { label: 'Facturation', value: 'Par facture' },
+      { label: 'Adhésion', value: 'Adhésion + charte du groupe' }
+    ]
   }
 }
 

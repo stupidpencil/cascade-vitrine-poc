@@ -28,6 +28,33 @@ const DATA: Record<FeatureScenarioKey, { stats: Stat[], bars: number[] }> = {
       { label: 'Factures en attente', value: '1' }
     ],
     bars: [20, 28, 25, 33, 30, 38]
+  },
+  amap: {
+    stats: [
+      { label: 'Adhérents actifs', value: '45' },
+      { label: 'Taux de retrait paniers', value: '96 %' },
+      { label: 'Contributions / semaine', value: '620 €' },
+      { label: 'Factures en attente', value: '2' }
+    ],
+    bars: [35, 40, 38, 44, 42, 48]
+  },
+  creche: {
+    stats: [
+      { label: 'Familles actives', value: '16' },
+      { label: 'Taux d’occupation', value: '94 %' },
+      { label: 'Contributions / mois', value: '6 100 €' },
+      { label: 'Factures en attente', value: '1' }
+    ],
+    bars: [50, 58, 55, 63, 60, 68]
+  },
+  fanfare: {
+    stats: [
+      { label: 'Musiciens actifs', value: '28' },
+      { label: 'Taux d’usage du local', value: '83 %' },
+      { label: 'Contributions / mois', value: '540 €' },
+      { label: 'Factures en attente', value: '2' }
+    ],
+    bars: [25, 30, 28, 34, 31, 36]
   }
 }
 

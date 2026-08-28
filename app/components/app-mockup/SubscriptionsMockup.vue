@@ -28,6 +28,33 @@ const DATA: Record<FeatureScenarioKey, { subtitle: string, rows: Row[] }> = {
       { occupant: 'Léa Fontaine', ressource: 'Casier + établi 5', contribution: '30 € / mois', statut: 'À jour', color: 'success' },
       { occupant: 'Studio Kerne', ressource: 'Établi 1', contribution: '18 € / mois', statut: 'En attente', color: 'neutral' }
     ]
+  },
+  amap: {
+    subtitle: 'AMAP des Trois Sillons — 4 adhérents actifs',
+    rows: [
+      { occupant: 'Famille Nguyen', ressource: 'Panier légumes ×1', contribution: '18 € / semaine', statut: 'À jour', color: 'success' },
+      { occupant: 'Camille Vidal', ressource: 'Panier légumes + œufs', contribution: '24 € / semaine', statut: 'À jour', color: 'success' },
+      { occupant: 'Marc Aubert', ressource: 'Panier solidaire', contribution: '12 € / semaine', statut: 'Avenant en cours', color: 'warning' },
+      { occupant: 'Yasmine Foucher', ressource: 'Panier œufs ×1', contribution: '6 € / semaine', statut: 'En attente', color: 'neutral' }
+    ]
+  },
+  creche: {
+    subtitle: 'Crèche « Les petits fripons » — 4 familles actives',
+    rows: [
+      { occupant: 'Famille Rousseau', ressource: 'Place 3 jours / semaine', contribution: '480 € / mois', statut: 'À jour', color: 'success' },
+      { occupant: 'Famille Haddad', ressource: 'Place 5 jours / semaine', contribution: '780 € / mois', statut: 'À jour', color: 'success' },
+      { occupant: 'Famille Morel', ressource: 'Place 2 jours / semaine', contribution: '320 € / mois', statut: 'Avenant en cours', color: 'warning' },
+      { occupant: 'Famille Petit', ressource: 'Place 1 jour / semaine', contribution: '160 € / mois', statut: 'En attente', color: 'neutral' }
+    ]
+  },
+  fanfare: {
+    subtitle: 'Fanfare du Faubourg — 4 musiciens actifs',
+    rows: [
+      { occupant: 'Nora Benali', ressource: 'Trompette + local', contribution: '90 € / an', statut: 'À jour', color: 'success' },
+      { occupant: 'Julien Costa', ressource: 'Percussions', contribution: '70 € / an', statut: 'À jour', color: 'success' },
+      { occupant: 'Inès Lambert', ressource: 'Tuba (prêté)', contribution: '110 € / an', statut: 'Avenant en cours', color: 'warning' },
+      { occupant: 'Yanis Roche', ressource: 'Cotisation junior', contribution: '40 € / an', statut: 'En attente', color: 'neutral' }
+    ]
   }
 }
 

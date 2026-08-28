@@ -25,6 +25,30 @@ const DATA: Record<FeatureScenarioKey, { subtitle: string, items: Item[] }> = {
       { label: 'Consommables partagés', type: 'Adaptative', amount: '5 — 12 €', period: '/ mois' },
       { label: 'Machine à bois — usage', type: 'Ponctuelle', amount: '6 €', period: '/ heure' }
     ]
+  },
+  amap: {
+    subtitle: 'Contributions — Camille Vidal',
+    items: [
+      { label: 'Panier légumes', type: 'Fixe', amount: '18 €', period: '/ semaine' },
+      { label: 'Panier solidaire', type: 'Adaptative', amount: '8 — 16 €', period: '/ semaine' },
+      { label: 'Œufs — supplément', type: 'Ponctuelle', amount: '3 €', period: '/ semaine' }
+    ]
+  },
+  creche: {
+    subtitle: 'Contributions — Famille Haddad',
+    items: [
+      { label: 'Accueil régulier', type: 'Fixe', amount: '780 €', period: '/ mois' },
+      { label: 'Compensation garde manquée', type: 'Adaptative', amount: '15 — 45 €', period: '/ mois' },
+      { label: 'Activité éveil', type: 'Ponctuelle', amount: '8 €', period: '/ session' }
+    ]
+  },
+  fanfare: {
+    subtitle: 'Contributions — Inès Lambert',
+    items: [
+      { label: 'Cotisation annuelle', type: 'Fixe', amount: '90 €', period: '/ an' },
+      { label: 'Location tuba', type: 'Adaptative', amount: '10 — 20 €', period: '/ mois' },
+      { label: 'Concert du festival — frais', type: 'Ponctuelle', amount: '12 €', period: '/ session' }
+    ]
   }
 }
 

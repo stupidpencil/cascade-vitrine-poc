@@ -23,6 +23,30 @@ const DATA: Record<FeatureScenarioKey, { subtitle: string, rows: { name: string,
       { name: 'Machines à bois', unit: 'Machine', qty: '4', price: '6 € / heure', occupation: '68 %' },
       { name: 'Casiers à outils', unit: 'Casier', qty: '20', price: '5 € / mois', occupation: '81 %' }
     ]
+  },
+  amap: {
+    subtitle: 'AMAP des Trois Sillons — 3 types actifs',
+    rows: [
+      { name: 'Parts de paniers légumes', unit: 'Part', qty: '45', price: '18 € / semaine', occupation: '96 %' },
+      { name: 'Parts de paniers œufs', unit: 'Part', qty: '20', price: '6 € / semaine', occupation: '70 %' },
+      { name: 'Casiers de retrait', unit: 'Casier', qty: '50', price: 'Inclus', occupation: '88 %' }
+    ]
+  },
+  creche: {
+    subtitle: 'Crèche « Les petits fripons » — 3 types actifs',
+    rows: [
+      { name: 'Places d’accueil', unit: 'Place', qty: '16', price: '480 € / mois', occupation: '94 %' },
+      { name: 'Créneaux de garde partagée', unit: 'Créneau', qty: '12', price: '15 € / demi-jour', occupation: '77 %' },
+      { name: 'Matériel de puériculture', unit: 'Kit', qty: '8', price: '5 € / mois', occupation: '62 %' }
+    ]
+  },
+  fanfare: {
+    subtitle: 'Fanfare du Faubourg — 3 types actifs',
+    rows: [
+      { name: 'Local de répétition', unit: 'Créneau', qty: '6', price: '20 € / soirée', occupation: '83 %' },
+      { name: 'Instruments du parc commun', unit: 'Instrument', qty: '14', price: '8 € / mois', occupation: '71 %' },
+      { name: 'Casiers de rangement', unit: 'Casier', qty: '18', price: '4 € / mois', occupation: '89 %' }
+    ]
   }
 }
 

@@ -28,6 +28,33 @@ const DATA: Record<FeatureScenarioKey, { subtitle: string, rows: Row[] }> = {
       { label: 'Facture #2024-312', org: 'Léa Fontaine', amount: '30 €', status: 'Payée', color: 'success' },
       { label: 'Facture #2024-310', org: 'Studio Kerne', amount: '18 €', status: 'En retard', color: 'error' }
     ]
+  },
+  amap: {
+    subtitle: 'AMAP des Trois Sillons — 4 en cours',
+    rows: [
+      { label: 'Facture #2024-414', org: 'Famille Nguyen', amount: '18 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-413', org: 'Camille Vidal', amount: '24 €', status: 'Émise', color: 'neutral' },
+      { label: 'Facture #2024-412', org: 'Marc Aubert', amount: '12 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-410', org: 'Yasmine Foucher', amount: '6 €', status: 'En retard', color: 'error' }
+    ]
+  },
+  creche: {
+    subtitle: 'Crèche « Les petits fripons » — 4 en cours',
+    rows: [
+      { label: 'Facture #2024-514', org: 'Famille Haddad', amount: '780 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-513', org: 'Famille Rousseau', amount: '480 €', status: 'Émise', color: 'neutral' },
+      { label: 'Facture #2024-512', org: 'Famille Morel', amount: '320 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-510', org: 'Famille Petit', amount: '160 €', status: 'En retard', color: 'error' }
+    ]
+  },
+  fanfare: {
+    subtitle: 'Fanfare du Faubourg — 4 en cours',
+    rows: [
+      { label: 'Facture #2024-614', org: 'Nora Benali', amount: '90 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-613', org: 'Julien Costa', amount: '70 €', status: 'Émise', color: 'neutral' },
+      { label: 'Facture #2024-612', org: 'Inès Lambert', amount: '110 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-610', org: 'Yanis Roche', amount: '40 €', status: 'En retard', color: 'error' }
+    ]
   }
 }
 

@@ -104,27 +104,12 @@ withDefaults(defineProps<{
   ]
 })
 
-const scenario = useFeatureScenario()
 </script>
 
 <template>
-  <UPageSection>
-    <div class="mb-12 flex flex-wrap items-center gap-3">
-      <p class="text-sm text-muted">Voir Cascade appliqué à d’autres cas d’usage :</p>
-      <UButtonGroup>
-        <UButton
-          v-for="s in FEATURE_SCENARIOS"
-          :key="s.key"
-          :label="s.label"
-          :icon="s.icon"
-          size="xs"
-          :color="scenario === s.key ? 'primary' : 'neutral'"
-          :variant="scenario === s.key ? 'solid' : 'outline'"
-          @click="scenario = s.key"
-        />
-      </UButtonGroup>
-    </div>
+  <FeatureScenarioSwitcher />
 
+  <UPageSection>
     <div class="divide-y divide-default">
       <div v-for="lot in lots" :key="lot.title" class="grid gap-12 py-16 first:pt-0 last:pb-0 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div>

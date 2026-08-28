@@ -39,7 +39,7 @@ const tiles = [
         </template>
 
         <template v-else-if="tile.label === 'Facture'">
-          <p class="truncate text-sm font-medium text-highlighted">#BAT1-F-2600001</p>
+          <p class="truncate text-sm font-medium text-highlighted">#2024-116</p>
           <p class="mt-1 text-xs text-muted">25,44 € TTC</p>
           <UBadge color="neutral" variant="subtle" size="sm" class="mt-3 w-fit">Facturée</UBadge>
         </template>

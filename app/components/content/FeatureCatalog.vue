@@ -5,13 +5,26 @@ interface Lot {
   description: string
   features: string[]
   automation: string
-  mockup?: 'subscription-model' | 'subscriptions' | 'contributions' | 'invoices' | 'payments' | 'pilotage'
+  mockup?: 'resources' | 'subscription-model' | 'subscriptions' | 'contributions' | 'invoices' | 'payments' | 'pilotage'
 }
 
 withDefaults(defineProps<{
   lots?: Lot[]
 }>(), {
   lots: () => [
+    {
+      icon: 'i-lucide-box',
+      title: 'Ressources',
+      description: 'Modéliser les actifs mutualisés — espaces, équipements, créneaux — et suivre leur occupation en temps réel.',
+      features: [
+        'Ressource découpée en sous-unités identifiables (places, casiers, postes…)',
+        'Attribution d’une ou plusieurs sous-unités à une souscription',
+        'Montant calculé automatiquement à partir du panier de ressources',
+        'Suivi de l’occupation et de la vacance en temps réel'
+      ],
+      automation: 'Le montant de la souscription se recalcule automatiquement à chaque ressource ajoutée ou retirée du panier.',
+      mockup: 'resources'
+    },
     {
       icon: 'i-lucide-layout-template',
       title: 'Modèles de souscription',
@@ -31,11 +44,12 @@ withDefaults(defineProps<{
       description: 'Centraliser les souscriptions de chaque contributeur, dérivées d’un modèle, et leurs conditions d’utilisation.',
       features: [
         'Souscription dérivée d’un modèle de souscription',
+        'Signature électronique et pièces justificatives collectées à la création',
         'Avenants liés à la souscription d’origine',
         'Historique complet des versions',
         'Alertes avant échéance'
       ],
-      automation: 'Nouvel avenant et nouvelle version générés automatiquement à chaque changement, sans ressaisie.',
+      automation: 'Nouvel avenant et nouvelle version générés automatiquement à chaque changement, sans ressaisie — avec import en masse pour intégrer de gros volumes de souscripteurs d’un coup.',
       mockup: 'subscriptions'
     },
     {
@@ -116,7 +130,8 @@ withDefaults(defineProps<{
         </div>
 
         <div>
-          <AppMockupSubscriptionModelMockup v-if="lot.mockup === 'subscription-model'" />
+          <AppMockupResourcesMockup v-if="lot.mockup === 'resources'" />
+          <AppMockupSubscriptionModelMockup v-else-if="lot.mockup === 'subscription-model'" />
           <AppMockupSubscriptionsMockup v-else-if="lot.mockup === 'subscriptions'" />
           <AppMockupContributionsMockup v-else-if="lot.mockup === 'contributions'" />
           <AppMockupInvoicesMockup v-else-if="lot.mockup === 'invoices'" />

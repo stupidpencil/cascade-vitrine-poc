@@ -13,6 +13,16 @@ description: Le détail des lots fonctionnels de Cascade — ce qui existe aujou
 ::feature-catalog
 ---
 lots:
+  - icon: i-lucide-box
+    title: Ressources
+    description: Modéliser les actifs mutualisés — espaces, équipements, créneaux — et suivre leur occupation en temps réel.
+    mockup: resources
+    features:
+      - Ressource découpée en sous-unités identifiables (places, casiers, postes…)
+      - Attribution d'une ou plusieurs sous-unités à une souscription
+      - Montant calculé automatiquement à partir du panier de ressources
+      - Suivi de l'occupation et de la vacance en temps réel
+    automation: Le montant de la souscription se recalcule automatiquement à chaque ressource ajoutée ou retirée du panier.
   - icon: i-lucide-layout-template
     title: Modèles de souscription
     description: Définir une fois les règles qui s'appliqueront à toutes les souscriptions qui en découlent.
@@ -29,10 +39,11 @@ lots:
     mockup: subscriptions
     features:
       - Souscription dérivée d'un modèle de souscription
+      - Signature électronique et pièces justificatives collectées à la création
       - Avenants liés à la souscription d'origine
       - Historique complet des versions
       - Alertes avant échéance
-    automation: Nouvel avenant et nouvelle version générés automatiquement à chaque changement, sans ressaisie.
+    automation: Nouvel avenant et nouvelle version générés automatiquement à chaque changement, sans ressaisie — avec import en masse pour intégrer de gros volumes de souscripteurs d'un coup.
   - icon: i-lucide-hand-coins
     title: Contributions
     description: Définir des contributions ponctuelles ou récurrentes, fixes ou adaptatives, par ressource ou par occupant.

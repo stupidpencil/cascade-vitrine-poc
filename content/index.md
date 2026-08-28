@@ -109,6 +109,8 @@ steps:
 headline: Contribution adaptative
 title: Et si le prix pouvait s'adapter aux besoins réels ?
 description: Les contributions peuvent être ajustées en fonction des besoins réels du collectif et des règles décidées ensemble — pas d'un tarif figé décidé d'avance.
+ctaLabel: Comprendre la contribution adaptative
+ctaTo: /contribution-adaptative
 ---
 ::
 

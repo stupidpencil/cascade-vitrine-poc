@@ -1,10 +1,38 @@
 <script setup lang="ts">
-const rows = [
-  { label: 'Facture #2024-114', org: 'La Filature Coop', amount: '480 €', status: 'Payée', color: 'success' as const },
-  { label: 'Facture #2024-113', org: 'Atelier Nomade', amount: '340 €', status: 'Émise', color: 'neutral' as const },
-  { label: 'Facture #2024-112', org: 'Collectif Lisière', amount: '210 €', status: 'Payée', color: 'success' as const },
-  { label: 'Facture #2024-110', org: 'Studio Kerne', amount: '260 €', status: 'En retard', color: 'error' as const }
-]
+type Row = { label: string, org: string, amount: string, status: string, color: 'success' | 'neutral' | 'error' }
+
+const DATA: Record<FeatureScenarioKey, { subtitle: string, rows: Row[] }> = {
+  'tiers-lieux': {
+    subtitle: 'Tiers-lieu La Grange — 4 en cours',
+    rows: [
+      { label: 'Facture #2024-114', org: 'La Filature Coop', amount: '480 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-113', org: 'Atelier Nomade', amount: '340 €', status: 'Émise', color: 'neutral' },
+      { label: 'Facture #2024-112', org: 'Collectif Lisière', amount: '210 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-110', org: 'Studio Kerne', amount: '260 €', status: 'En retard', color: 'error' }
+    ]
+  },
+  cooperatives: {
+    subtitle: 'Coopérative Lieux Vivants — 4 en cours',
+    rows: [
+      { label: 'Facture #2024-214', org: 'Lucas Martin', amount: '50 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-213', org: 'Sophie Dubois', amount: '50 €', status: 'Émise', color: 'neutral' },
+      { label: 'Facture #2024-212', org: 'Atelier Nomade', amount: '150 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-210', org: 'Studio Kerne', amount: '50 €', status: 'En retard', color: 'error' }
+    ]
+  },
+  ateliers: {
+    subtitle: 'Atelier Les Mains Vertes — 4 en cours',
+    rows: [
+      { label: 'Facture #2024-314', org: 'Marie Petit', amount: '18 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-313', org: 'Thomas Roy', amount: '24 €', status: 'Émise', color: 'neutral' },
+      { label: 'Facture #2024-312', org: 'Léa Fontaine', amount: '30 €', status: 'Payée', color: 'success' },
+      { label: 'Facture #2024-310', org: 'Studio Kerne', amount: '18 €', status: 'En retard', color: 'error' }
+    ]
+  }
+}
+
+const scenario = useFeatureScenario()
+const data = computed(() => DATA[scenario.value])
 </script>
 
 <template>
@@ -20,7 +48,7 @@ const rows = [
       <div class="flex items-center justify-between">
         <div>
           <p class="text-sm font-medium text-highlighted">Factures</p>
-          <p class="text-xs text-muted">Tiers-lieu La Grange — 4 en cours</p>
+          <p class="text-xs text-muted">{{ data.subtitle }}</p>
         </div>
         <UButton size="xs" color="neutral" variant="subtle" icon="i-lucide-plus" class="shrink-0 whitespace-nowrap">
           Nouvelle facture
@@ -29,7 +57,7 @@ const rows = [
 
       <div class="flex flex-col gap-2">
         <div
-          v-for="row in rows"
+          v-for="row in data.rows"
           :key="row.label"
           class="flex items-center justify-between gap-3 rounded-lg border border-default px-3 py-2.5"
         >

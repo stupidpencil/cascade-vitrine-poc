@@ -1,9 +1,33 @@
 <script setup lang="ts">
-const rows = [
-  { name: 'Bureaux privatifs', unit: 'Bureau', qty: '8', price: '340 € / mois', occupation: '92 %' },
-  { name: 'Places de parking', unit: 'Place', qty: '15', price: '45 € / mois', occupation: '73 %' },
-  { name: 'Casiers de stockage', unit: 'Casier', qty: '22', price: '12 € / mois', occupation: '86 %' }
-]
+const DATA: Record<FeatureScenarioKey, { subtitle: string, rows: { name: string, unit: string, qty: string, price: string, occupation: string }[] }> = {
+  'tiers-lieux': {
+    subtitle: 'Bâtiment « Les petits voisins » — 3 types actifs',
+    rows: [
+      { name: 'Bureaux privatifs', unit: 'Bureau', qty: '8', price: '340 € / mois', occupation: '92 %' },
+      { name: 'Places de parking', unit: 'Place', qty: '15', price: '45 € / mois', occupation: '73 %' },
+      { name: 'Casiers de stockage', unit: 'Casier', qty: '22', price: '12 € / mois', occupation: '86 %' }
+    ]
+  },
+  cooperatives: {
+    subtitle: 'Coopérative Lieux Vivants — 3 types actifs',
+    rows: [
+      { name: 'Ateliers de production', unit: 'Atelier', qty: '6', price: '210 € / mois', occupation: '88 %' },
+      { name: 'Salles de réunion', unit: 'Salle', qty: '3', price: '25 € / demi-jour', occupation: '64 %' },
+      { name: 'Matériel partagé', unit: 'Kit', qty: '12', price: '8 € / session', occupation: '77 %' }
+    ]
+  },
+  ateliers: {
+    subtitle: 'Atelier Les Mains Vertes — 3 types actifs',
+    rows: [
+      { name: 'Établis', unit: 'Établi', qty: '10', price: '18 € / mois', occupation: '90 %' },
+      { name: 'Machines à bois', unit: 'Machine', qty: '4', price: '6 € / heure', occupation: '68 %' },
+      { name: 'Casiers à outils', unit: 'Casier', qty: '20', price: '5 € / mois', occupation: '81 %' }
+    ]
+  }
+}
+
+const scenario = useFeatureScenario()
+const data = computed(() => DATA[scenario.value])
 </script>
 
 <template>
@@ -18,7 +42,7 @@ const rows = [
     <div class="flex flex-col gap-4 p-4 sm:p-6">
       <div>
         <p class="text-sm font-medium text-highlighted">Ressources</p>
-        <p class="text-xs text-muted">Bâtiment « Les petits voisins » — 3 types actifs</p>
+        <p class="text-xs text-muted">{{ data.subtitle }}</p>
       </div>
 
       <div class="overflow-hidden rounded-lg border border-default">
@@ -32,7 +56,7 @@ const rows = [
             </tr>
           </thead>
           <tbody class="divide-y divide-default">
-            <tr v-for="row in rows" :key="row.name">
+            <tr v-for="row in data.rows" :key="row.name">
               <td class="px-3 py-2.5 font-medium text-highlighted">{{ row.name }}</td>
               <td class="hidden px-3 py-2.5 text-muted sm:table-cell">{{ row.qty }} × {{ row.unit }}</td>
               <td class="px-3 py-2.5 text-muted">{{ row.price }}</td>

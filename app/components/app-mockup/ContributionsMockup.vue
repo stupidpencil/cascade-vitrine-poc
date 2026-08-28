@@ -1,9 +1,35 @@
 <script setup lang="ts">
-const items = [
-  { label: 'Loyer de base', type: 'Fixe', amount: '340 €', period: '/ mois' },
-  { label: 'Charges communes', type: 'Adaptative', amount: '38 — 62 €', period: '/ mois' },
-  { label: 'Atelier bois — usage', type: 'Ponctuelle', amount: '15 €', period: '/ session' }
-]
+type Item = { label: string, type: string, amount: string, period: string }
+
+const DATA: Record<FeatureScenarioKey, { subtitle: string, items: Item[] }> = {
+  'tiers-lieux': {
+    subtitle: 'Contributions — Atelier Nomade',
+    items: [
+      { label: 'Loyer de base', type: 'Fixe', amount: '340 €', period: '/ mois' },
+      { label: 'Charges communes', type: 'Adaptative', amount: '38 — 62 €', period: '/ mois' },
+      { label: 'Atelier bois — usage', type: 'Ponctuelle', amount: '15 €', period: '/ session' }
+    ]
+  },
+  cooperatives: {
+    subtitle: 'Contributions — Lucas Martin',
+    items: [
+      { label: 'Part sociale', type: 'Fixe', amount: '50 €', period: '/ an' },
+      { label: 'Fonds de mutualisation', type: 'Adaptative', amount: '10 — 25 €', period: '/ mois' },
+      { label: 'Réservation salle', type: 'Ponctuelle', amount: '25 €', period: '/ demi-jour' }
+    ]
+  },
+  ateliers: {
+    subtitle: 'Contributions — Marie Petit',
+    items: [
+      { label: 'Adhésion atelier', type: 'Fixe', amount: '18 €', period: '/ mois' },
+      { label: 'Consommables partagés', type: 'Adaptative', amount: '5 — 12 €', period: '/ mois' },
+      { label: 'Machine à bois — usage', type: 'Ponctuelle', amount: '6 €', period: '/ heure' }
+    ]
+  }
+}
+
+const scenario = useFeatureScenario()
+const data = computed(() => DATA[scenario.value])
 </script>
 
 <template>
@@ -16,10 +42,10 @@ const items = [
     </div>
 
     <div class="flex flex-col gap-3 p-4 sm:p-6">
-      <p class="text-sm font-medium text-highlighted">Contributions — Atelier Nomade</p>
+      <p class="text-sm font-medium text-highlighted">{{ data.subtitle }}</p>
 
       <div
-        v-for="item in items"
+        v-for="item in data.items"
         :key="item.label"
         class="flex items-center justify-between gap-3 rounded-lg border border-default px-3 py-2.5"
       >

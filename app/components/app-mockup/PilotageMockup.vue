@@ -1,10 +1,38 @@
 <script setup lang="ts">
-const stats = [
-  { label: 'Ressources actives', value: '12' },
-  { label: 'Taux d’occupation', value: '92 %' },
-  { label: 'Contributions / mois', value: '4 280 €' },
-  { label: 'Factures en attente', value: '2' }
-]
+type Stat = { label: string, value: string }
+
+const DATA: Record<FeatureScenarioKey, { stats: Stat[], bars: number[] }> = {
+  'tiers-lieux': {
+    stats: [
+      { label: 'Ressources actives', value: '12' },
+      { label: 'Taux d’occupation', value: '92 %' },
+      { label: 'Contributions / mois', value: '4 280 €' },
+      { label: 'Factures en attente', value: '2' }
+    ],
+    bars: [40, 55, 48, 62, 58, 70]
+  },
+  cooperatives: {
+    stats: [
+      { label: 'Coopérateurs actifs', value: '34' },
+      { label: 'Taux de participation', value: '88 %' },
+      { label: 'Contributions / mois', value: '1 950 €' },
+      { label: 'Factures en attente', value: '3' }
+    ],
+    bars: [30, 42, 38, 50, 46, 55]
+  },
+  ateliers: {
+    stats: [
+      { label: 'Membres actifs', value: '27' },
+      { label: 'Taux d’usage des établis', value: '81 %' },
+      { label: 'Contributions / mois', value: '860 €' },
+      { label: 'Factures en attente', value: '1' }
+    ],
+    bars: [20, 28, 25, 33, 30, 38]
+  }
+}
+
+const scenario = useFeatureScenario()
+const data = computed(() => DATA[scenario.value])
 </script>
 
 <template>
@@ -18,7 +46,7 @@ const stats = [
 
     <div class="flex flex-col gap-4 p-4 sm:p-6">
       <div class="grid grid-cols-2 gap-3">
-        <div v-for="stat in stats" :key="stat.label" class="rounded-lg border border-default p-3">
+        <div v-for="stat in data.stats" :key="stat.label" class="rounded-lg border border-default p-3">
           <p class="text-lg font-semibold text-highlighted">{{ stat.value }}</p>
           <p class="mt-1 text-xs text-muted">{{ stat.label }}</p>
         </div>
@@ -28,7 +56,7 @@ const stats = [
         <p class="text-xs text-muted">Contributions perçues — 6 derniers mois</p>
         <div class="mt-3 flex items-end gap-2">
           <div
-            v-for="(h, i) in [40, 55, 48, 62, 58, 70]"
+            v-for="(h, i) in data.bars"
             :key="i"
             class="flex-1 rounded-t bg-primary"
             :style="{ height: `${h}px`, opacity: 0.75 }"

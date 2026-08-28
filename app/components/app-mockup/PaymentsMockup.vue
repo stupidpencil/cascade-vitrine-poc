@@ -1,9 +1,26 @@
 <script setup lang="ts">
-const rows = [
-  { label: 'Prélèvement SEPA', org: 'Atelier Nomade — 340 €', date: '05 mars', status: 'Rapproché', color: 'success' as const, icon: 'i-lucide-landmark' },
-  { label: 'Virement', org: 'La Filature Coop — 480 €', date: '03 mars', status: 'Rapproché', color: 'success' as const, icon: 'i-lucide-arrow-left-right' },
-  { label: 'Carte bancaire', org: 'Studio Kerne — 260 €', date: 'En attente', status: 'À rapprocher', color: 'warning' as const, icon: 'i-lucide-credit-card' }
-]
+type Row = { label: string, org: string, date: string, status: string, color: 'success' | 'warning', icon: string }
+
+const DATA: Record<FeatureScenarioKey, Row[]> = {
+  'tiers-lieux': [
+    { label: 'Prélèvement SEPA', org: 'Atelier Nomade — 340 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-landmark' },
+    { label: 'Virement', org: 'La Filature Coop — 480 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-arrow-left-right' },
+    { label: 'Carte bancaire', org: 'Studio Kerne — 260 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-credit-card' }
+  ],
+  cooperatives: [
+    { label: 'Virement', org: 'Lucas Martin — 50 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-arrow-left-right' },
+    { label: 'Prélèvement SEPA', org: 'Atelier Nomade — 150 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-landmark' },
+    { label: 'Espèces', org: 'Sophie Dubois — 50 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-banknote' }
+  ],
+  ateliers: [
+    { label: 'Carte bancaire', org: 'Marie Petit — 18 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-credit-card' },
+    { label: 'Prélèvement SEPA', org: 'Thomas Roy — 24 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-landmark' },
+    { label: 'Espèces', org: 'Léa Fontaine — 30 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-banknote' }
+  ]
+}
+
+const scenario = useFeatureScenario()
+const rows = computed(() => DATA[scenario.value])
 </script>
 
 <template>

@@ -19,10 +19,10 @@ const links = [
 
       <template #right>
         <UColorModeButton />
-        <UButton to="/fonctionnalites" color="neutral" variant="ghost" class="hidden sm:flex">
+        <UButton to="/fonctionnalites" color="neutral" variant="ghost" class="hidden whitespace-nowrap sm:flex">
           Se connecter
         </UButton>
-        <UButton to="/fonctionnalites" trailing-icon="i-lucide-arrow-right">
+        <UButton to="/fonctionnalites" trailing-icon="i-lucide-arrow-right" class="whitespace-nowrap">
           Tester Cascade
         </UButton>
       </template>

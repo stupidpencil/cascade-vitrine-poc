@@ -8,3 +8,11 @@
 :root {
   --ui-radius: 0.5rem;
 }
+
+html {
+  /* Reserve the scrollbar's width even when content is short enough not
+     to need one, so content that grows past that threshold (an opened
+     accordion, for example) doesn't shift every centered container by
+     the scrollbar's width. */
+  scrollbar-gutter: stable;
+}

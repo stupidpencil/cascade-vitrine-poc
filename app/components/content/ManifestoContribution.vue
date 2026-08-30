@@ -45,7 +45,7 @@ withDefaults(defineProps<{
 
             <p v-for="(p, j) in attr.paragraphsAfterList" :key="'after' + j" class="text-toned">{{ p }}</p>
 
-            <div v-if="i === 1" class="mt-2 max-w-md">
+            <div v-if="i === 1" class="mt-2 w-full">
               <AppMockupContributionMechanicMockup />
             </div>
           </div>

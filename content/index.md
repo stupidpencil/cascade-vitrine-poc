@@ -114,36 +114,6 @@ ctaTo: /contribution-adaptative
 ---
 ::
 
-::use-cases
----
-headline: Cas d'usage
-title: Pensé pour les lieux et collectifs, extensible aux organisations qui mutualisent.
-description: L'occupation temporaire et les tiers-lieux sont aujourd'hui le terrain le plus concret de Cascade.
-caseIcon: i-lucide-map-pin-house
-caseTitle: Occupation temporaire / tiers-lieux
-caseDescription: Le cas d'usage le plus concret de Cascade aujourd'hui.
-extensionsLabel: Extensions possibles
-needs:
-  - Gérer plusieurs occupants
-  - Contractualiser des espaces
-  - Gérer les avenants
-  - Répartir les contributions
-  - Facturer
-  - Suivre les paiements
-extensions:
-  - icon: i-lucide-building-2
-    label: Coopératives
-  - icon: i-lucide-hammer
-    label: Ateliers partagés
-  - icon: i-lucide-users-round
-    label: Collectifs
-  - icon: i-lucide-drama
-    label: Lieux culturels
-  - icon: i-lucide-shapes
-    label: Autres organisations mutualisant des ressources
----
-::
-
 ::experiments
 ---
 headline: Expérimentations

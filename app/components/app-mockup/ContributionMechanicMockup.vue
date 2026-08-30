@@ -1,4 +1,13 @@
 <script setup lang="ts">
+const OBJECTIVE = 100
+const MIN_CONTRIBUTORS = 5
+const MAX_CONTRIBUTORS = 25
+
+const contributors = ref(10)
+
+const share = computed(() => OBJECTIVE / contributors.value)
+const shareRounded = computed(() => Math.round(share.value * 100) / 100)
+
 const parts = [
   { label: 'Part de base', amount: '6 €', hint: 'fixe, quel que soit le nombre de contributeurs' },
   { label: 'Part d’activité', amount: '2 €', hint: 'proportionnelle à l’usage' },
@@ -17,25 +26,43 @@ const parts = [
     </div>
 
     <div class="flex flex-col gap-5 p-4 sm:p-6">
-      <div>
-        <p class="text-sm font-medium text-highlighted">Objectif du cycle</p>
-        <p class="text-2xl font-semibold text-highlighted">100 €</p>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3">
-        <div class="rounded-lg border border-default p-3">
-          <p class="text-xs text-muted">10 contributeurs</p>
-          <p class="mt-1 text-xl font-semibold text-highlighted">10 € <span class="text-sm font-normal text-muted">/ chacun</span></p>
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-highlighted">Objectif du cycle</p>
+          <p class="text-2xl font-semibold text-highlighted">{{ OBJECTIVE }} €</p>
         </div>
-        <div class="rounded-lg border border-primary/30 bg-primary/5 p-3">
-          <p class="text-xs text-muted">11 contributeurs</p>
-          <p class="mt-1 text-xl font-semibold text-highlighted">9 € <span class="text-sm font-normal text-muted">/ chacun</span></p>
-          <UBadge color="primary" variant="subtle" size="sm" class="mt-1">Ajusté automatiquement</UBadge>
+        <div class="text-right">
+          <p class="text-sm font-medium text-highlighted">Contribution / chacun</p>
+          <p class="text-2xl font-semibold text-highlighted">
+            {{ shareRounded.toLocaleString('fr-FR', { maximumFractionDigits: 2 }) }} €
+          </p>
         </div>
       </div>
 
+      <div class="rounded-lg border border-default p-4">
+        <div class="mb-3 flex items-center justify-between">
+          <p class="text-sm text-muted">Contributeurs actifs</p>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-semibold text-highlighted">{{ contributors }}</span>
+            <UBadge color="primary" variant="subtle" size="sm">
+              Ajusté automatiquement
+            </UBadge>
+          </div>
+        </div>
+        <USlider
+          v-model="contributors"
+          :min="MIN_CONTRIBUTORS"
+          :max="MAX_CONTRIBUTORS"
+          :step="1"
+        />
+        <div class="mt-1 flex justify-between text-xs text-dimmed">
+          <span>{{ MIN_CONTRIBUTORS }}</span>
+          <span>{{ MAX_CONTRIBUTORS }}</span>
+        </div>
+      </div>
+
       <div>
-        <p class="mb-2 text-xs font-medium text-muted">Composition de la contribution (par contributeur)</p>
+        <p class="mb-2 text-xs font-medium text-muted">Composition d’une contribution type (par contributeur)</p>
         <div class="flex flex-col gap-2">
           <div
             v-for="part in parts"

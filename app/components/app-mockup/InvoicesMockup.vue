@@ -68,7 +68,7 @@ const data = computed(() => DATA[scenario.value])
       <span class="size-2.5 rounded-full bg-error/60" />
       <span class="size-2.5 rounded-full bg-warning/60" />
       <span class="size-2.5 rounded-full bg-success/60" />
-      <span class="ml-3 text-xs text-dimmed">cascade.app — Facturation</span>
+      <span class="ml-3 text-xs text-dimmed">cascade.coop — Facturation</span>
     </div>
 
     <div class="flex flex-col gap-4 p-4 sm:p-6">

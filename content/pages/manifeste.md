@@ -128,6 +128,27 @@ conclusion:
 ---
 ::
 
+::manifesto-evolution
+---
+headline: Où en est Cascade aujourd’hui
+title: "De l'outil actuel à la vision Cascade"
+description: "Le Cascade d'aujourd'hui n'est pas une version dégradée de cette vision : c'est sa fondation. Les modèles de souscription, les contributions typées et la structure en cascades posent déjà l'architecture concrète sur laquelle les mécanismes décrits plus haut viendront s'appuyer."
+steps:
+  - today: "Un modèle de souscription fixe un montant paramétré une fois pour toutes."
+    tomorrow: "Un objectif partagé s'ajuste automatiquement au nombre de contributeurs actifs — la même mécanique, appliquée en continu."
+  - today: "Une contribution est typée Fixe, Adaptative ou Ponctuelle, mais reste un montant unique par ligne."
+    tomorrow: "Chaque contribution se décompose en 4 parts explicites — base, activité, activité réseau, surcotisation — pour une transparence totale des flux."
+  - today: "Les paiements sont suivis par moyen (prélèvement, virement, carte)."
+    tomorrow: "La contribution devient plurielle : temps, compétences ou matériel sont reconnus au même titre que l'argent."
+  - today: "La facturation est émise et envoyée automatiquement à échéance."
+    tomorrow: "La contribution devient différable et régularisable : engagée maintenant, ajustée ou versée plus tard selon la réalité constatée."
+  - today: "Le pilotage donne des indicateurs par cascade : occupation, contributions, factures en attente."
+    tomorrow: "La redistribution devient un mécanisme actif : les surplus et déficits se mobilisent collectivement, cycle après cycle."
+  - today: "Une cascade gère un lieu ou un projet, avec ses propres contributeurs et son propre objectif."
+    tomorrow: "Les cascades se connectent en réseau : la part d'activité réseau finance directement plusieurs niveaux d'organisation, dont la fédération elle-même."
+---
+::
+
 ::manifesto-use-cases
 ---
 headline: Cas d'usages

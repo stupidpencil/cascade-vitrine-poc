@@ -3,6 +3,7 @@ const links = [
   { label: 'Pour qui ?', to: '/pour-qui' },
   { label: 'Fonctionnalités', to: '/fonctionnalites' },
   { label: 'Contribution adaptative', to: '/contribution-adaptative' },
+  { label: 'Manifeste', to: '/manifeste' },
   { label: 'La fédération', to: '/la-federation' },
   { label: 'Documentation', to: 'https://github.com/cascade-coop', target: '_blank' }
 ]

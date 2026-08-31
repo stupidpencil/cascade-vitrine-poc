@@ -6,10 +6,7 @@ withDefaults(defineProps<{
   usagesLabel?: string
   usages?: string[]
 }>(), {
-  headline: 'Le manifeste',
-  title: 'Comprendre le modèle Cascade',
   paragraphs: () => [],
-  usagesLabel: 'Ce texte peut servir :',
   usages: () => []
 })
 </script>

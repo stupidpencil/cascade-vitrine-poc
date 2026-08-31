@@ -5,6 +5,8 @@ description: Le manifeste Cascade — contribution, redistribution et cycles, le
 
 ::manifesto-intro
 ---
+headline: Le manifeste
+title: Comprendre le modèle Cascade
 paragraphs:
   - "Ce texte est une porte d'entrée dans la compréhension du modèle Cascade. Il ne s'agit pas ici de décrire les fonctionnalités précises de la plateforme, mais de donner les clefs pour comprendre le système Cascade à partir de trois notions : la contribution, la redistribution et les cycles."
   - "Pourquoi s'intéresser à ce système ? Parce qu'il ouvre une voie concrète pour d'autres formes de développement économique, affranchies des logiques capitalistes : Cascade permet à des structures comme les tiers-lieux, coopératives, associations ou collectifs militants de collecter et gérer les contributions qui soutiennent leurs activités, sans lucrativité."
@@ -127,6 +129,8 @@ conclusion:
 headline: Où en est Cascade aujourd’hui
 title: "De l'outil actuel à la vision Cascade"
 description: "Le Cascade d'aujourd'hui n'est pas une version dégradée de cette vision : c'est sa fondation. Les modèles de souscription, les contributions typées et la structure en cascades posent déjà l'architecture concrète sur laquelle les mécanismes décrits plus haut viendront s'appuyer."
+todayLabel: "Aujourd'hui"
+tomorrowLabel: Demain
 steps:
   - today: "Un modèle de souscription fixe un montant paramétré une fois pour toutes."
     tomorrow: "La part de chacun dans un objectif partagé s'ajuste automatiquement au nombre de contributeurs actifs — la même mécanique, appliquée en continu."
@@ -154,6 +158,7 @@ cases:
     paragraphs:
       - "Une association gère un bâtiment où plusieurs acteurs cohabitent : artisans, formateurs, groupes culturels. Chacun a des usages, des rythmes et des capacités financières différents. Avec Cascade, une caisse commune ajuste automatiquement les contributions des occupants en fonction de leurs usages réels et des charges à couvrir (chauffage, électricité, coordination, etc.)."
       - "En fin de cycle, les excédents sont réaffectés selon des règles collectivement définies : baisse temporaire des loyers, investissement dans l'espace commun, soutien à une autre structure du même réseau. Une fois par an, un mécanisme de péréquation, défini collectivement, permet d'équilibrer les budgets entre plusieurs structures associées dans la gestion du tiers-lieux."
+    advantageLabel: Avantage du modèle
     advantage: "l'occupation temporaire implique souvent des incertitudes sur les coûts et les ressources. Cascade permet de répartir équitablement les contributions selon les usages réels, d'agir sur les déséquilibres au fil du temps, et de transformer la gestion en un processus coopératif traçable."
   - icon: i-lucide-share-2
     title: Plateforme coopérative
@@ -161,6 +166,7 @@ cases:
       - "Une petite équipe maintient un logiciel utilisé par une cinquantaine de coopératives locales de livraison à vélo associées en fédération coopérative. Pour garantir la maintenance et l'évolution de la plateforme, une cascade continue est mise en place. Elle couvre l'hébergement, le support et les développements, tout en adaptant la contribution de chaque coopérative à ses moyens. Par ailleurs, les subventions que touche ponctuellement la fédération permettent de diminuer les cotisations."
       - "Les coopératives plus petites peuvent contribuer en différé et/ou en nature (présentation du projet aux nouveaux, documentation, test). Les excédents sont fléchés vers un fond permettant de garantir la stabilité de la fédération. Avec le temps, la plateforme a atteint une maturité technique suffisante : les besoins en développement ont diminué, et les coûts se sont concentrés sur la maintenance et le support. Plutôt que de baisser l'objectif, la fédération a choisi de maintenir le niveau de contribution pour financer des postes mutualisés, notamment en matière de développement commercial au service de l'ensemble du réseau."
       - "Ce cas d'usage est également l'exemple type du modèle économique de la plateforme Cascade elle-même."
+    advantageLabel: Avantage du modèle
     advantage: "contrairement à un modèle basé sur des prestations ou du capital-risque, Cascade permet une viabilité structurelle distribuée, pilotée par les besoins collectifs et les cycles contributifs."
   - icon: i-lucide-utensils
     title: Cantine de quartier en prix libre
@@ -168,6 +174,7 @@ cases:
       - "Un réseau de cantines et restaurants utilise Cascade comme système de paiement en caisse. Le modèle repose sur un repas à prix unique, volontairement fixé au-dessus du coût de revient direct. Ce tarif permet de couvrir non seulement les charges alimentaires, mais aussi de garantir une juste rémunération du personnel et de stabiliser l'activité."
       - "Chaque repas payé alimente une cascade quotidienne. En fin de service, une régulation est proposée aux clients : une remise sur le prochain repas si les charges réelles sont inférieures à l'objectif. Certains clients, notamment les plus aisés ou sensibilisés à la démarche, choisissent de « laisser la monnaie » et ne demandent pas cette remise. Ces excédents, agrégés à l'échelle du mois, sont transférés vers une cascade partagée entre les cantines."
       - "Cette caisse inter-cantines permet de financer des événements gratuits dans les quartiers populaires : repas solidaires, animations culturelles, débats publics. Le modèle Cascade permet ainsi à une économie locale de s'organiser au niveau national, d'assurer sa propre viabilité et de mener des projets sociaux conformes aux valeurs du collectif."
+    advantageLabel: Avantage du modèle
     advantage: "au lieu d'un prix libre imprévisible, un tarif stable mais régularisable permet de garantir la viabilité des cantines, tout en réinjectant les excédents dans des actions collectives à l'échelle nationale."
   - icon: i-lucide-party-popper
     title: Festival culturel
@@ -175,6 +182,7 @@ cases:
       - "Un collectif organise un festival culturel. L'événement dure trois jours, mais l'organisation se déploie sur plusieurs mois. La cascade est donc configurée comme un cycle fini découpé en plusieurs phases : prévente, vente classique et temps de l'événement. Chaque phase dispose de son propre objectif correspondant aux besoins de chaque phase."
       - "Le prix du billet est initialement fixé à 25 €, mais comme la contribution est adaptative, ce prix diminue à mesure que le nombre de festivaliers augmente : plus les gens s'engagent, plus le prix se rapproche du coût réel par participant. En fin de phase, une régularisation propose aux premiers acheteurs une remise (ou un avoir) si l'objectif est dépassé."
       - "Le surplus généré est réaffecté à des activités gratuites pendant le festival (ateliers, scène ouverte) et à un fond de soutien pour l'édition suivante."
+    advantageLabel: Avantage du modèle
     advantage: "Cascade permet de traiter les activités à échéance comme des événements, avec une décroissance du coût d'entrée rendue possible par l'effet de masse."
   - icon: i-lucide-shopping-cart
     title: Supermarché coopératif
@@ -182,6 +190,7 @@ cases:
       - "Un supermarché coopératif repose sur des achats groupés, une marge faible ou nulle, et une coopération active entre fournisseurs, membres et gestionnaires. Son défi principal : atteindre l'équilibre économique tout en garantissant une transparence totale sur les flux financiers. Avec Cascade, le modèle se renforce grâce à un système contributif intégré et régulier."
       - "Dans les premiers cycles, le prix des produits peut être ajusté pour tester le seuil d'équilibre : trop bas, il met en danger la viabilité ; trop haut, il compromet l'accessibilité. Cascade permet de calibrer ce seuil dynamiquement, cycle après cycle. Une fois l'équilibre atteint et la coopérative en vitesse de croisière, les prix peuvent être abaissés grâce à l'arrivée de nouveaux contributeurs-clients et aux effets d'échelle, tout en maintenant la stabilité financière."
       - "Une part du prix payé par les membres alimente une caisse de régulation. Celle-ci permet d'absorber les produits invendus, de soutenir les producteurs fragiles ou d'investir dans des infrastructures collectives (chambre froide, outils logistiques, etc.). En fin de mois, un cycle de régulation redistribue les excédents : bons d'achat pour les membres, baisse ponctuelle des prix ou soutien à des initiatives locales."
+    advantageLabel: Avantage du modèle
     advantage: "Cascade permet non seulement de rendre visibles les flux économiques internes, mais aussi d'ajuster l'équilibre du supermarché cycle après cycle. Il offre une réponse concrète à la promesse coopérative : accessibilité, stabilité, solidarité et ancrage local."
   - icon: i-lucide-music
     title: Meta label musical
@@ -189,6 +198,7 @@ cases:
       - "Un réseau de musiciens traditionnels issus de villages et de petites villes partout en France anime régulièrement des bals et fêtes populaires. À la fin de chaque événement, ils proposent à la vente leurs CD auto-produits, souvent à échelle très locale."
       - "Pour dépasser l'isolement de chacun, ils décident de créer un meta-label contributif en utilisant Cascade. Une cascade nationale unique est mise en place pour mutualiser les frais liés à la production physique des CD (pressage, impression, livret), au design graphique, à la logistique d'envoi, mais aussi à la diffusion en ligne via une plateforme commune."
       - "Chaque musicien ou petit groupe contribue à la cascade en proportion du nombre d'albums qu'il souhaite produire ou vendre, mais aussi selon ses moyens : certains donnent plus pour soutenir le collectif, d'autres contribuent en nature (graphisme, distribution, tournées communes). Les ventes réalisées localement sont déclarées en fin de cycle (chaque trimestre), ce qui déclenche une régularisation : ajustement des contributions, redistribution des surplus, réinvestissement dans de nouveaux projets. Cela fonctionne comme un réseau de distribution inversé : chacun vend sur son territoire, mais l'effort de production est porté collectivement."
+    advantageLabel: Avantage du modèle
     advantage: "en supprimant les coûts intermédiaires liés aux petits tirages ou à la sous-traitance commerciale, les musiciens gagnent en marge, en autonomie et en qualité, tout en maintenant une démarche artisanale et indépendante."
 ---
 ::

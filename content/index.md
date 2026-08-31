@@ -8,10 +8,20 @@ description: Cascade aide les lieux, collectifs et organisations à gérer leurs
 headline: Gestion mutualisée par nature.
 title: Votre modèle contributif dans un seul outil.
 description: "Définissez précisément vos propres règles de gestion, Cascade automatise le reste : contractualisation, avenants, souscription, facturation, paiement et gestion des ressources internes."
+primaryCtaLabel: Découvrir Cascade
+primaryCtaTo: /fonctionnalites
+secondaryCtaLabel: Demander une démo
 ---
 ::
 
 ::audience-callout
+---
+headline: Pour qui ?
+title: "Cascade s'adresse aux organisations collectives — pas aux entreprises ordinaires."
+description: "Associations, coopératives, collectifs informels, syndicats, tiers-lieux… si vous gérez des ressources collectivement, ce qui suit vous concerne."
+ctaLabel: Découvrir si Cascade est pour vous
+ctaTo: /pour-qui
+---
 ::
 
 ::problem
@@ -131,9 +141,11 @@ description: Cascade ne cherche pas seulement à optimiser la gestion administra
 
 ::open-source
 ---
+headline: Coopyleft
 title: Un code ouvert, sous licence Coopyleft.
 description: "Le code de Cascade est ouvert et auditable par toutes et tous. La licence Coopyleft va plus loin qu'une licence libre classique : elle réserve l'usage commercial aux coopératives et aux organisations à but non lucratif. Une manière de rester cohérent avec ce que le projet défend — la mutualisation plutôt que l'extraction de valeur."
 repo: https://github.com/cascade-coop
+linkLabel: Voir le code sur GitHub
 ---
 ::
 
@@ -141,5 +153,8 @@ repo: https://github.com/cascade-coop
 ---
 title: Vous gérez un lieu ou des ressources collectivement ?
 description: Découvrez si Cascade peut répondre à vos besoins.
+primaryCtaLabel: Tester Cascade
+primaryCtaTo: /fonctionnalites
+secondaryCtaLabel: Nous contacter
 ---
 ::

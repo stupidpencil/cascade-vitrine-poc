@@ -1,11 +1,8 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+defineProps<{
   title?: string
   description?: string
-}>(), {
-  title: 'Construire l’infrastructure numérique des communs.',
-  description: 'Cascade ne cherche pas seulement à optimiser la gestion administrative. L’ambition est de donner aux organisations collectives les outils pour mutualiser des ressources, définir leurs propres règles économiques, partager l’information, organiser les contributions et coopérer entre structures.'
-})
+}>()
 </script>
 
 <template>

@@ -14,49 +14,7 @@ const props = withDefaults(defineProps<{
   ctaLabel?: string
   ctaTo?: string
 }>(), {
-  headline: 'Un seul fil, du début à la fin',
-  title: 'De la ressource au paiement.',
-  description: 'Cascade relie des objets aujourd’hui dispersés entre plusieurs outils, sans rupture entre eux.',
-  steps: () => [
-    {
-      icon: 'i-lucide-box',
-      label: 'Ressource',
-      example: 'Ex : Bureau 12 — 18 m², Tiers-lieu La Grange',
-      automation: 'Disponibilité recalculée automatiquement selon les souscriptions en cours'
-    },
-    {
-      icon: 'i-lucide-layout-template',
-      label: 'Modèle de souscription',
-      example: 'Ex : Bureau — mensuel, 340 €, facturé par facture',
-      automation: 'Défini une fois par le gestionnaire, appliqué à chaque nouvelle souscription'
-    },
-    {
-      icon: 'i-lucide-file-signature',
-      label: 'Souscription',
-      example: 'Ex : Souscription — Atelier Nomade, 12 mois',
-      automation: 'Avenant et nouvelle version générés automatiquement à chaque changement'
-    },
-    {
-      icon: 'i-lucide-hand-coins',
-      label: 'Contribution',
-      example: 'Ex : 340 € / mois + charges communes adaptatives',
-      automation: 'Recalculée automatiquement selon la formule adaptative'
-    },
-    {
-      icon: 'i-lucide-receipt-text',
-      label: 'Facture',
-      example: 'Ex : Facture #2024-114 — La Filature Coop',
-      automation: 'Générée et envoyée automatiquement à échéance'
-    },
-    {
-      icon: 'i-lucide-credit-card',
-      label: 'Paiement',
-      example: 'Ex : Prélèvement SEPA, le 5 du mois',
-      automation: 'Rapproché automatiquement de la facture correspondante'
-    }
-  ],
-  ctaLabel: 'Voir toutes les fonctionnalités',
-  ctaTo: '/fonctionnalites'
+  steps: () => []
 })
 
 const firstRow = computed(() => props.steps.slice(0, 3))

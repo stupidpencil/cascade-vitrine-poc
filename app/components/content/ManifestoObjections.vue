@@ -12,7 +12,6 @@ withDefaults(defineProps<{
   description?: string
   objections?: Objection[]
 }>(), {
-  headline: 'Objections courantes',
   objections: () => []
 })
 </script>

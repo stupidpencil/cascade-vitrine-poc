@@ -1,13 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+defineProps<{
   headline?: string
   title?: string
   description?: string
-}>(), {
-  headline: 'Bêta — Gestion de bout en bout',
-  title: 'La plupart des outils s’arrêtent à la facture. Cascade couvre tout le cycle.',
-  description: 'Du modèle de souscription à la contribution, en passant par la facturation : chaque étape reste connectée aux autres, sans ressaisie.'
-})
+  primaryCtaLabel?: string
+  primaryCtaTo?: string
+  secondaryCtaLabel?: string
+}>()
 
 const { open: openContactModal } = useContactModal()
 </script>
@@ -19,11 +18,11 @@ const { open: openContactModal } = useContactModal()
 
     <UPageHero :headline="headline" :title="title" :description="description" orientation="horizontal">
       <template #links>
-        <UButton to="/fonctionnalites" trailing-icon="i-lucide-arrow-right" size="lg">
-          Découvrir Cascade
+        <UButton v-if="primaryCtaTo" :to="primaryCtaTo" trailing-icon="i-lucide-arrow-right" size="lg">
+          {{ primaryCtaLabel }}
         </UButton>
-        <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">
-          Demander une démo
+        <UButton v-if="secondaryCtaLabel" color="neutral" variant="subtle" size="lg" @click="openContactModal">
+          {{ secondaryCtaLabel }}
         </UButton>
       </template>
 

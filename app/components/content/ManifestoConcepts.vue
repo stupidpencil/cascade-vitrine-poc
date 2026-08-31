@@ -11,7 +11,6 @@ withDefaults(defineProps<{
   description?: string
   concepts?: Concept[]
 }>(), {
-  headline: 'Le vocabulaire Cascade',
   concepts: () => []
 })
 </script>

@@ -12,7 +12,6 @@ withDefaults(defineProps<{
   types?: CycleType[]
   conclusion?: string[]
 }>(), {
-  headline: 'Les cycles',
   intro: () => [],
   types: () => [],
   conclusion: () => []

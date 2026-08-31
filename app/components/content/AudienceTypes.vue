@@ -10,19 +10,7 @@ withDefaults(defineProps<{
   description?: string
   types?: OrgType[]
 }>(), {
-  headline: 'Qui s’adresse à Cascade',
-  title: 'Toute organisation qui sort du cadre de l’entreprise ordinaire.',
-  description: 'Associations, coopératives, collectifs informels, syndicats, tiers-lieux… si vous gérez des ressources collectivement, Cascade est fait pour vous.',
-  types: () => [
-    { icon: 'i-lucide-heart-handshake', label: 'Associations' },
-    { icon: 'i-lucide-building-2', label: 'Coopératives' },
-    { icon: 'i-lucide-users-round', label: 'Collectifs informels' },
-    { icon: 'i-lucide-flag', label: 'Syndicats' },
-    { icon: 'i-lucide-map-pin-house', label: 'Tiers-lieux' },
-    { icon: 'i-lucide-share-2', label: 'SCIC & SCOP' },
-    { icon: 'i-lucide-home', label: 'Groupements d’habitants' },
-    { icon: 'i-lucide-globe', label: 'Communs numériques ou fonciers' }
-  ]
+  types: () => []
 })
 </script>
 

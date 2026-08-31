@@ -13,7 +13,6 @@ withDefaults(defineProps<{
   description?: string
   cases?: UseCase[]
 }>(), {
-  headline: 'Cas d’usages',
   cases: () => []
 })
 </script>
@@ -26,7 +25,7 @@ withDefaults(defineProps<{
           <p v-for="(p, j) in cases[index].paragraphs" :key="j" class="text-toned">{{ p }}</p>
           <div class="flex items-start gap-2 rounded-lg bg-elevated/50 px-4 py-3.5 text-sm">
             <UIcon name="i-lucide-sparkles" class="mt-0.5 size-4 shrink-0 text-primary" />
-            <span class="text-toned"><strong class="text-highlighted">{{ cases[index].advantageLabel || 'Avantage du modèle' }} :</strong> {{ cases[index].advantage }}</span>
+            <span class="text-toned"><strong class="text-highlighted">{{ cases[index].advantageLabel }} :</strong> {{ cases[index].advantage }}</span>
           </div>
         </div>
       </template>

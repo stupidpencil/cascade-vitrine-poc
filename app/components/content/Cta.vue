@@ -1,11 +1,11 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+defineProps<{
   title?: string
   description?: string
-}>(), {
-  title: 'Vous gérez un lieu ou des ressources collectivement ?',
-  description: 'Découvrez si Cascade peut répondre à vos besoins.'
-})
+  primaryCtaLabel?: string
+  primaryCtaTo?: string
+  secondaryCtaLabel?: string
+}>()
 
 const { open: openContactModal } = useContactModal()
 </script>
@@ -13,11 +13,11 @@ const { open: openContactModal } = useContactModal()
 <template>
   <UPageCTA :title="title" :description="description" :ui="{ root: 'rounded-none' }">
     <template #links>
-      <UButton to="/fonctionnalites" trailing-icon="i-lucide-arrow-right" size="lg">
-        Tester Cascade
+      <UButton v-if="primaryCtaTo" :to="primaryCtaTo" trailing-icon="i-lucide-arrow-right" size="lg">
+        {{ primaryCtaLabel }}
       </UButton>
-      <UButton color="neutral" variant="subtle" size="lg" @click="openContactModal">
-        Nous contacter
+      <UButton v-if="secondaryCtaLabel" color="neutral" variant="subtle" size="lg" @click="openContactModal">
+        {{ secondaryCtaLabel }}
       </UButton>
     </template>
   </UPageCTA>

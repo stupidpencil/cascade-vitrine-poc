@@ -1,17 +1,11 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+defineProps<{
   headline?: string
   title?: string
   description?: string
   ctaLabel?: string
   ctaTo?: string
-}>(), {
-  headline: 'Pour qui ?',
-  title: 'Cascade s’adresse aux organisations collectives — pas aux entreprises ordinaires.',
-  description: 'Associations, coopératives, collectifs informels, syndicats, tiers-lieux… si vous gérez des ressources collectivement, ce qui suit vous concerne.',
-  ctaLabel: 'Découvrir si Cascade est pour vous',
-  ctaTo: '/pour-qui'
-})
+}>()
 </script>
 
 <template>

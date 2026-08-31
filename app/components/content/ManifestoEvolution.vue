@@ -8,9 +8,10 @@ withDefaults(defineProps<{
   headline?: string
   title?: string
   description?: string
+  todayLabel?: string
+  tomorrowLabel?: string
   steps?: Step[]
 }>(), {
-  headline: 'Où en est Cascade aujourd’hui',
   steps: () => []
 })
 </script>
@@ -24,12 +25,12 @@ withDefaults(defineProps<{
         class="flex flex-col gap-3 rounded-lg border border-default p-5 sm:flex-row sm:items-center"
       >
         <div class="sm:flex-1">
-          <p class="text-xs font-medium text-dimmed">Aujourd’hui</p>
+          <p class="text-xs font-medium text-dimmed">{{ todayLabel }}</p>
           <p class="mt-1 text-toned">{{ step.today }}</p>
         </div>
         <UIcon name="i-lucide-arrow-right" class="size-5 shrink-0 rotate-90 text-primary sm:rotate-0" />
         <div class="sm:flex-1">
-          <p class="text-xs font-medium text-primary">Demain</p>
+          <p class="text-xs font-medium text-primary">{{ tomorrowLabel }}</p>
           <p class="mt-1 font-medium text-highlighted">{{ step.tomorrow }}</p>
         </div>
       </div>

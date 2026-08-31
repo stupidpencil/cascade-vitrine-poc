@@ -11,7 +11,6 @@ withDefaults(defineProps<{
   cycleEffects?: string[]
   conclusion?: string[]
 }>(), {
-  headline: 'La redistribution',
   intro: () => [],
   imbalances: () => [],
   surplusOrigins: () => [],

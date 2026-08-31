@@ -12,35 +12,7 @@ withDefaults(defineProps<{
   description?: string
   examples?: Example[]
 }>(), {
-  headline: 'En pratique',
-  title: 'La même mécanique, des usages très différents.',
-  description: 'Ces montants sont ceux utilisés ailleurs sur ce site pour illustrer chaque cas d’usage — la règle change, le mécanisme reste identique.',
-  examples: () => [
-    {
-      icon: 'i-lucide-map-pin-house',
-      context: 'Tiers-lieu',
-      label: 'Charges communes',
-      amount: '38 — 62 € / mois selon l’usage des espaces partagés'
-    },
-    {
-      icon: 'i-lucide-carrot',
-      context: 'AMAP',
-      label: 'Panier solidaire',
-      amount: '8 — 16 € / semaine pour garder l’accès ouvert à tous'
-    },
-    {
-      icon: 'i-lucide-building-2',
-      context: 'Coopérative',
-      label: 'Fonds de mutualisation',
-      amount: '10 — 25 € / mois selon les projets en cours'
-    },
-    {
-      icon: 'i-lucide-baby',
-      context: 'Crèche parentale',
-      label: 'Compensation garde manquée',
-      amount: '15 — 45 € / mois selon les gardes non assurées'
-    }
-  ]
+  examples: () => []
 })
 </script>
 

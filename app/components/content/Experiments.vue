@@ -1,13 +1,9 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+defineProps<{
   headline?: string
   title?: string
   description?: string
-}>(), {
-  headline: 'Expérimentations',
-  title: 'Ils testent Cascade avec nous',
-  description: ''
-})
+}>()
 
 const { data: experiments } = await useAsyncData('experiments', () =>
   queryCollection('experiments').all()

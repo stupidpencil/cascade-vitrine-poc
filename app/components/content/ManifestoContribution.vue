@@ -13,7 +13,6 @@ withDefaults(defineProps<{
   attributes?: Attribute[]
   conclusion?: string[]
 }>(), {
-  headline: 'La contribution',
   intro: () => [],
   attributes: () => [],
   conclusion: () => []

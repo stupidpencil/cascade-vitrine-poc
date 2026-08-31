@@ -3,17 +3,37 @@ const OBJECTIVE = 100
 const MIN_CONTRIBUTORS = 5
 const MAX_CONTRIBUTORS = 25
 
+// Référence à 10 contributeurs : part de base fixe + 3 parts variables
+// dont les proportions relatives sont conservées quel que soit le curseur.
+const BASE_PART = 6
+const VARIABLE_PARTS = [
+  { label: 'Part d’activité', hint: 'proportionnelle à l’usage', amount: 2 },
+  { label: 'Part activité réseau', hint: 'contribution aux cascades connectées', amount: 0.7 },
+  { label: 'Surcotisation', hint: 'volontaire', amount: 0.3 }
+]
+const VARIABLE_TOTAL = VARIABLE_PARTS.reduce((sum, p) => sum + p.amount, 0)
+
 const contributors = ref(10)
 
 const share = computed(() => OBJECTIVE / contributors.value)
 const shareRounded = computed(() => Math.round(share.value * 100) / 100)
 
-const parts = [
-  { label: 'Part de base', amount: '6 €', hint: 'fixe, quel que soit le nombre de contributeurs' },
-  { label: 'Part d’activité', amount: '2 €', hint: 'proportionnelle à l’usage' },
-  { label: 'Part activité réseau', amount: '0,70 €', hint: 'contribution aux cascades connectées' },
-  { label: 'Surcotisation', amount: '0,30 €', hint: 'volontaire' }
-]
+const formatEuro = (n: number) => `${n.toLocaleString('fr-FR', { maximumFractionDigits: 2 })} €`
+
+// La part de base reste fixe tant que la part totale la couvre encore ;
+// au-delà, elle aussi diminue pour que le total affiché reste toujours
+// égal à la contribution par personne indiquée au-dessus.
+const basePart = computed(() => Math.min(BASE_PART, shareRounded.value))
+const variableTotal = computed(() => Math.max(0, shareRounded.value - basePart.value))
+
+const parts = computed(() => [
+  { label: 'Part de base', hint: 'fixe, quel que soit le nombre de contributeurs', amount: formatEuro(basePart.value) },
+  ...VARIABLE_PARTS.map(p => ({
+    label: p.label,
+    hint: p.hint,
+    amount: formatEuro(p.amount * (variableTotal.value / VARIABLE_TOTAL))
+  }))
+])
 </script>
 
 <template>
@@ -77,7 +97,7 @@ const parts = [
           </div>
           <div class="flex items-center justify-between gap-3 rounded-lg bg-elevated/50 px-3 py-2">
             <p class="text-sm font-semibold text-highlighted">Total</p>
-            <p class="text-sm font-semibold text-highlighted">9 €</p>
+            <p class="text-sm font-semibold text-highlighted">{{ formatEuro(shareRounded) }}</p>
           </div>
         </div>
       </div>

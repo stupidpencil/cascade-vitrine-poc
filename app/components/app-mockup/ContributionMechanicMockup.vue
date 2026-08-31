@@ -1,38 +1,31 @@
 <script setup lang="ts">
-const OBJECTIVE = 100
+// Charges fixes à couvrir par la part de base (loyer, adhésion, travaux…),
+// répartie automatiquement entre les contributeurs (1 / nombre de contributeurs).
+const BASE_OBJECTIVE = 60
 const MIN_CONTRIBUTORS = 5
 const MAX_CONTRIBUTORS = 25
 
-// Référence à 10 contributeurs : part de base fixe + 3 parts variables
-// dont les proportions relatives sont conservées quel que soit le curseur.
-const BASE_PART = 6
-const VARIABLE_PARTS = [
-  { label: 'Part d’activité', hint: 'proportionnelle à l’usage', amount: 2 },
+const contributors = ref(10)
+
+const basePart = computed(() => BASE_OBJECTIVE / contributors.value)
+
+// Ces parts dépendent d'un usage réel (abonnements, transactions, activité
+// réseau, surcotisation volontaire) : elles ne varient pas avec le nombre
+// de contributeurs, contrairement à la part de base.
+const variableParts = [
+  { label: 'Part d’activité', hint: 'tarif fixe à l’usage, indépendant du nombre de contributeurs', amount: 2 },
   { label: 'Part activité réseau', hint: 'contribution aux cascades connectées', amount: 0.7 },
   { label: 'Surcotisation', hint: 'volontaire', amount: 0.3 }
 ]
-const VARIABLE_TOTAL = VARIABLE_PARTS.reduce((sum, p) => sum + p.amount, 0)
+const variableTotal = variableParts.reduce((sum, p) => sum + p.amount, 0)
 
-const contributors = ref(10)
-
-const share = computed(() => OBJECTIVE / contributors.value)
-const shareRounded = computed(() => Math.round(share.value * 100) / 100)
+const total = computed(() => basePart.value + variableTotal)
 
 const formatEuro = (n: number) => `${n.toLocaleString('fr-FR', { maximumFractionDigits: 2 })} €`
 
-// La part de base reste fixe tant que la part totale la couvre encore ;
-// au-delà, elle aussi diminue pour que le total affiché reste toujours
-// égal à la contribution par personne indiquée au-dessus.
-const basePart = computed(() => Math.min(BASE_PART, shareRounded.value))
-const variableTotal = computed(() => Math.max(0, shareRounded.value - basePart.value))
-
 const parts = computed(() => [
-  { label: 'Part de base', hint: 'fixe, quel que soit le nombre de contributeurs', amount: formatEuro(basePart.value) },
-  ...VARIABLE_PARTS.map(p => ({
-    label: p.label,
-    hint: p.hint,
-    amount: formatEuro(p.amount * (variableTotal.value / VARIABLE_TOTAL))
-  }))
+  { label: 'Part de base', hint: 'frais fixes, répartis également entre les contributeurs', amount: formatEuro(basePart.value) },
+  ...variableParts.map(p => ({ label: p.label, hint: p.hint, amount: formatEuro(p.amount) }))
 ])
 </script>
 
@@ -48,13 +41,13 @@ const parts = computed(() => [
     <div class="flex flex-col gap-5 p-4 sm:p-6">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm font-medium text-highlighted">Objectif du cycle</p>
-          <p class="text-2xl font-semibold text-highlighted">{{ OBJECTIVE }} €</p>
+          <p class="text-sm font-medium text-highlighted">Objectif du cycle (part de base)</p>
+          <p class="text-2xl font-semibold text-highlighted">{{ BASE_OBJECTIVE }} €</p>
         </div>
         <div class="text-right">
           <p class="text-sm font-medium text-highlighted">Contribution / chacun</p>
           <p class="text-2xl font-semibold text-highlighted">
-            {{ shareRounded.toLocaleString('fr-FR', { maximumFractionDigits: 2 }) }} €
+            {{ formatEuro(total) }}
           </p>
         </div>
       </div>
@@ -79,6 +72,9 @@ const parts = computed(() => [
           <span>{{ MIN_CONTRIBUTORS }}</span>
           <span>{{ MAX_CONTRIBUTORS }}</span>
         </div>
+        <p class="mt-3 text-xs text-dimmed">
+          Seule la part de base varie avec le nombre de contributeurs. Les autres parts reflètent un usage réel et restent inchangées.
+        </p>
       </div>
 
       <div>
@@ -97,7 +93,7 @@ const parts = computed(() => [
           </div>
           <div class="flex items-center justify-between gap-3 rounded-lg bg-elevated/50 px-3 py-2">
             <p class="text-sm font-semibold text-highlighted">Total</p>
-            <p class="text-sm font-semibold text-highlighted">{{ formatEuro(shareRounded) }}</p>
+            <p class="text-sm font-semibold text-highlighted">{{ formatEuro(total) }}</p>
           </div>
         </div>
       </div>

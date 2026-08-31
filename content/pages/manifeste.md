@@ -48,8 +48,8 @@ intro:
 attributes:
   - title: La contribution est adaptative
     paragraphs:
-      - "La contribution Cascade s'ajuste à l'objectif collectif, contrairement aux modèles conventionnels qui fonctionnent par accumulation, où l'objectif est défini en privé et intégré dans un prix fixe en vue de réaliser le profit. Dans Cascade, un objectif auquel les contributions s'ajustent est toujours défini. Par exemple, si l'objectif est de 100 € pour produire un objet ou financer un service, et que 10 personnes participent, chacune contribue à hauteur de 10 €. Si une onzième personne rejoint la cascade, la contribution de chacun peut être ajustée à 9 €. Dans un système classique, le prix serait resté à 10 €, générant un surplus capté par l'opérateur."
-      - "Cet attribut de la contribution est d'autant plus puissant que le nombre de contributeurs augmente. Il rend possible une forme de communauté d'intérêt économique entre celui qui propose et celui qui bénéficie du service. C'est le fondement philosophique du modèle : penser une économie comme un effort partagé et non comme une simple transaction entre producteur et consommateur."
+      - "La contribution Cascade s'ajuste à l'objectif collectif, contrairement aux modèles conventionnels qui fonctionnent par accumulation, où l'objectif est défini en privé et intégré dans un prix fixe en vue de réaliser le profit. Dans Cascade, un objectif auquel les contributions s'ajustent est toujours défini. Par exemple, si l'objectif de la part de base est de 100 € pour produire un objet ou financer un service, et que 10 personnes participent, chacune peut contribuer à hauteur de 10 € pour cette part. Si une onzième personne rejoint la cascade et que la répartition se fait automatiquement par tête, la part de chacun peut être ajustée à 9 €. Dans un système classique, le prix serait resté à 10 €, générant un surplus capté par l'opérateur."
+      - "Cet attribut de la part de base est d'autant plus puissant que le nombre de contributeurs augmente, lorsque sa répartition est automatique. Les autres parts de la contribution suivent une logique différente — ajustée à l'usage réel plutôt qu'au nombre de contributeurs — mais portent la même philosophie : ajuster l'effort demandé au besoin réel plutôt qu'à un objectif de profit. Cela rend possible une forme de communauté d'intérêt économique entre celui qui propose et celui qui bénéficie du service. C'est le fondement philosophique du modèle : penser une économie comme un effort partagé et non comme une simple transaction entre producteur et consommateur."
   - title: La contribution est à la source
     paragraphs:
       - "La contribution finance directement les différentes composantes du service. Par exemple pour un gite, l'hébergement est un service fourni distinctement de celui lié à la réservation par une plateforme. Contrairement aux modèles économiques conventionnels, où sous couvert de simplification le prix masque sa composition (souvent pour mieux intégrer le profit), la contribution Cascade a une structure de « prix composé » de 4 parts séparées :"
@@ -57,9 +57,10 @@ attributes:
       - "la part de base, qui correspond à l'objectif porté par la cascade dont le montant reste le même quel que soit le nombre de contributeurs."
       - "La part d'activité, qui correspond aux coûts qui augmentent proportionnellement aux nombre d'utilisateurs ou à leur activité."
       - "La part activité réseau, qui correspond à la part d'activité des autres cascades auquel elle est connectée en tant que contributrice."
-      - "La part surcotisation, qui correspond à un surplus volontairement ajouté."
+      - "La part surcotisation, qui correspond à un surplus ajouté volontairement, de façon induite, ou par renoncement à une remise (« garde la monnaie »)."
     paragraphsAfterList:
       - "Chaque part est affectée à ce qu'elle finance, ce qui permet une grande transparence des flux. La part d'activité réseau est particulièrement intéressante, car lorsqu'une des composantes du service est elle-même structurée en cascade, la contribution d'un utilisateur peut nourrir directement plusieurs niveaux d'organisation. C'est par ce biais qu'est notamment réalisé le financement de la plateforme Cascade."
+      - "Ce principe va jusqu'au prélèvement : lorsqu'un coût est directement lié à un service externe fourni par une autre cascade (un outil numérique, une fédération, un partenaire du réseau), chaque contributeur peut le régler directement à sa source plutôt que de le faire transiter par une caisse intermédiaire qui pourrait en masquer ou en gonfler le montant. En contrepartie de ce paiement direct, il peut accéder à la gouvernance de la cascade ainsi rémunérée."
       - "Cela transforme le service en un commun solidaire par construction. La structure du système crée l'interdépendance, et donc la robustesse collective."
   - title: La contribution est plurielle
     paragraphs:
@@ -95,7 +96,7 @@ cycleEffects:
   - "un déficit peut s'accumuler et constituer une dette collective que les contributeurs choisissent de résorber au fil des cycles."
   - "un surplus doit être mobilisé : il peut contribuer à la réduction d'une dette, soutenir une autre cascade, diminuer temporairement les cotisations, ou être mis en réserve pour un usage futur."
 conclusion:
-  - "L'action sur le surplus ou sur le déficit est déterminante pour réguler adéquatement la cascade. Celle-ci est manuelle et fait appel à des processus de décision qui ne peuvent être automatisés."
+  - "L'action sur le surplus ou sur le déficit est déterminante pour réguler adéquatement la cascade. Si son exécution peut être automatisée par des règles définies à l'avance, le choix de ces règles reste un processus de décision collective."
 ---
 ::
 
@@ -128,7 +129,7 @@ title: "De l'outil actuel à la vision Cascade"
 description: "Le Cascade d'aujourd'hui n'est pas une version dégradée de cette vision : c'est sa fondation. Les modèles de souscription, les contributions typées et la structure en cascades posent déjà l'architecture concrète sur laquelle les mécanismes décrits plus haut viendront s'appuyer."
 steps:
   - today: "Un modèle de souscription fixe un montant paramétré une fois pour toutes."
-    tomorrow: "Un objectif partagé s'ajuste automatiquement au nombre de contributeurs actifs — la même mécanique, appliquée en continu."
+    tomorrow: "La part de chacun dans un objectif partagé s'ajuste automatiquement au nombre de contributeurs actifs — la même mécanique, appliquée en continu."
   - today: "Une contribution est typée Fixe, Adaptative ou Ponctuelle, mais reste un montant unique par ligne."
     tomorrow: "Chaque contribution se décompose en 4 parts explicites — base, activité, activité réseau, surcotisation — pour une transparence totale des flux."
   - today: "Les paiements sont suivis par moyen (prélèvement, virement, carte)."
@@ -152,7 +153,7 @@ cases:
     title: Tiers-lieux
     paragraphs:
       - "Une association gère un bâtiment où plusieurs acteurs cohabitent : artisans, formateurs, groupes culturels. Chacun a des usages, des rythmes et des capacités financières différents. Avec Cascade, une caisse commune ajuste automatiquement les contributions des occupants en fonction de leurs usages réels et des charges à couvrir (chauffage, électricité, coordination, etc.)."
-      - "En fin de cycle, les excédents sont réaffectés selon des règles collectivement définies : baisse temporaire des loyers, investissement dans l'espace commun, soutien à une autre structure du même réseau. Une fois par an, un mécanisme de péréquation permet d'équilibrer les budgets entre plusieurs structures associées dans la gestion du tiers-lieux."
+      - "En fin de cycle, les excédents sont réaffectés selon des règles collectivement définies : baisse temporaire des loyers, investissement dans l'espace commun, soutien à une autre structure du même réseau. Une fois par an, un mécanisme de péréquation, défini collectivement, permet d'équilibrer les budgets entre plusieurs structures associées dans la gestion du tiers-lieux."
     advantage: "l'occupation temporaire implique souvent des incertitudes sur les coûts et les ressources. Cascade permet de répartir équitablement les contributions selon les usages réels, d'agir sur les déséquilibres au fil du temps, et de transformer la gestion en un processus coopératif traçable."
   - icon: i-lucide-share-2
     title: Plateforme coopérative
@@ -181,7 +182,7 @@ cases:
       - "Un supermarché coopératif repose sur des achats groupés, une marge faible ou nulle, et une coopération active entre fournisseurs, membres et gestionnaires. Son défi principal : atteindre l'équilibre économique tout en garantissant une transparence totale sur les flux financiers. Avec Cascade, le modèle se renforce grâce à un système contributif intégré et régulier."
       - "Dans les premiers cycles, le prix des produits peut être ajusté pour tester le seuil d'équilibre : trop bas, il met en danger la viabilité ; trop haut, il compromet l'accessibilité. Cascade permet de calibrer ce seuil dynamiquement, cycle après cycle. Une fois l'équilibre atteint et la coopérative en vitesse de croisière, les prix peuvent être abaissés grâce à l'arrivée de nouveaux contributeurs-clients et aux effets d'échelle, tout en maintenant la stabilité financière."
       - "Une part du prix payé par les membres alimente une caisse de régulation. Celle-ci permet d'absorber les produits invendus, de soutenir les producteurs fragiles ou d'investir dans des infrastructures collectives (chambre froide, outils logistiques, etc.). En fin de mois, un cycle de régulation redistribue les excédents : bons d'achat pour les membres, baisse ponctuelle des prix ou soutien à des initiatives locales."
-    advantage: "Cascade permet non seulement de rendre visibles les flux économiques internes, mais aussi d'ajuster en temps réel l'équilibre du supermarché. Il offre une réponse concrète à la promesse coopérative : accessibilité, stabilité, solidarité et ancrage local."
+    advantage: "Cascade permet non seulement de rendre visibles les flux économiques internes, mais aussi d'ajuster l'équilibre du supermarché cycle après cycle. Il offre une réponse concrète à la promesse coopérative : accessibilité, stabilité, solidarité et ancrage local."
   - icon: i-lucide-music
     title: Meta label musical
     paragraphs:

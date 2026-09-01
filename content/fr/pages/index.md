@@ -5,9 +5,9 @@ description: Cascade aide les lieux, collectifs et organisations à gérer leurs
 
 ::hero
 ---
-headline: Gestion mutualisée par nature.
+headline: Pour une gestion alternative et non-lucrative.
 title: Votre modèle contributif dans un seul outil.
-description: "Définissez précisément vos propres règles de gestion, Cascade automatise le reste : contractualisation, avenants, souscription, facturation, paiement et gestion des ressources internes — sans lucrativité, par construction."
+description: "Définissez précisément vos propres règles de gestion, Cascade automatise le reste : contractualisation, avenants, souscription, facturation, paiement et gestion des ressources internes."
 primaryCtaLabel: Découvrir Cascade
 primaryCtaTo: /fonctionnalites
 secondaryCtaLabel: Demander une démo
@@ -17,7 +17,7 @@ secondaryCtaLabel: Demander une démo
 ::audience-callout
 ---
 headline: Pour qui ?
-title: "Cascade s'adresse aux organisations collectives — pas aux entreprises ordinaires."
+title: "Cascade s'adresse aux organisations collectives, pas aux entreprises ordinaires."
 description: "Associations, coopératives, collectifs informels, syndicats, tiers-lieux… si vous gérez des ressources collectivement, ce qui suit vous concerne."
 ctaLabel: Découvrir si Cascade est pour vous
 ctaTo: /pour-qui
@@ -47,7 +47,7 @@ symptoms:
     description: Partager une information fiable et à jour avec le collectif reste complexe.
   - icon: i-lucide-table
     title: Les modèles sont difficiles à adapter
-    description: Tarifs solidaires et contributions variables rentrent mal dans les outils classiques.
+    description: Tarifs solidaires et contributions variables rentrent mal dans les systèmes classiques.
 ---
 ::
 

@@ -7,7 +7,7 @@ description: Cascade aide les lieux, collectifs et organisations à gérer leurs
 ---
 headline: Gestion mutualisée par nature.
 title: Votre modèle contributif dans un seul outil.
-description: "Définissez précisément vos propres règles de gestion, Cascade automatise le reste : contractualisation, avenants, souscription, facturation, paiement et gestion des ressources internes."
+description: "Définissez précisément vos propres règles de gestion, Cascade automatise le reste : contractualisation, avenants, souscription, facturation, paiement et gestion des ressources internes — sans lucrativité, par construction."
 primaryCtaLabel: Découvrir Cascade
 primaryCtaTo: /fonctionnalites
 secondaryCtaLabel: Demander une démo

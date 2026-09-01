@@ -5,9 +5,9 @@ description: Cascade helps venues, collectives, and organizations manage their s
 
 ::hero
 ---
-headline: Shared management by nature.
+headline: For alternative, non-profit management.
 title: Your contribution model in a single tool.
-description: "Define your own management rules precisely, and Cascade automates the rest: contracts, amendments, subscriptions, invoicing, payment, and internal resource management — non-profit by design."
+description: "Define your own management rules precisely, and Cascade automates the rest: contracts, amendments, subscriptions, invoicing, payment, and internal resource management."
 primaryCtaLabel: Discover Cascade
 primaryCtaTo: /fonctionnalites
 secondaryCtaLabel: Request a demo

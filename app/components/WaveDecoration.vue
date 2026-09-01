@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<{
 // GPU's compositing tile size and cause an intermittent seam to flash during
 // the transform animation.
 const MIN_X = 4
-const MAX_X =12
+const MAX_X = 12
 const PERIOD = 700
 const REPEATS = 8
 const TOTAL = PERIOD * REPEATS
@@ -53,20 +53,32 @@ const OFFSET_3 = PERIOD * 0.30
     :class="side === 'left' ? 'left-0 side-left' : 'right-0 side-right scale-x-[-1]'"
     :style="{ '--wave-period': `${PERIOD}px` }"
   >
+    <!--
+      Each layer is its OWN top-level embedded <svg> (a normal replaced HTML
+      element, like an <img>) rather than a <path> animated with
+      `transform-box: fill-box` inside one shared <svg>. Animating shape
+      geometry inside an SVG needs fill-box to make the translation
+      unambiguous, but that property has a long history of spec churn and
+      inconsistent/expensive handling across browsers — including periodic
+      recomputation glitches that broke the wave shape for a second or two
+      every few seconds. A top-level <svg> has unambiguous border-box
+      transform behavior with no such recomputation, so the exact same
+      translate animation is cheap and stable here.
+    -->
     <svg
-      class="absolute inset-x-0 w-full"
-      :style="{ top: `-${PERIOD}px` }"
+      v-for="(layer, i) in [
+        { opacity: 0.18, offset: 0 },
+        { opacity: 0.28, offset: OFFSET_2 },
+        { opacity: 0.9, offset: OFFSET_3 }
+      ]"
+      :key="i"
+      class="wave-layer absolute inset-x-0 w-full"
+      :style="{ top: `-${PERIOD - layer.offset}px` }"
       :height="TOTAL"
       :viewBox="`0 0 ${MAX_X + 10} ${TOTAL}`"
       preserveAspectRatio="none"
     >
-      <path class="wave-layer wave-layer-1" :d="wavePath" fill="var(--ui-primary)" opacity="0.18" />
-      <g :transform="`translate(0, ${OFFSET_2})`">
-        <path class="wave-layer wave-layer-2" :d="wavePath" fill="var(--ui-primary)" opacity="0.28" />
-      </g>
-      <g :transform="`translate(0, ${OFFSET_3})`">
-        <path class="wave-layer wave-layer-3" :d="wavePath" fill="var(--ui-primary)" opacity="0.90" />
-      </g>
+      <path :d="wavePath" fill="var(--ui-primary)" :opacity="layer.opacity" />
     </svg>
   </div>
 </template>
@@ -74,12 +86,6 @@ const OFFSET_3 = PERIOD * 0.30
 <style scoped>
 .wave-layer {
   animation: cascade-wave-flow 16s linear infinite;
-  transform-box: fill-box;
-  /* Without this, the browser periodically demotes this layer from the GPU
-     compositor (it looks unchanged between the DOM's eyes between paints)
-     and has to re-promote + re-rasterize it mid-loop — visible as the wave
-     shape breaking up for a second or two at irregular intervals. Keeping
-     it permanently promoted avoids that repaint entirely. */
   will-change: transform;
   backface-visibility: hidden;
 }
@@ -91,13 +97,8 @@ const OFFSET_3 = PERIOD * 0.30
    periodically made the combined silhouette look flatter/boxier for a
    second or two. Left and right still run at different speeds from each
    other. */
-.side-left .wave-layer-1,
-.side-left .wave-layer-2,
-.side-left .wave-layer-3 { animation-duration: 9s; }
-
-.side-right .wave-layer-1,
-.side-right .wave-layer-2,
-.side-right .wave-layer-3 { animation-duration: 10.8s; }
+.side-left .wave-layer { animation-duration: 9s; }
+.side-right .wave-layer { animation-duration: 10.8s; }
 
 @keyframes cascade-wave-flow {
   0% { transform: translate3d(0, 0, 0); }

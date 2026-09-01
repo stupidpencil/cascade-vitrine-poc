@@ -42,8 +42,8 @@ const wavePath = buildPath()
 // Small phase offsets (a fraction of the period) so the layers blur
 // together into a soft, layered edge instead of crossing each other
 // like a braid.
-const OFFSET_2 = PERIOD * 0.07
-const OFFSET_3 = PERIOD * 0.14
+const OFFSET_2 = PERIOD * 0.15
+const OFFSET_3 = PERIOD * 0.30
 </script>
 
 <template>
@@ -65,7 +65,7 @@ const OFFSET_3 = PERIOD * 0.14
         <path class="wave-layer wave-layer-2" :d="wavePath" fill="var(--ui-primary)" opacity="0.28" />
       </g>
       <g :transform="`translate(0, ${OFFSET_3})`">
-        <path class="wave-layer wave-layer-3" :d="wavePath" fill="var(--ui-primary)" opacity="0.42" />
+        <path class="wave-layer wave-layer-3" :d="wavePath" fill="var(--ui-primary)" opacity="0.90" />
       </g>
     </svg>
   </div>
@@ -75,6 +75,13 @@ const OFFSET_3 = PERIOD * 0.14
 .wave-layer {
   animation: cascade-wave-flow 16s linear infinite;
   transform-box: fill-box;
+  /* Without this, the browser periodically demotes this layer from the GPU
+     compositor (it looks unchanged between the DOM's eyes between paints)
+     and has to re-promote + re-rasterize it mid-loop — visible as the wave
+     shape breaking up for a second or two at irregular intervals. Keeping
+     it permanently promoted avoids that repaint entirely. */
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* The 3 layers within a side share one duration on purpose: their spatial

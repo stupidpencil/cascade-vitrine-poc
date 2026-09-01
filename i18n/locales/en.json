@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "pourQui": "Who's it for?",
+    "fonctionnalites": "Features",
+    "contributionAdaptative": "Adaptive contribution",
+    "manifeste": "Manifesto",
+    "laFederation": "The federation",
+    "documentation": "Documentation",
+    "seConnecter": "Sign in",
+    "testerCascade": "Try Cascade"
+  },
+  "footer": {
+    "copyright": "© {year} Cascade — under the Coopyleft license."
+  },
+  "contactModal": {
+    "title": "Request a demo",
+    "description": "Tell us about your space or collective, we'll get back to you quickly.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "organizationLabel": "Organization",
+    "organizationPlaceholder": "Space, collective, cooperative…",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you{'@'}example.org",
+    "messageLabel": "Message",
+    "messagePlaceholder": "A few words about your needs…",
+    "submit": "Send request",
+    "toastTitle": "Thank you!",
+    "toastDescription": "Your request has been received, we'll get back to you shortly."
+  },
+  "error": {
+    "pageNotFound": "Page not found"
+  }
+}

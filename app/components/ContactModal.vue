@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const { isOpen } = useContactModal()
 const toast = useToast()
 
@@ -24,8 +25,8 @@ async function onSubmit() {
   submitting.value = false
   isOpen.value = false
   toast.add({
-    title: 'Merci !',
-    description: 'Votre demande a bien été reçue, nous vous répondrons rapidement.',
+    title: t('contactModal.toastTitle'),
+    description: t('contactModal.toastDescription'),
     color: 'success',
     icon: 'i-lucide-check'
   })
@@ -34,27 +35,27 @@ async function onSubmit() {
 </script>
 
 <template>
-  <UModal v-model:open="isOpen" title="Demander une démo" description="Parlez-nous de votre lieu ou collectif, nous revenons vers vous rapidement.">
+  <UModal v-model:open="isOpen" :title="t('contactModal.title')" :description="t('contactModal.description')">
     <template #body>
       <form class="flex flex-col gap-4" @submit.prevent="onSubmit">
-        <UFormField label="Nom" required>
-          <UInput v-model="state.name" placeholder="Votre nom" class="w-full" required />
+        <UFormField :label="t('contactModal.nameLabel')" required>
+          <UInput v-model="state.name" :placeholder="t('contactModal.namePlaceholder')" class="w-full" required />
         </UFormField>
 
-        <UFormField label="Organisation">
-          <UInput v-model="state.organization" placeholder="Lieu, collectif, coopérative…" class="w-full" />
+        <UFormField :label="t('contactModal.organizationLabel')">
+          <UInput v-model="state.organization" :placeholder="t('contactModal.organizationPlaceholder')" class="w-full" />
         </UFormField>
 
-        <UFormField label="Email" required>
-          <UInput v-model="state.email" type="email" placeholder="vous@exemple.org" class="w-full" required />
+        <UFormField :label="t('contactModal.emailLabel')" required>
+          <UInput v-model="state.email" type="email" :placeholder="t('contactModal.emailPlaceholder')" class="w-full" required />
         </UFormField>
 
-        <UFormField label="Message">
-          <UTextarea v-model="state.message" placeholder="Quelques mots sur votre besoin…" class="w-full" :rows="3" />
+        <UFormField :label="t('contactModal.messageLabel')">
+          <UTextarea v-model="state.message" :placeholder="t('contactModal.messagePlaceholder')" class="w-full" :rows="3" />
         </UFormField>
 
         <UButton type="submit" block :loading="submitting" trailing-icon="i-lucide-arrow-right">
-          Envoyer la demande
+          {{ t('contactModal.submit') }}
         </UButton>
       </form>
     </template>

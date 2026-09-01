@@ -1,24 +1,32 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
+const experimentsSchema = z.object({
+  organization: z.string(),
+  logo: z.string().optional(),
+  kind: z.string().optional(),
+  quote: z.string().optional(),
+  url: z.string().optional()
+})
+
 export default defineContentConfig({
   collections: {
-    pages: defineCollection({
+    pages_fr: defineCollection({
       type: 'page',
-      source: [
-        { include: 'index.md' },
-        { include: 'pages/**', prefix: '' }
-      ]
+      source: { include: 'fr/pages/**', prefix: '' }
     }),
-    experiments: defineCollection({
+    pages_en: defineCollection({
+      type: 'page',
+      source: { include: 'en/pages/**', prefix: '' }
+    }),
+    experiments_fr: defineCollection({
       type: 'data',
-      source: 'experiments/**.md',
-      schema: z.object({
-        organization: z.string(),
-        logo: z.string().optional(),
-        kind: z.string().optional(),
-        quote: z.string().optional(),
-        url: z.string().optional()
-      })
+      source: 'fr/experiments/**.md',
+      schema: experimentsSchema
+    }),
+    experiments_en: defineCollection({
+      type: 'data',
+      source: 'en/experiments/**.md',
+      schema: experimentsSchema
     })
   }
 })

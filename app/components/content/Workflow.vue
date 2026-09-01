@@ -19,6 +19,8 @@ const props = withDefaults(defineProps<{
 
 const firstRow = computed(() => props.steps.slice(0, 3))
 const secondRow = computed(() => props.steps.slice(3))
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -61,7 +63,7 @@ const secondRow = computed(() => props.steps.slice(3))
     </div>
 
     <div class="mt-10 flex justify-center">
-      <UButton :to="ctaTo" color="neutral" variant="subtle" trailing-icon="i-lucide-arrow-right">
+      <UButton :to="localePath(ctaTo ?? '/')" color="neutral" variant="subtle" trailing-icon="i-lucide-arrow-right">
         {{ ctaLabel }}
       </UButton>
     </div>

@@ -5,8 +5,11 @@ defineProps<{
   description?: string
 }>()
 
+const { locale } = useI18n()
+
 const { data: experiments } = await useAsyncData('experiments', () =>
-  queryCollection('experiments').all()
+  queryCollection(locale.value === 'en' ? 'experiments_en' : 'experiments_fr').all(),
+  { watch: [locale] }
 )
 </script>
 

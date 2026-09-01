@@ -6,6 +6,8 @@ defineProps<{
   ctaLabel?: string
   ctaTo?: string
 }>()
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -19,8 +21,8 @@ defineProps<{
         {{ description }}
       </div>
     </template>
-    <template #links>
-      <UButton :to="ctaTo" trailing-icon="i-lucide-arrow-right">
+    <template v-if="ctaTo" #links>
+      <UButton :to="localePath(ctaTo)" trailing-icon="i-lucide-arrow-right">
         {{ ctaLabel }}
       </UButton>
     </template>

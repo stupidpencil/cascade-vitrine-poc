@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "pourQui": "Pour qui ?",
+    "fonctionnalites": "Fonctionnalités",
+    "contributionAdaptative": "Contribution adaptative",
+    "manifeste": "Manifeste",
+    "laFederation": "La fédération",
+    "documentation": "Documentation",
+    "seConnecter": "Se connecter",
+    "testerCascade": "Tester Cascade"
+  },
+  "footer": {
+    "copyright": "© {year} Cascade — sous licence Coopyleft."
+  },
+  "contactModal": {
+    "title": "Demander une démo",
+    "description": "Parlez-nous de votre lieu ou collectif, nous revenons vers vous rapidement.",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Votre nom",
+    "organizationLabel": "Organisation",
+    "organizationPlaceholder": "Lieu, collectif, coopérative…",
+    "emailLabel": "Email",
+    "emailPlaceholder": "vous{'@'}exemple.org",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Quelques mots sur votre besoin…",
+    "submit": "Envoyer la demande",
+    "toastTitle": "Merci !",
+    "toastDescription": "Votre demande a bien été reçue, nous vous répondrons rapidement."
+  },
+  "error": {
+    "pageNotFound": "Page non trouvée"
+  }
+}

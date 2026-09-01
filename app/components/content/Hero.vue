@@ -9,6 +9,7 @@ defineProps<{
 }>()
 
 const { open: openContactModal } = useContactModal()
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -18,7 +19,7 @@ const { open: openContactModal } = useContactModal()
 
     <UPageHero :headline="headline" :title="title" :description="description" orientation="horizontal">
       <template #links>
-        <UButton v-if="primaryCtaTo" :to="primaryCtaTo" trailing-icon="i-lucide-arrow-right" size="lg">
+        <UButton v-if="primaryCtaTo" :to="localePath(primaryCtaTo)" trailing-icon="i-lucide-arrow-right" size="lg">
           {{ primaryCtaLabel }}
         </UButton>
         <UButton v-if="secondaryCtaLabel" color="neutral" variant="subtle" size="lg" @click="openContactModal">

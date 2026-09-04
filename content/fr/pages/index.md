@@ -66,7 +66,7 @@ features:
     description: Centraliser les souscriptions, les ressources et leurs conditions d'utilisation.
   - icon: i-lucide-hand-coins
     title: Contributions
-    description: Définir des contributions ponctuelles ou récurrentes, fixes ou adaptatives.
+    description: Définir des contributions ponctuelles ou récurrentes, fixes dès aujourd'hui.
   - icon: i-lucide-receipt-text
     title: Facturation
     description: Générer factures et avoirs et suivre leur état.
@@ -101,8 +101,8 @@ steps:
     automation: Avenant et nouvelle version générés automatiquement à chaque changement
   - icon: i-lucide-hand-coins
     label: Contribution
-    example: 'Ex : 340 € / mois + charges communes adaptatives'
-    automation: Recalculée automatiquement selon la formule adaptative
+    example: 'Ex : 340 € / mois + charges communes'
+    automation: Calculée automatiquement selon le modèle de souscription choisi
   - icon: i-lucide-receipt-text
     label: Facture
     example: 'Ex : Facture #2024-114 — La Filature Coop'

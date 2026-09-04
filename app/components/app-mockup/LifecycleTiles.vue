@@ -32,7 +32,10 @@ const tiles = [
 
         <template v-else-if="tile.label === 'Contribution'">
           <p class="text-sm font-medium text-highlighted">Charges communes</p>
-          <UBadge color="neutral" variant="subtle" size="sm" class="mt-1 w-fit">Adaptative</UBadge>
+          <div class="mt-1 flex flex-wrap gap-1.5">
+            <UBadge color="neutral" variant="subtle" size="sm">Adaptative</UBadge>
+            <UBadge color="warning" variant="subtle" size="sm">Bientôt disponible</UBadge>
+          </div>
           <p class="mt-3 text-2xl font-semibold text-highlighted">38 — 62 €</p>
           <p class="mt-1 text-xs text-muted">/ mois, selon les besoins réels</p>
         </template>

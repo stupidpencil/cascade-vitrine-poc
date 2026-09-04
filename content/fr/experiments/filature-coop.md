@@ -1,5 +1,5 @@
 ---
 organization: La Filature Coop
 kind: Coopérative d'ateliers partagés
-quote: "La contribution adaptative correspond enfin à la façon dont on avait envie de répartir les charges entre membres."
+quote: "On a hâte que la contribution adaptative arrive — en attendant, avoir enfin les souscriptions, les contrats et les contributions au même endroit change déjà tout."
 ---

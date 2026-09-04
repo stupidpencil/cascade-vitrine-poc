@@ -71,6 +71,19 @@ function onPointerDown(event: PointerEvent) {
 
 <template>
   <div class="w-full rounded-xl border border-default bg-default p-4 sm:p-8">
+    <!--
+      The bar columns below are bottom-aligned (items-end) inside a box
+      exactly `containerHeight` tall, but each column's content (label +
+      gap + full-height bar) is taller than that box — so the label
+      overflows above the box's top edge by design. mb-10 clears that
+      overflow (verified against its actual rendered position) rather
+      than just leaving a small gap that looks fine in code but overlaps
+      on screen.
+    -->
+    <div class="mb-10 flex justify-center">
+      <UBadge color="warning" variant="subtle" size="sm">Bientôt disponible</UBadge>
+    </div>
+
     <div ref="containerRef" class="relative mx-auto" :style="{ height: `${containerHeight}px`, maxWidth: '480px' }">
       <div class="absolute inset-0 flex items-end justify-center gap-16 sm:gap-24">
         <div class="flex flex-col items-center gap-3">

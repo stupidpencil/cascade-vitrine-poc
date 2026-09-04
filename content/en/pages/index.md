@@ -66,7 +66,7 @@ features:
     description: Centralize subscriptions, resources, and their terms of use.
   - icon: i-lucide-hand-coins
     title: Contributions
-    description: Set up one-time or recurring contributions, fixed or adaptive.
+    description: Set up one-time or recurring contributions, fixed as of today.
   - icon: i-lucide-receipt-text
     title: Invoicing
     description: Generate invoices and credit notes and track their status.
@@ -101,8 +101,8 @@ steps:
     automation: Amendment and new version automatically generated with every change
   - icon: i-lucide-hand-coins
     label: Contribution
-    example: 'E.g.: 340 € / month + adaptive shared costs'
-    automation: Automatically recalculated according to the adaptive formula
+    example: 'E.g.: 340 € / month + shared costs'
+    automation: Automatically calculated according to the chosen subscription model
   - icon: i-lucide-receipt-text
     label: Invoice
     example: 'E.g.: Invoice #2024-114 — La Filature Coop'

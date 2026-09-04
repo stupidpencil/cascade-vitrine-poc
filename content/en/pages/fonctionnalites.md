@@ -46,13 +46,13 @@ lots:
     automation: A new amendment and a new version are generated automatically with every change, with no re-entry — plus bulk import to onboard large volumes of subscribers at once.
   - icon: i-lucide-hand-coins
     title: Contributions
-    description: Define one-off or recurring contributions, fixed or adaptive, per resource or per occupant.
+    description: Define one-off or recurring contributions, fixed as of today, per resource or per occupant.
     mockup: contributions
     features:
       - Contribution scale by resource
-      - Adaptive contribution based on collective rules
+      - "Adaptive contribution based on collective rules (coming soon)"
       - History of adjustments
-    automation: Automatic recalculation of each contribution according to the adaptive formula chosen by the collective.
+    automation: Automatic recalculation of each contribution according to the rule chosen by the collective.
   - icon: i-lucide-receipt-text
     title: Invoicing
     description: Generate the invoices and credit notes arising from subscriptions and contributions, and track their status.

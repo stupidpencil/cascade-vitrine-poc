@@ -46,13 +46,13 @@ lots:
     automation: Nouvel avenant et nouvelle version générés automatiquement à chaque changement, sans ressaisie — avec import en masse pour intégrer de gros volumes de souscripteurs d'un coup.
   - icon: i-lucide-hand-coins
     title: Contributions
-    description: Définir des contributions ponctuelles ou récurrentes, fixes ou adaptatives, par ressource ou par occupant.
+    description: Définir des contributions ponctuelles ou récurrentes, fixes dès aujourd'hui, par ressource ou par occupant.
     mockup: contributions
     features:
       - Grille de contribution par ressource
-      - Contribution adaptative selon des règles collectives
+      - "Contribution adaptative selon des règles collectives (bientôt disponible)"
       - Historique des ajustements
-    automation: Recalcul automatique de chaque contribution selon la formule adaptative choisie par le collectif.
+    automation: Recalcul automatique de chaque contribution selon la règle choisie par le collectif.
   - icon: i-lucide-receipt-text
     title: Facturation
     description: Générer les factures et avoirs qui découlent des souscriptions et contributions, et suivre leur statut.

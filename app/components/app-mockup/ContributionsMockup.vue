@@ -75,7 +75,10 @@ const data = computed(() => DATA[scenario.value])
       >
         <div class="min-w-0">
           <p class="truncate text-sm font-medium text-highlighted">{{ item.label }}</p>
-          <UBadge color="neutral" variant="subtle" size="sm" class="mt-1">{{ item.type }}</UBadge>
+          <div class="mt-1 flex flex-wrap gap-1.5">
+            <UBadge color="neutral" variant="subtle" size="sm">{{ item.type }}</UBadge>
+            <UBadge v-if="item.type === 'Adaptative'" color="warning" variant="subtle" size="sm">Bientôt disponible</UBadge>
+          </div>
         </div>
         <p class="shrink-0 text-sm text-muted">
           <span class="font-medium text-highlighted">{{ item.amount }}</span> {{ item.period }}

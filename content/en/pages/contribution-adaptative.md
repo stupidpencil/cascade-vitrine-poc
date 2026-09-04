@@ -85,8 +85,6 @@ examples:
 ---
 title: Do you manage a space or resources collectively?
 description: Find out if Cascade can meet your needs.
-primaryCtaLabel: Try Cascade
-primaryCtaTo: /fonctionnalites
-secondaryCtaLabel: Contact us
+ctaLabel: Request a demo
 ---
 ::

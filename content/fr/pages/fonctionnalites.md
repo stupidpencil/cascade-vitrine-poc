@@ -88,8 +88,6 @@ lots:
 ---
 title: Vous gérez un lieu ou des ressources collectivement ?
 description: Découvrez si Cascade peut répondre à vos besoins.
-primaryCtaLabel: Tester Cascade
-primaryCtaTo: /fonctionnalites
-secondaryCtaLabel: Nous contacter
+ctaLabel: Demander une démo
 ---
 ::

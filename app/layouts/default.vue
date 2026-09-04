@@ -12,6 +12,8 @@ const links = computed(() => [
   { label: t('nav.documentation'), to: 'https://github.com/cascade-coop', target: '_blank' }
 ])
 
+const { open: openContactModal } = useContactModal()
+
 const otherLocale = computed(() => locales.value.find(l => l.code !== locale.value))
 
 // useSwitchLocalePath() relies on named per-page routes to match locales,
@@ -46,10 +48,10 @@ const otherLocalePath = computed(() => {
           {{ otherLocale.code }}
         </UButton>
         <UColorModeButton class="hidden sm:flex" />
-        <UButton :to="localePath('/fonctionnalites')" color="neutral" variant="ghost" class="hidden whitespace-nowrap sm:flex">
+        <UButton to="https://app.cascade.coop/login" external color="neutral" variant="ghost" class="hidden whitespace-nowrap sm:flex">
           {{ t('nav.seConnecter') }}
         </UButton>
-        <UButton :to="localePath('/fonctionnalites')" trailing-icon="i-lucide-arrow-right" class="whitespace-nowrap">
+        <UButton trailing-icon="i-lucide-arrow-right" class="whitespace-nowrap" @click="openContactModal">
           {{ t('nav.testerCascade') }}
         </UButton>
       </template>

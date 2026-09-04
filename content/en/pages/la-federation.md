@@ -68,8 +68,6 @@ description: ''
 ---
 title: Have a question or a project?
 description: Write to us to talk about it.
-primaryCtaLabel: Try Cascade
-primaryCtaTo: /fonctionnalites
-secondaryCtaLabel: Contact us
+ctaLabel: Request a demo
 ---
 ::

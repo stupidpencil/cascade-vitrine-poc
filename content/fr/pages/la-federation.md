@@ -68,8 +68,6 @@ description: ''
 ---
 title: Une question, un projet ?
 description: Écrivez-nous pour en discuter.
-primaryCtaLabel: Tester Cascade
-primaryCtaTo: /fonctionnalites
-secondaryCtaLabel: Nous contacter
+ctaLabel: Demander une démo
 ---
 ::

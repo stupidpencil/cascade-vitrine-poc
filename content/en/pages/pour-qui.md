@@ -86,8 +86,6 @@ features:
 ---
 title: Do you manage a collective organization?
 description: Find out how Cascade can adapt to the way you work.
-primaryCtaLabel: Try Cascade
-primaryCtaTo: /fonctionnalites
-secondaryCtaLabel: Contact us
+ctaLabel: Request a demo
 ---
 ::

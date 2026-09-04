@@ -86,8 +86,6 @@ features:
 ---
 title: Vous gérez une organisation collective ?
 description: Découvrez comment Cascade peut s'adapter à votre fonctionnement.
-primaryCtaLabel: Tester Cascade
-primaryCtaTo: /fonctionnalites
-secondaryCtaLabel: Nous contacter
+ctaLabel: Demander une démo
 ---
 ::

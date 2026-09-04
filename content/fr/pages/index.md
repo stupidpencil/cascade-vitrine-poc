@@ -8,9 +8,7 @@ description: Cascade aide les lieux, collectifs et organisations à gérer leurs
 headline: Pour une gestion alternative et non-lucrative.
 title: Votre modèle contributif dans un seul outil.
 description: "Définissez précisément vos propres règles de gestion, Cascade automatise le reste : contractualisation, avenants, souscription, facturation, paiement et gestion des ressources internes."
-primaryCtaLabel: Découvrir Cascade
-primaryCtaTo: /fonctionnalites
-secondaryCtaLabel: Demander une démo
+ctaLabel: Demander une démo
 ---
 ::
 
@@ -153,8 +151,6 @@ linkLabel: Voir le code sur GitHub
 ---
 title: Vous gérez un lieu ou des ressources collectivement ?
 description: Découvrez si Cascade peut répondre à vos besoins.
-primaryCtaLabel: Tester Cascade
-primaryCtaTo: /fonctionnalites
-secondaryCtaLabel: Nous contacter
+ctaLabel: Demander une démo
 ---
 ::

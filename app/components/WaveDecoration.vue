@@ -8,36 +8,26 @@ const props = withDefaults(defineProps<{
 // The wave oscillates between MIN_X (closest to the screen edge) and MAX_X
 // (closest to the page content), over a tall, gentle PERIOD — a big swing
 // relative to a long period reads as an ample, sweeping curve rather than
-// a tight wiggle. The shape is repeated REPEATS times back to back (each
-// period starts and ends at MAX_X, so the seams are invisible), tall enough
-// that looping the flow animation by exactly one period never exposes an edge.
-// This decoration only ever needs to cover the hero section's own height
-// (it's clipped to its parent, not the full page), so REPEATS just needs a
-// comfortable margin above any realistic hero height — keep it small: an
-// oversized SVG (e.g. the previous 100 repeats, 70000px tall) can exceed the
-// GPU's compositing tile size and cause an intermittent seam to flash during
-// the transform animation.
+// a tight wiggle. REPEATS tiles copy of that one period back to back
+// (via <use>, not by duplicating the path data) to cover a comfortable
+// margin above any realistic hero height, so looping the flow animation
+// by exactly one period never exposes an edge.
 const MIN_X = 4
 const MAX_X = 12
 const PERIOD = 700
 const REPEATS = 8
 const TOTAL = PERIOD * REPEATS
+const TILES = Array.from({ length: REPEATS }, (_, i) => i * PERIOD)
 
-function buildPath() {
+function buildUnitPath() {
   const half = PERIOD / 2
   const c1 = Math.round(half * 0.341)
   const c2 = Math.round(half * 0.659)
-  let d = `M0 0 L${MAX_X} 0`
-  for (let i = 0; i < REPEATS; i++) {
-    const o = i * PERIOD
-    d += ` C${MAX_X} ${o + c1} ${MIN_X} ${o + c2} ${MIN_X} ${o + half}`
-    d += ` C${MIN_X} ${o + half + c1} ${MAX_X} ${o + half + c2} ${MAX_X} ${o + PERIOD}`
-  }
-  d += ` L0 ${TOTAL} Z`
-  return d
+  return `M0 0 L${MAX_X} 0 C${MAX_X} ${c1} ${MIN_X} ${c2} ${MIN_X} ${half} C${MIN_X} ${half + c1} ${MAX_X} ${half + c2} ${MAX_X} ${PERIOD} L0 ${PERIOD} Z`
 }
 
-const wavePath = buildPath()
+const unitPath = buildUnitPath()
+const unitId = `cascade-wave-unit-${props.side}`
 
 // Small phase offsets (a fraction of the period) so the layers blur
 // together into a soft, layered edge instead of crossing each other
@@ -54,31 +44,36 @@ const OFFSET_3 = PERIOD * 0.30
     :style="{ '--wave-period': `${PERIOD}px` }"
   >
     <!--
-      Each layer is its OWN top-level embedded <svg> (a normal replaced HTML
-      element, like an <img>) rather than a <path> animated with
-      `transform-box: fill-box` inside one shared <svg>. Animating shape
-      geometry inside an SVG needs fill-box to make the translation
-      unambiguous, but that property has a long history of spec churn and
-      inconsistent/expensive handling across browsers — including periodic
-      recomputation glitches that broke the wave shape for a second or two
-      every few seconds. A top-level <svg> has unambiguous border-box
-      transform behavior with no such recomputation, so the exact same
-      translate animation is cheap and stable here.
+      A single shared <path> definition (one period of the curve), tiled
+      REPEATS times via <use> — geometry is defined once and referenced,
+      never duplicated — and the WHOLE <svg> is the one animated element
+      per side (not the paths/layers inside it), so there's exactly one
+      GPU-composited surface and one running animation per side. Earlier
+      versions animated 3 (or, briefly, 3×2) separate large elements per
+      side; whichever one the browser had to re-synchronize under memory
+      pressure would visibly snap back mid-loop for a couple of frames
+      while the others kept going. With only one animated element per
+      side, that failure mode has nowhere left to happen.
     -->
     <svg
-      v-for="(layer, i) in [
-        { opacity: 0.18, offset: 0 },
-        { opacity: 0.28, offset: OFFSET_2 },
-        { opacity: 0.9, offset: OFFSET_3 }
-      ]"
-      :key="i"
       class="wave-layer absolute inset-x-0 w-full"
-      :style="{ top: `-${PERIOD - layer.offset}px` }"
+      :style="{ top: `-${PERIOD}px` }"
       :height="TOTAL"
       :viewBox="`0 0 ${MAX_X + 10} ${TOTAL}`"
       preserveAspectRatio="none"
     >
-      <path :d="wavePath" fill="var(--ui-primary)" :opacity="layer.opacity" />
+      <defs>
+        <path :id="unitId" :d="unitPath" />
+      </defs>
+      <g fill="var(--ui-primary)" opacity="0.18">
+        <use v-for="y in TILES" :key="y" :href="`#${unitId}`" :y="y" />
+      </g>
+      <g fill="var(--ui-primary)" opacity="0.28" :transform="`translate(0, ${OFFSET_2})`">
+        <use v-for="y in TILES" :key="y" :href="`#${unitId}`" :y="y" />
+      </g>
+      <g fill="var(--ui-primary)" opacity="0.9" :transform="`translate(0, ${OFFSET_3})`">
+        <use v-for="y in TILES" :key="y" :href="`#${unitId}`" :y="y" />
+      </g>
     </svg>
   </div>
 </template>
@@ -90,13 +85,6 @@ const OFFSET_3 = PERIOD * 0.30
   backface-visibility: hidden;
 }
 
-/* The 3 layers within a side share one duration on purpose: their spatial
-   offsets (OFFSET_2/OFFSET_3) already create the soft layered blend, and
-   keeping that relative phase FIXED avoids a "beat" effect where layers
-   moving at different speeds drift in and out of alignment — which
-   periodically made the combined silhouette look flatter/boxier for a
-   second or two. Left and right still run at different speeds from each
-   other. */
 .side-left .wave-layer { animation-duration: 9s; }
 .side-right .wave-layer { animation-duration: 10.8s; }
 

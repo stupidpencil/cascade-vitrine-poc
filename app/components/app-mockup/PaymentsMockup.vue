@@ -1,41 +1,48 @@
 <script setup lang="ts">
 type Row = { label: string, org: string, date: string, status: string, color: 'success' | 'warning', icon: string }
 
-const DATA: Record<FeatureScenarioKey, Row[]> = {
+// Row color/icon are purely visual and stay out of i18n — text content lives
+// in i18n/locales/{fr,en}.json under mockups.paymentsMockup.<scenario>.
+const ROW_VISUALS: Record<FeatureScenarioKey, Pick<Row, 'color' | 'icon'>[]> = {
   'tiers-lieux': [
-    { label: 'Prélèvement SEPA', org: 'Atelier Nomade — 340 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-landmark' },
-    { label: 'Virement', org: 'La Filature Coop — 480 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-arrow-left-right' },
-    { label: 'Carte bancaire', org: 'Studio Kerne — 260 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-credit-card' }
+    { color: 'success', icon: 'i-lucide-landmark' },
+    { color: 'success', icon: 'i-lucide-arrow-left-right' },
+    { color: 'warning', icon: 'i-lucide-credit-card' }
   ],
   cooperatives: [
-    { label: 'Virement', org: 'Lucas Martin — 50 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-arrow-left-right' },
-    { label: 'Prélèvement SEPA', org: 'Atelier Nomade — 150 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-landmark' },
-    { label: 'Espèces', org: 'Sophie Dubois — 50 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-banknote' }
+    { color: 'success', icon: 'i-lucide-arrow-left-right' },
+    { color: 'success', icon: 'i-lucide-landmark' },
+    { color: 'warning', icon: 'i-lucide-banknote' }
   ],
   ateliers: [
-    { label: 'Carte bancaire', org: 'Marie Petit — 18 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-credit-card' },
-    { label: 'Prélèvement SEPA', org: 'Thomas Roy — 24 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-landmark' },
-    { label: 'Espèces', org: 'Léa Fontaine — 30 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-banknote' }
+    { color: 'success', icon: 'i-lucide-credit-card' },
+    { color: 'success', icon: 'i-lucide-landmark' },
+    { color: 'warning', icon: 'i-lucide-banknote' }
   ],
   amap: [
-    { label: 'Prélèvement SEPA', org: 'Famille Nguyen — 18 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-landmark' },
-    { label: 'Espèces', org: 'Camille Vidal — 24 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-banknote' },
-    { label: 'Virement', org: 'Marc Aubert — 12 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-arrow-left-right' }
+    { color: 'success', icon: 'i-lucide-landmark' },
+    { color: 'success', icon: 'i-lucide-banknote' },
+    { color: 'warning', icon: 'i-lucide-arrow-left-right' }
   ],
   creche: [
-    { label: 'Prélèvement SEPA', org: 'Famille Haddad — 780 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-landmark' },
-    { label: 'Virement', org: 'Famille Rousseau — 480 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-arrow-left-right' },
-    { label: 'Carte bancaire', org: 'Famille Morel — 320 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-credit-card' }
+    { color: 'success', icon: 'i-lucide-landmark' },
+    { color: 'success', icon: 'i-lucide-arrow-left-right' },
+    { color: 'warning', icon: 'i-lucide-credit-card' }
   ],
   fanfare: [
-    { label: 'Virement', org: 'Nora Benali — 90 €', date: '05 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-arrow-left-right' },
-    { label: 'Espèces', org: 'Julien Costa — 70 €', date: '03 mars', status: 'Rapproché', color: 'success', icon: 'i-lucide-banknote' },
-    { label: 'Prélèvement SEPA', org: 'Inès Lambert — 110 €', date: 'En attente', status: 'À rapprocher', color: 'warning', icon: 'i-lucide-landmark' }
+    { color: 'success', icon: 'i-lucide-arrow-left-right' },
+    { color: 'success', icon: 'i-lucide-banknote' },
+    { color: 'warning', icon: 'i-lucide-landmark' }
   ]
 }
 
+const { t, tm, rt } = useI18n()
 const scenario = useFeatureScenario()
-const rows = computed(() => DATA[scenario.value])
+const rows = computed(() => {
+  const entries = resolveI18nMessages<Omit<Row, 'color' | 'icon'>[]>(tm(`mockups.paymentsMockup.${scenario.value}`), rt)
+  const visuals = ROW_VISUALS[scenario.value]
+  return entries.map((row, i) => ({ ...row, ...visuals[i] }))
+})
 </script>
 
 <template>
@@ -44,11 +51,11 @@ const rows = computed(() => DATA[scenario.value])
       <span class="size-2.5 rounded-full bg-error/60" />
       <span class="size-2.5 rounded-full bg-warning/60" />
       <span class="size-2.5 rounded-full bg-success/60" />
-      <span class="ml-3 text-xs text-dimmed">cascade.coop — Paiements</span>
+      <span class="ml-3 text-xs text-dimmed">cascade.coop — {{ t('mockups.paymentsMockup.windowTitle') }}</span>
     </div>
 
     <div class="flex flex-col gap-4 p-4 sm:p-6">
-      <p class="text-sm font-medium text-highlighted">Paiements reçus — cette semaine</p>
+      <p class="text-sm font-medium text-highlighted">{{ t('mockups.paymentsMockup.headline') }}</p>
 
       <div class="flex flex-col gap-2">
         <div

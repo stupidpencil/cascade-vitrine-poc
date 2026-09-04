@@ -1,69 +1,10 @@
 <script setup lang="ts">
-const DATA: Record<FeatureScenarioKey, { title: string, subtitle: string, rules: { label: string, value: string }[] }> = {
-  'tiers-lieux': {
-    title: 'Bureau partagé',
-    subtitle: 'Appliqué à 12 souscriptions actives',
-    rules: [
-      { label: 'Récurrence', value: 'Mensuelle' },
-      { label: 'Montant', value: 'Paramétré — 340 €' },
-      { label: 'Facturation', value: 'Par facture' },
-      { label: 'Adhésion', value: 'Contrat + avenant automatique' }
-    ]
-  },
-  cooperatives: {
-    title: 'Part sociale coopérateur',
-    subtitle: 'Appliqué à 34 souscriptions actives',
-    rules: [
-      { label: 'Récurrence', value: 'Annuelle' },
-      { label: 'Montant', value: 'Fixé — 50 €' },
-      { label: 'Facturation', value: 'Par facture' },
-      { label: 'Adhésion', value: 'Adhésion simple' }
-    ]
-  },
-  ateliers: {
-    title: 'Adhésion atelier',
-    subtitle: 'Appliqué à 27 souscriptions actives',
-    rules: [
-      { label: 'Récurrence', value: 'Mensuelle' },
-      { label: 'Montant', value: 'Paramétré — 25 €' },
-      { label: 'Facturation', value: 'Par notification' },
-      { label: 'Adhésion', value: 'Adhésion + avenant' }
-    ]
-  },
-  amap: {
-    title: 'Panier légumes hebdo',
-    subtitle: 'Appliqué à 45 souscriptions actives',
-    rules: [
-      { label: 'Récurrence', value: 'Hebdomadaire' },
-      { label: 'Montant', value: 'Adaptatif — 12 à 24 €' },
-      { label: 'Facturation', value: 'Par prélèvement' },
-      { label: 'Adhésion', value: 'Charte + engagement saison' }
-    ]
-  },
-  creche: {
-    title: 'Accueil régulier',
-    subtitle: 'Appliqué à 16 souscriptions actives',
-    rules: [
-      { label: 'Récurrence', value: 'Mensuelle' },
-      { label: 'Montant', value: 'Paramétré — 480 €' },
-      { label: 'Facturation', value: 'Par facture' },
-      { label: 'Adhésion', value: 'Contrat + tour de garde parental' }
-    ]
-  },
-  fanfare: {
-    title: 'Cotisation musicien',
-    subtitle: 'Appliqué à 28 souscriptions actives',
-    rules: [
-      { label: 'Récurrence', value: 'Annuelle' },
-      { label: 'Montant', value: 'Paramétré — 90 €' },
-      { label: 'Facturation', value: 'Par facture' },
-      { label: 'Adhésion', value: 'Adhésion + charte du groupe' }
-    ]
-  }
-}
+type Rule = { label: string, value: string }
+type SubscriptionData = { title: string, subtitle: string, rules: Rule[] }
 
+const { t, tm, rt } = useI18n()
 const scenario = useFeatureScenario()
-const data = computed(() => DATA[scenario.value])
+const data = computed(() => resolveI18nMessages<SubscriptionData>(tm(`mockups.subscriptionModelMockup.${scenario.value}`), rt))
 </script>
 
 <template>
@@ -72,7 +13,7 @@ const data = computed(() => DATA[scenario.value])
       <span class="size-2.5 rounded-full bg-error/60" />
       <span class="size-2.5 rounded-full bg-warning/60" />
       <span class="size-2.5 rounded-full bg-success/60" />
-      <span class="ml-3 text-xs text-dimmed">cascade.coop — Modèles de souscription</span>
+      <span class="ml-3 text-xs text-dimmed">{{ t('mockups.subscriptionModelMockup.windowTitle') }}</span>
     </div>
 
     <div class="flex flex-col gap-4 p-4 sm:p-6">

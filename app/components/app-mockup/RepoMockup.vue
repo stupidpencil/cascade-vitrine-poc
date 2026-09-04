@@ -1,9 +1,11 @@
 <script setup lang="ts">
-const stats = [
-  { icon: 'i-lucide-star', label: 'Stars', value: '128' },
-  { icon: 'i-lucide-git-fork', label: 'Forks', value: '24' },
-  { icon: 'i-lucide-scale', label: 'Licence', value: 'Coopyleft' }
-]
+const { t } = useI18n()
+
+const stats = computed(() => [
+  { icon: 'i-lucide-star', label: t('mockups.repoMockup.stats.stars'), value: '128' },
+  { icon: 'i-lucide-git-fork', label: t('mockups.repoMockup.stats.forks'), value: '24' },
+  { icon: 'i-lucide-scale', label: t('mockups.repoMockup.stats.license'), value: 'Coopyleft' }
+])
 </script>
 
 <template>
@@ -22,7 +24,7 @@ const stats = [
       </div>
 
       <p class="text-sm text-muted">
-        Infrastructure numérique pour la gestion collective de ressources — contrats, contributions, facturation, paiements.
+        {{ t('mockups.repoMockup.description') }}
       </p>
 
       <div class="flex flex-wrap items-center gap-4">
@@ -36,7 +38,7 @@ const stats = [
       <div class="flex flex-wrap gap-2">
         <UBadge color="neutral" variant="subtle" size="sm">TypeScript</UBadge>
         <UBadge color="neutral" variant="subtle" size="sm">Laravel</UBadge>
-        <UBadge color="neutral" variant="subtle" size="sm">Contributions bienvenues</UBadge>
+        <UBadge color="neutral" variant="subtle" size="sm">{{ t('mockups.repoMockup.contributionsWelcome') }}</UBadge>
       </div>
     </div>
   </div>

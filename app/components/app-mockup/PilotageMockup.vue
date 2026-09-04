@@ -1,65 +1,23 @@
 <script setup lang="ts">
 type Stat = { label: string, value: string }
 
-const DATA: Record<FeatureScenarioKey, { stats: Stat[], bars: number[] }> = {
-  'tiers-lieux': {
-    stats: [
-      { label: 'Ressources actives', value: '12' },
-      { label: 'Taux d’occupation', value: '92 %' },
-      { label: 'Contributions / mois', value: '4 280 €' },
-      { label: 'Factures en attente', value: '2' }
-    ],
-    bars: [40, 55, 48, 62, 58, 70]
-  },
-  cooperatives: {
-    stats: [
-      { label: 'Coopérateurs actifs', value: '34' },
-      { label: 'Taux de participation', value: '88 %' },
-      { label: 'Contributions / mois', value: '1 950 €' },
-      { label: 'Factures en attente', value: '3' }
-    ],
-    bars: [30, 42, 38, 50, 46, 55]
-  },
-  ateliers: {
-    stats: [
-      { label: 'Membres actifs', value: '27' },
-      { label: 'Taux d’usage des établis', value: '81 %' },
-      { label: 'Contributions / mois', value: '860 €' },
-      { label: 'Factures en attente', value: '1' }
-    ],
-    bars: [20, 28, 25, 33, 30, 38]
-  },
-  amap: {
-    stats: [
-      { label: 'Adhérents actifs', value: '45' },
-      { label: 'Taux de retrait paniers', value: '96 %' },
-      { label: 'Contributions / semaine', value: '620 €' },
-      { label: 'Factures en attente', value: '2' }
-    ],
-    bars: [35, 40, 38, 44, 42, 48]
-  },
-  creche: {
-    stats: [
-      { label: 'Familles actives', value: '16' },
-      { label: 'Taux d’occupation', value: '94 %' },
-      { label: 'Contributions / mois', value: '6 100 €' },
-      { label: 'Factures en attente', value: '1' }
-    ],
-    bars: [50, 58, 55, 63, 60, 68]
-  },
-  fanfare: {
-    stats: [
-      { label: 'Musiciens actifs', value: '28' },
-      { label: 'Taux d’usage du local', value: '83 %' },
-      { label: 'Contributions / mois', value: '540 €' },
-      { label: 'Factures en attente', value: '2' }
-    ],
-    bars: [25, 30, 28, 34, 31, 36]
-  }
+// Pure chart data with no linguistic content — kept out of the translation
+// files. Only the `stats` labels/values below are routed through i18n.
+const BARS: Record<FeatureScenarioKey, number[]> = {
+  'tiers-lieux': [40, 55, 48, 62, 58, 70],
+  cooperatives: [30, 42, 38, 50, 46, 55],
+  ateliers: [20, 28, 25, 33, 30, 38],
+  amap: [35, 40, 38, 44, 42, 48],
+  creche: [50, 58, 55, 63, 60, 68],
+  fanfare: [25, 30, 28, 34, 31, 36]
 }
 
+const { t, tm, rt } = useI18n()
 const scenario = useFeatureScenario()
-const data = computed(() => DATA[scenario.value])
+const data = computed(() => ({
+  stats: resolveI18nMessages<Stat[]>(tm(`mockups.pilotageMockup.${scenario.value}.stats`), rt),
+  bars: BARS[scenario.value]
+}))
 </script>
 
 <template>
@@ -68,7 +26,7 @@ const data = computed(() => DATA[scenario.value])
       <span class="size-2.5 rounded-full bg-error/60" />
       <span class="size-2.5 rounded-full bg-warning/60" />
       <span class="size-2.5 rounded-full bg-success/60" />
-      <span class="ml-3 text-xs text-dimmed">cascade.coop — Pilotage</span>
+      <span class="ml-3 text-xs text-dimmed">cascade.coop — {{ t('mockups.pilotageMockup.windowTitle') }}</span>
     </div>
 
     <div class="flex flex-col gap-4 p-4 sm:p-6">
@@ -80,7 +38,7 @@ const data = computed(() => DATA[scenario.value])
       </div>
 
       <div class="rounded-lg border border-default p-3">
-        <p class="text-xs text-muted">Contributions perçues — 6 derniers mois</p>
+        <p class="text-xs text-muted">{{ t('mockups.pilotageMockup.chartCaption') }}</p>
         <div class="mt-3 flex items-end gap-2">
           <div
             v-for="(h, i) in data.bars"

@@ -5,6 +5,8 @@ interface Contributor {
   amount: number
 }
 
+const { t, locale } = useI18n()
+
 const props = withDefaults(defineProps<{
   contributors?: Contributor[]
   initialObjective?: number
@@ -22,11 +24,23 @@ const props = withDefaults(defineProps<{
     { name: 'Chloé', color: '#a855f7', amount: 39 }
   ],
   initialObjective: 145,
-  minRatio: 0.25,
-  conventionalLabel: 'Système conventionnel',
-  cascadeLabel: 'Système Cascade',
-  hint: 'Vous pouvez ajuster la ligne d’objectif en la faisant glisser'
+  minRatio: 0.25
 })
+
+// No hardcoded French default here anymore — conventionalLabel/cascadeLabel/hint
+// fall back to the translated copy whenever the caller doesn't override them.
+const conventionalLabelText = computed(() => props.conventionalLabel || t('mockups.adaptiveContributionDiagram.conventionalLabel'))
+const cascadeLabelText = computed(() => props.cascadeLabel || t('mockups.adaptiveContributionDiagram.cascadeLabel'))
+const hintText = computed(() => props.hint || t('mockups.adaptiveContributionDiagram.hint'))
+
+// fr-FR/en-US number grouping differ (e.g. decimal comma vs point), and the
+// € sign sits on the opposite side of the amount in English — so amounts are
+// formatted per-locale rather than always as fr-FR.
+const numberLocale = computed(() => (locale.value === 'en' ? 'en-US' : 'fr-FR'))
+function formatAmount(n: number) {
+  const formatted = n.toLocaleString(numberLocale.value)
+  return locale.value === 'en' ? `€${formatted}` : `${formatted} €`
+}
 
 const total = computed(() => props.contributors.reduce((sum, c) => sum + c.amount, 0))
 const minObjective = computed(() => Math.round(total.value * props.minRatio))
@@ -81,13 +95,13 @@ function onPointerDown(event: PointerEvent) {
       on screen.
     -->
     <div class="mb-10 flex justify-center">
-      <UBadge color="warning" variant="subtle" size="sm">Bientôt disponible</UBadge>
+      <UBadge color="warning" variant="subtle" size="sm">{{ t('mockups.adaptiveContributionDiagram.comingSoon') }}</UBadge>
     </div>
 
     <div ref="containerRef" class="relative mx-auto" :style="{ height: `${containerHeight}px`, maxWidth: '480px' }">
       <div class="absolute inset-0 flex items-end justify-center gap-16 sm:gap-24">
         <div class="flex flex-col items-center gap-3">
-          <p class="text-xs font-medium text-muted sm:text-sm">{{ conventionalLabel }}</p>
+          <p class="text-xs font-medium text-muted sm:text-sm">{{ conventionalLabelText }}</p>
           <div class="relative w-16 overflow-hidden rounded-t-lg sm:w-20" :style="{ height: `${containerHeight}px` }">
             <div class="absolute inset-0 flex flex-col-reverse">
               <div
@@ -100,7 +114,7 @@ function onPointerDown(event: PointerEvent) {
         </div>
 
         <div class="flex flex-col items-center gap-3">
-          <p class="text-xs font-medium text-muted sm:text-sm">{{ cascadeLabel }}</p>
+          <p class="text-xs font-medium text-muted sm:text-sm">{{ cascadeLabelText }}</p>
           <div class="relative w-16 overflow-hidden rounded-t-lg bg-elevated sm:w-20" :style="{ height: `${containerHeight}px` }">
             <div class="absolute bottom-0 inset-x-0 flex flex-col-reverse" :style="{ height: `${ratio * 100}%` }">
               <div
@@ -122,15 +136,15 @@ function onPointerDown(event: PointerEvent) {
         <div class="h-0.5 flex-1 border-t-2 border-dashed border-primary" />
         <UBadge color="primary" variant="solid" size="sm" class="shrink-0 gap-1 whitespace-nowrap">
           <UIcon name="i-lucide-chevrons-up-down" class="size-3.5" />
-          Objectif : {{ objective.toLocaleString('fr-FR') }} €
+          {{ t('mockups.adaptiveContributionDiagram.objective', { amount: objective.toLocaleString(numberLocale) }) }}
         </UBadge>
         <div class="h-0.5 flex-1 border-t-2 border-dashed border-primary" />
       </div>
     </div>
 
     <div class="mt-6 flex flex-col items-center gap-1 text-center sm:flex-row sm:justify-center sm:gap-6">
-      <p class="text-sm text-muted">Total {{ conventionalLabel.toLowerCase() }} : <span class="font-medium text-highlighted">{{ total.toLocaleString('fr-FR') }} €</span></p>
-      <p class="text-sm text-muted">Total {{ cascadeLabel.toLowerCase() }} : <span class="font-medium text-highlighted">{{ objective.toLocaleString('fr-FR') }} €</span></p>
+      <p class="text-sm text-muted">{{ t('mockups.adaptiveContributionDiagram.totalLabel', { label: conventionalLabelText.toLowerCase() }) }} <span class="font-medium text-highlighted">{{ formatAmount(total) }}</span></p>
+      <p class="text-sm text-muted">{{ t('mockups.adaptiveContributionDiagram.totalLabel', { label: cascadeLabelText.toLowerCase() }) }} <span class="font-medium text-highlighted">{{ formatAmount(objective) }}</span></p>
     </div>
 
     <div class="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
@@ -140,11 +154,11 @@ function onPointerDown(event: PointerEvent) {
       </div>
     </div>
 
-    <p class="mt-4 text-center text-xs text-dimmed">{{ hint }}</p>
+    <p class="mt-4 text-center text-xs text-dimmed">{{ hintText }}</p>
 
     <div class="mt-4 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-center">
-      <span class="font-semibold text-primary">{{ saved.toLocaleString('fr-FR') }} € économisés collectivement</span>
-      <span class="text-toned"> grâce à Cascade</span>
+      <span class="font-semibold text-primary">{{ t('mockups.adaptiveContributionDiagram.savedMessage', { amount: saved.toLocaleString(numberLocale) }) }}</span>
+      <span class="text-toned"> {{ t('mockups.adaptiveContributionDiagram.savedSuffix') }}</span>
     </div>
   </div>
 </template>

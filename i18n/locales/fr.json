@@ -29,5 +29,463 @@
   },
   "error": {
     "pageNotFound": "Page non trouvée"
+  },
+  "mockups": {
+    "scenarios": {
+      "tiers-lieux": "Tiers-lieu",
+      "cooperatives": "Coopérative",
+      "ateliers": "Atelier partagé",
+      "amap": "AMAP",
+      "creche": "Crèche parentale",
+      "fanfare": "Fanfare"
+    },
+    "scenarioSwitcher": {
+      "headline": "Un scénario, plusieurs usages",
+      "description": "Cascade appliqué à d'autres cas d'usage que l'occupation temporaire."
+    },
+    "lifecycleTiles": {
+      "resource": {
+        "badge": "Ressource",
+        "title": "Bureau 12 — 18 m²",
+        "subtitle": "Tiers-lieu La Grange",
+        "occupancyBadge": "92 % occupé"
+      },
+      "model": {
+        "badge": "Modèle",
+        "title": "Loyer mensuel",
+        "badges": ["Récurrent", "Facture", "Contrat"]
+      },
+      "contribution": {
+        "badge": "Contribution",
+        "title": "Charges communes",
+        "adaptiveBadge": "Adaptative",
+        "comingSoonBadge": "Bientôt disponible",
+        "amountNote": "/ mois, selon les besoins réels"
+      },
+      "invoice": {
+        "badge": "Facture",
+        "amount": "25,44 € TTC",
+        "statusBadge": "Facturée"
+      }
+    },
+    "repoMockup": {
+      "stats": {
+        "stars": "Stars",
+        "forks": "Forks",
+        "license": "Licence"
+      },
+      "description": "Infrastructure numérique pour la gestion collective de ressources — contrats, contributions, facturation, paiements.",
+      "contributionsWelcome": "Contributions bienvenues"
+    },
+    "pilotageMockup": {
+      "windowTitle": "Pilotage",
+      "chartCaption": "Contributions perçues — 6 derniers mois",
+      "tiers-lieux": {
+        "stats": [
+          { "label": "Ressources actives", "value": "12" },
+          { "label": "Taux d’occupation", "value": "92 %" },
+          { "label": "Contributions / mois", "value": "4 280 €" },
+          { "label": "Factures en attente", "value": "2" }
+        ]
+      },
+      "cooperatives": {
+        "stats": [
+          { "label": "Coopérateurs actifs", "value": "34" },
+          { "label": "Taux de participation", "value": "88 %" },
+          { "label": "Contributions / mois", "value": "1 950 €" },
+          { "label": "Factures en attente", "value": "3" }
+        ]
+      },
+      "ateliers": {
+        "stats": [
+          { "label": "Membres actifs", "value": "27" },
+          { "label": "Taux d’usage des établis", "value": "81 %" },
+          { "label": "Contributions / mois", "value": "860 €" },
+          { "label": "Factures en attente", "value": "1" }
+        ]
+      },
+      "amap": {
+        "stats": [
+          { "label": "Adhérents actifs", "value": "45" },
+          { "label": "Taux de retrait paniers", "value": "96 %" },
+          { "label": "Contributions / semaine", "value": "620 €" },
+          { "label": "Factures en attente", "value": "2" }
+        ]
+      },
+      "creche": {
+        "stats": [
+          { "label": "Familles actives", "value": "16" },
+          { "label": "Taux d’occupation", "value": "94 %" },
+          { "label": "Contributions / mois", "value": "6 100 €" },
+          { "label": "Factures en attente", "value": "1" }
+        ]
+      },
+      "fanfare": {
+        "stats": [
+          { "label": "Musiciens actifs", "value": "28" },
+          { "label": "Taux d’usage du local", "value": "83 %" },
+          { "label": "Contributions / mois", "value": "540 €" },
+          { "label": "Factures en attente", "value": "2" }
+        ]
+      }
+    },
+    "subscriptionModelMockup": {
+      "windowTitle": "cascade.coop — Modèles de souscription",
+      "tiers-lieux": {
+        "title": "Bureau partagé",
+        "subtitle": "Appliqué à 12 souscriptions actives",
+        "rules": [
+          { "label": "Récurrence", "value": "Mensuelle" },
+          { "label": "Montant", "value": "Paramétré — 340 €" },
+          { "label": "Facturation", "value": "Par facture" },
+          { "label": "Adhésion", "value": "Contrat + avenant automatique" }
+        ]
+      },
+      "cooperatives": {
+        "title": "Part sociale coopérateur",
+        "subtitle": "Appliqué à 34 souscriptions actives",
+        "rules": [
+          { "label": "Récurrence", "value": "Annuelle" },
+          { "label": "Montant", "value": "Fixé — 50 €" },
+          { "label": "Facturation", "value": "Par facture" },
+          { "label": "Adhésion", "value": "Adhésion simple" }
+        ]
+      },
+      "ateliers": {
+        "title": "Adhésion atelier",
+        "subtitle": "Appliqué à 27 souscriptions actives",
+        "rules": [
+          { "label": "Récurrence", "value": "Mensuelle" },
+          { "label": "Montant", "value": "Paramétré — 25 €" },
+          { "label": "Facturation", "value": "Par notification" },
+          { "label": "Adhésion", "value": "Adhésion + avenant" }
+        ]
+      },
+      "amap": {
+        "title": "Panier légumes hebdo",
+        "subtitle": "Appliqué à 45 souscriptions actives",
+        "rules": [
+          { "label": "Récurrence", "value": "Hebdomadaire" },
+          { "label": "Montant", "value": "Adaptatif — 12 à 24 €" },
+          { "label": "Facturation", "value": "Par prélèvement" },
+          { "label": "Adhésion", "value": "Charte + engagement saison" }
+        ]
+      },
+      "creche": {
+        "title": "Accueil régulier",
+        "subtitle": "Appliqué à 16 souscriptions actives",
+        "rules": [
+          { "label": "Récurrence", "value": "Mensuelle" },
+          { "label": "Montant", "value": "Paramétré — 480 €" },
+          { "label": "Facturation", "value": "Par facture" },
+          { "label": "Adhésion", "value": "Contrat + tour de garde parental" }
+        ]
+      },
+      "fanfare": {
+        "title": "Cotisation musicien",
+        "subtitle": "Appliqué à 28 souscriptions actives",
+        "rules": [
+          { "label": "Récurrence", "value": "Annuelle" },
+          { "label": "Montant", "value": "Paramétré — 90 €" },
+          { "label": "Facturation", "value": "Par facture" },
+          { "label": "Adhésion", "value": "Adhésion + charte du groupe" }
+        ]
+      }
+    },
+    "contributionsMockup": {
+      "windowTitle": "Contributions",
+      "comingSoonBadge": "Bientôt disponible",
+      "tiers-lieux": {
+        "subtitle": "Contributions — Atelier Nomade",
+        "items": [
+          { "label": "Loyer de base", "type": "Fixe", "amount": "340 €", "period": "/ mois" },
+          { "label": "Charges communes", "type": "Adaptative", "amount": "38 — 62 €", "period": "/ mois" },
+          { "label": "Atelier bois — usage", "type": "Ponctuelle", "amount": "15 €", "period": "/ session" }
+        ]
+      },
+      "cooperatives": {
+        "subtitle": "Contributions — Lucas Martin",
+        "items": [
+          { "label": "Part sociale", "type": "Fixe", "amount": "50 €", "period": "/ an" },
+          { "label": "Fonds de mutualisation", "type": "Adaptative", "amount": "10 — 25 €", "period": "/ mois" },
+          { "label": "Réservation salle", "type": "Ponctuelle", "amount": "25 €", "period": "/ demi-jour" }
+        ]
+      },
+      "ateliers": {
+        "subtitle": "Contributions — Marie Petit",
+        "items": [
+          { "label": "Adhésion atelier", "type": "Fixe", "amount": "18 €", "period": "/ mois" },
+          { "label": "Consommables partagés", "type": "Adaptative", "amount": "5 — 12 €", "period": "/ mois" },
+          { "label": "Machine à bois — usage", "type": "Ponctuelle", "amount": "6 €", "period": "/ heure" }
+        ]
+      },
+      "amap": {
+        "subtitle": "Contributions — Camille Vidal",
+        "items": [
+          { "label": "Panier légumes", "type": "Fixe", "amount": "18 €", "period": "/ semaine" },
+          { "label": "Panier solidaire", "type": "Adaptative", "amount": "8 — 16 €", "period": "/ semaine" },
+          { "label": "Œufs — supplément", "type": "Ponctuelle", "amount": "3 €", "period": "/ semaine" }
+        ]
+      },
+      "creche": {
+        "subtitle": "Contributions — Famille Haddad",
+        "items": [
+          { "label": "Accueil régulier", "type": "Fixe", "amount": "780 €", "period": "/ mois" },
+          { "label": "Compensation garde manquée", "type": "Adaptative", "amount": "15 — 45 €", "period": "/ mois" },
+          { "label": "Activité éveil", "type": "Ponctuelle", "amount": "8 €", "period": "/ session" }
+        ]
+      },
+      "fanfare": {
+        "subtitle": "Contributions — Inès Lambert",
+        "items": [
+          { "label": "Cotisation annuelle", "type": "Fixe", "amount": "90 €", "period": "/ an" },
+          { "label": "Location tuba", "type": "Adaptative", "amount": "10 — 20 €", "period": "/ mois" },
+          { "label": "Concert du festival — frais", "type": "Ponctuelle", "amount": "12 €", "period": "/ session" }
+        ]
+      }
+    },
+    "resourcesMockup": {
+      "windowTitle": "Ressources",
+      "title": "Ressources",
+      "columnResource": "Ressource",
+      "columnQuantity": "Quantité",
+      "columnPrice": "Prix unitaire",
+      "columnOccupation": "Occupation",
+      "tiers-lieux": {
+        "subtitle": "Bâtiment « Les petits voisins » — 3 types actifs",
+        "rows": [
+          { "name": "Bureaux privatifs", "unit": "Bureau", "qty": "8", "price": "340 € / mois", "occupation": "92 %" },
+          { "name": "Places de parking", "unit": "Place", "qty": "15", "price": "45 € / mois", "occupation": "73 %" },
+          { "name": "Casiers de stockage", "unit": "Casier", "qty": "22", "price": "12 € / mois", "occupation": "86 %" }
+        ]
+      },
+      "cooperatives": {
+        "subtitle": "Coopérative Lieux Vivants — 3 types actifs",
+        "rows": [
+          { "name": "Ateliers de production", "unit": "Atelier", "qty": "6", "price": "210 € / mois", "occupation": "88 %" },
+          { "name": "Salles de réunion", "unit": "Salle", "qty": "3", "price": "25 € / demi-jour", "occupation": "64 %" },
+          { "name": "Matériel partagé", "unit": "Kit", "qty": "12", "price": "8 € / session", "occupation": "77 %" }
+        ]
+      },
+      "ateliers": {
+        "subtitle": "Atelier Les Mains Vertes — 3 types actifs",
+        "rows": [
+          { "name": "Établis", "unit": "Établi", "qty": "10", "price": "18 € / mois", "occupation": "90 %" },
+          { "name": "Machines à bois", "unit": "Machine", "qty": "4", "price": "6 € / heure", "occupation": "68 %" },
+          { "name": "Casiers à outils", "unit": "Casier", "qty": "20", "price": "5 € / mois", "occupation": "81 %" }
+        ]
+      },
+      "amap": {
+        "subtitle": "AMAP des Trois Sillons — 3 types actifs",
+        "rows": [
+          { "name": "Parts de paniers légumes", "unit": "Part", "qty": "45", "price": "18 € / semaine", "occupation": "96 %" },
+          { "name": "Parts de paniers œufs", "unit": "Part", "qty": "20", "price": "6 € / semaine", "occupation": "70 %" },
+          { "name": "Casiers de retrait", "unit": "Casier", "qty": "50", "price": "Inclus", "occupation": "88 %" }
+        ]
+      },
+      "creche": {
+        "subtitle": "Crèche « Les petits fripons » — 3 types actifs",
+        "rows": [
+          { "name": "Places d’accueil", "unit": "Place", "qty": "16", "price": "480 € / mois", "occupation": "94 %" },
+          { "name": "Créneaux de garde partagée", "unit": "Créneau", "qty": "12", "price": "15 € / demi-jour", "occupation": "77 %" },
+          { "name": "Matériel de puériculture", "unit": "Kit", "qty": "8", "price": "5 € / mois", "occupation": "62 %" }
+        ]
+      },
+      "fanfare": {
+        "subtitle": "Fanfare du Faubourg — 3 types actifs",
+        "rows": [
+          { "name": "Local de répétition", "unit": "Créneau", "qty": "6", "price": "20 € / soirée", "occupation": "83 %" },
+          { "name": "Instruments du parc commun", "unit": "Instrument", "qty": "14", "price": "8 € / mois", "occupation": "71 %" },
+          { "name": "Casiers de rangement", "unit": "Casier", "qty": "18", "price": "4 € / mois", "occupation": "89 %" }
+        ]
+      }
+    },
+    "subscriptionsMockup": {
+      "windowTitle": "Souscriptions",
+      "headline": "Souscriptions en cours",
+      "newButton": "Nouvelle souscription",
+      "columns": {
+        "occupant": "Contributeur",
+        "resource": "Ressource",
+        "contribution": "Contribution",
+        "status": "Statut"
+      },
+      "tiers-lieux": {
+        "subtitle": "Tiers-lieu La Grange — 4 occupants actifs",
+        "rows": [
+          { "occupant": "Atelier Nomade", "ressource": "Bureau 12 — 18m²", "contribution": "340 € / mois", "statut": "À jour" },
+          { "occupant": "Collectif Lisière", "ressource": "Salle commune", "contribution": "210 € / mois", "statut": "Avenant en cours" },
+          { "occupant": "La Filature Coop", "ressource": "Atelier bois", "contribution": "480 € / mois", "statut": "À jour" },
+          { "occupant": "Studio Kerne", "ressource": "Bureau 4 — 12m²", "contribution": "260 € / mois", "statut": "En attente" }
+        ]
+      },
+      "cooperatives": {
+        "subtitle": "Coopérative Lieux Vivants — 4 coopérateurs actifs",
+        "rows": [
+          { "occupant": "Lucas Martin", "ressource": "Part sociale ×2", "contribution": "100 € / an", "statut": "À jour" },
+          { "occupant": "Sophie Dubois", "ressource": "Part sociale ×1", "contribution": "50 € / an", "statut": "Avenant en cours" },
+          { "occupant": "Atelier Nomade", "ressource": "Part sociale ×3", "contribution": "150 € / an", "statut": "À jour" },
+          { "occupant": "Studio Kerne", "ressource": "Part sociale ×1", "contribution": "50 € / an", "statut": "En attente" }
+        ]
+      },
+      "ateliers": {
+        "subtitle": "Atelier Les Mains Vertes — 4 membres actifs",
+        "rows": [
+          { "occupant": "Marie Petit", "ressource": "Établi 3", "contribution": "18 € / mois", "statut": "À jour" },
+          { "occupant": "Thomas Roy", "ressource": "Machine à bois", "contribution": "24 € / mois", "statut": "Avenant en cours" },
+          { "occupant": "Léa Fontaine", "ressource": "Casier + établi 5", "contribution": "30 € / mois", "statut": "À jour" },
+          { "occupant": "Studio Kerne", "ressource": "Établi 1", "contribution": "18 € / mois", "statut": "En attente" }
+        ]
+      },
+      "amap": {
+        "subtitle": "AMAP des Trois Sillons — 4 adhérents actifs",
+        "rows": [
+          { "occupant": "Famille Nguyen", "ressource": "Panier légumes ×1", "contribution": "18 € / semaine", "statut": "À jour" },
+          { "occupant": "Camille Vidal", "ressource": "Panier légumes + œufs", "contribution": "24 € / semaine", "statut": "À jour" },
+          { "occupant": "Marc Aubert", "ressource": "Panier solidaire", "contribution": "12 € / semaine", "statut": "Avenant en cours" },
+          { "occupant": "Yasmine Foucher", "ressource": "Panier œufs ×1", "contribution": "6 € / semaine", "statut": "En attente" }
+        ]
+      },
+      "creche": {
+        "subtitle": "Crèche « Les petits fripons » — 4 familles actives",
+        "rows": [
+          { "occupant": "Famille Rousseau", "ressource": "Place 3 jours / semaine", "contribution": "480 € / mois", "statut": "À jour" },
+          { "occupant": "Famille Haddad", "ressource": "Place 5 jours / semaine", "contribution": "780 € / mois", "statut": "À jour" },
+          { "occupant": "Famille Morel", "ressource": "Place 2 jours / semaine", "contribution": "320 € / mois", "statut": "Avenant en cours" },
+          { "occupant": "Famille Petit", "ressource": "Place 1 jour / semaine", "contribution": "160 € / mois", "statut": "En attente" }
+        ]
+      },
+      "fanfare": {
+        "subtitle": "Fanfare du Faubourg — 4 musiciens actifs",
+        "rows": [
+          { "occupant": "Nora Benali", "ressource": "Trompette + local", "contribution": "90 € / an", "statut": "À jour" },
+          { "occupant": "Julien Costa", "ressource": "Percussions", "contribution": "70 € / an", "statut": "À jour" },
+          { "occupant": "Inès Lambert", "ressource": "Tuba (prêté)", "contribution": "110 € / an", "statut": "Avenant en cours" },
+          { "occupant": "Yanis Roche", "ressource": "Cotisation junior", "contribution": "40 € / an", "statut": "En attente" }
+        ]
+      }
+    },
+    "invoicesMockup": {
+      "windowTitle": "Facturation",
+      "headline": "Factures",
+      "newButton": "Nouvelle facture",
+      "tiers-lieux": {
+        "subtitle": "Tiers-lieu La Grange — 4 en cours",
+        "rows": [
+          { "label": "Facture #2024-114", "org": "La Filature Coop", "amount": "480 €", "status": "Payée" },
+          { "label": "Facture #2024-113", "org": "Atelier Nomade", "amount": "340 €", "status": "Émise" },
+          { "label": "Facture #2024-112", "org": "Collectif Lisière", "amount": "210 €", "status": "Payée" },
+          { "label": "Facture #2024-110", "org": "Studio Kerne", "amount": "260 €", "status": "En retard" }
+        ]
+      },
+      "cooperatives": {
+        "subtitle": "Coopérative Lieux Vivants — 4 en cours",
+        "rows": [
+          { "label": "Facture #2024-214", "org": "Lucas Martin", "amount": "50 €", "status": "Payée" },
+          { "label": "Facture #2024-213", "org": "Sophie Dubois", "amount": "50 €", "status": "Émise" },
+          { "label": "Facture #2024-212", "org": "Atelier Nomade", "amount": "150 €", "status": "Payée" },
+          { "label": "Facture #2024-210", "org": "Studio Kerne", "amount": "50 €", "status": "En retard" }
+        ]
+      },
+      "ateliers": {
+        "subtitle": "Atelier Les Mains Vertes — 4 en cours",
+        "rows": [
+          { "label": "Facture #2024-314", "org": "Marie Petit", "amount": "18 €", "status": "Payée" },
+          { "label": "Facture #2024-313", "org": "Thomas Roy", "amount": "24 €", "status": "Émise" },
+          { "label": "Facture #2024-312", "org": "Léa Fontaine", "amount": "30 €", "status": "Payée" },
+          { "label": "Facture #2024-310", "org": "Studio Kerne", "amount": "18 €", "status": "En retard" }
+        ]
+      },
+      "amap": {
+        "subtitle": "AMAP des Trois Sillons — 4 en cours",
+        "rows": [
+          { "label": "Facture #2024-414", "org": "Famille Nguyen", "amount": "18 €", "status": "Payée" },
+          { "label": "Facture #2024-413", "org": "Camille Vidal", "amount": "24 €", "status": "Émise" },
+          { "label": "Facture #2024-412", "org": "Marc Aubert", "amount": "12 €", "status": "Payée" },
+          { "label": "Facture #2024-410", "org": "Yasmine Foucher", "amount": "6 €", "status": "En retard" }
+        ]
+      },
+      "creche": {
+        "subtitle": "Crèche « Les petits fripons » — 4 en cours",
+        "rows": [
+          { "label": "Facture #2024-514", "org": "Famille Haddad", "amount": "780 €", "status": "Payée" },
+          { "label": "Facture #2024-513", "org": "Famille Rousseau", "amount": "480 €", "status": "Émise" },
+          { "label": "Facture #2024-512", "org": "Famille Morel", "amount": "320 €", "status": "Payée" },
+          { "label": "Facture #2024-510", "org": "Famille Petit", "amount": "160 €", "status": "En retard" }
+        ]
+      },
+      "fanfare": {
+        "subtitle": "Fanfare du Faubourg — 4 en cours",
+        "rows": [
+          { "label": "Facture #2024-614", "org": "Nora Benali", "amount": "90 €", "status": "Payée" },
+          { "label": "Facture #2024-613", "org": "Julien Costa", "amount": "70 €", "status": "Émise" },
+          { "label": "Facture #2024-612", "org": "Inès Lambert", "amount": "110 €", "status": "Payée" },
+          { "label": "Facture #2024-610", "org": "Yanis Roche", "amount": "40 €", "status": "En retard" }
+        ]
+      }
+    },
+    "paymentsMockup": {
+      "windowTitle": "Paiements",
+      "headline": "Paiements reçus — cette semaine",
+      "tiers-lieux": [
+        { "label": "Prélèvement SEPA", "org": "Atelier Nomade — 340 €", "date": "05 mars", "status": "Rapproché" },
+        { "label": "Virement", "org": "La Filature Coop — 480 €", "date": "03 mars", "status": "Rapproché" },
+        { "label": "Carte bancaire", "org": "Studio Kerne — 260 €", "date": "En attente", "status": "À rapprocher" }
+      ],
+      "cooperatives": [
+        { "label": "Virement", "org": "Lucas Martin — 50 €", "date": "05 mars", "status": "Rapproché" },
+        { "label": "Prélèvement SEPA", "org": "Atelier Nomade — 150 €", "date": "03 mars", "status": "Rapproché" },
+        { "label": "Espèces", "org": "Sophie Dubois — 50 €", "date": "En attente", "status": "À rapprocher" }
+      ],
+      "ateliers": [
+        { "label": "Carte bancaire", "org": "Marie Petit — 18 €", "date": "05 mars", "status": "Rapproché" },
+        { "label": "Prélèvement SEPA", "org": "Thomas Roy — 24 €", "date": "03 mars", "status": "Rapproché" },
+        { "label": "Espèces", "org": "Léa Fontaine — 30 €", "date": "En attente", "status": "À rapprocher" }
+      ],
+      "amap": [
+        { "label": "Prélèvement SEPA", "org": "Famille Nguyen — 18 €", "date": "05 mars", "status": "Rapproché" },
+        { "label": "Espèces", "org": "Camille Vidal — 24 €", "date": "03 mars", "status": "Rapproché" },
+        { "label": "Virement", "org": "Marc Aubert — 12 €", "date": "En attente", "status": "À rapprocher" }
+      ],
+      "creche": [
+        { "label": "Prélèvement SEPA", "org": "Famille Haddad — 780 €", "date": "05 mars", "status": "Rapproché" },
+        { "label": "Virement", "org": "Famille Rousseau — 480 €", "date": "03 mars", "status": "Rapproché" },
+        { "label": "Carte bancaire", "org": "Famille Morel — 320 €", "date": "En attente", "status": "À rapprocher" }
+      ],
+      "fanfare": [
+        { "label": "Virement", "org": "Nora Benali — 90 €", "date": "05 mars", "status": "Rapproché" },
+        { "label": "Espèces", "org": "Julien Costa — 70 €", "date": "03 mars", "status": "Rapproché" },
+        { "label": "Prélèvement SEPA", "org": "Inès Lambert — 110 €", "date": "En attente", "status": "À rapprocher" }
+      ]
+    },
+    "adaptiveContributionDiagram": {
+      "conventionalLabel": "Système conventionnel",
+      "cascadeLabel": "Système Cascade",
+      "hint": "Vous pouvez ajuster la ligne d'objectif en la faisant glisser",
+      "comingSoon": "Bientôt disponible",
+      "objective": "Objectif : {amount} €",
+      "totalLabel": "Total {label} :",
+      "savedMessage": "{amount} € économisés collectivement",
+      "savedSuffix": "grâce à Cascade"
+    },
+    "contributionMechanicMockup": {
+      "windowCaption": "cascade.coop — Cascade « Atelier partagé »",
+      "cycleObjective": "Objectif du cycle (part de base)",
+      "contributionPerPerson": "Contribution / chacun",
+      "activeContributors": "Contributeurs actifs",
+      "autoAdjusted": "Ajusté automatiquement",
+      "variationNote": "Seule la part de base varie avec le nombre de contributeurs. Les autres parts reflètent un usage réel et restent inchangées.",
+      "compositionTitle": "Composition d'une contribution type (par contributeur)",
+      "total": "Total",
+      "basePart": {
+        "label": "Part de base",
+        "hint": "frais fixes, répartis également entre les contributeurs"
+      },
+      "variableParts": [
+        { "label": "Part d'activité", "hint": "tarif fixe à l'usage, indépendant du nombre de contributeurs" },
+        { "label": "Part activité réseau", "hint": "contribution aux cascades connectées" },
+        { "label": "Surcotisation", "hint": "volontaire" }
+      ]
+    }
   }
 }
